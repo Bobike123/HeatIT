@@ -3,6 +3,8 @@ using System.Data;
 using SemesterProject;
 public class AssetManager
 {
+    public static ProductionUnit[] ProductionUnits { get; internal set; }
+
     public class ProductionUnit
     {
         public string Name {get; set;} //GB OB GM or EK

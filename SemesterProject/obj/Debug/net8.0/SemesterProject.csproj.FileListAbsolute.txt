@@ -394,3 +394,16 @@ C:\Users\Admin\Desktop\avalonia_project\semproj\SemsterProjectSem2\semesterproje
 C:\Users\Admin\Desktop\avalonia_project\semproj\SemsterProjectSem2\semesterproject\obj\Debug\net8.0\SemesterProject.csproj.CopyComplete
 C:\Users\Admin\Desktop\avalonia_project\semproj\SemsterProjectSem2\semesterproject\obj\Debug\net8.0\SemesterProject.genruntimeconfig.cache
 C:\Users\Admin\Desktop\avalonia_project\semproj\SemsterProjectSem2\semesterproject\obj\Debug\net8.0\ref\SemesterProject.dll
+C:\Users\hp\OneDrive\Desktop\New folder (2)\SemesterProject\obj\Debug\net8.0\SemesterProject.csproj.AssemblyReference.cache
+C:\Users\hp\OneDrive\Desktop\New folder (2)\SemesterProject\obj\Debug\net8.0\Avalonia\Resources.Inputs.cache
+C:\Users\hp\OneDrive\Desktop\New folder (2)\SemesterProject\obj\Debug\net8.0\Avalonia\resources
+C:\Users\hp\OneDrive\Desktop\New folder (2)\SemesterProject\obj\Debug\net8.0\SemesterProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hp\OneDrive\Desktop\New folder (2)\SemesterProject\obj\Debug\net8.0\SemesterProject.AssemblyInfoInputs.cache
+C:\Users\hp\OneDrive\Desktop\New folder (2)\SemesterProject\obj\Debug\net8.0\SemesterProject.AssemblyInfo.cs
+C:\Users\hp\OneDrive\Desktop\New folder (2)\SemesterProject\obj\Debug\net8.0\SemesterProject.csproj.CoreCompileInputs.cache
+C:\Users\hp\OneDrive\Desktop\New folder (2)\SemesterProject\obj\Debug\net8.0\SemesterProject.sourcelink.json
+C:\Users\hp\OneDrive\Desktop\New folder (2)\SemesterProject\obj\Debug\net8.0\Avalonia\references
+C:\Users\hp\OneDrive\Desktop\New folder (2)\SemesterProject\obj\Debug\net8.0\Avalonia\original.dll
+C:\Users\hp\OneDrive\Desktop\New folder (2)\SemesterProject\obj\Debug\net8.0\Avalonia\original.pdb
+C:\Users\hp\OneDrive\Desktop\New folder (2)\SemesterProject\obj\Debug\net8.0\Avalonia\original.ref.dll
+C:\Users\hp\OneDrive\Desktop\New folder (2)\SemesterProject\obj\Debug\net8.0\refint\SemesterProject.dll
