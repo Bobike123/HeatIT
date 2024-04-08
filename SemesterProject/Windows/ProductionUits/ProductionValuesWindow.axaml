@@ -7,11 +7,47 @@
         Icon="/Assets/avalonia-logo.ico"
         Title="ProductionUnits"
         Width="960" Height="660">
-	<Panel>
-		<Border Padding="10" Background="Gray">
-			<Border Background="Black" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="10">
-				<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">Production units</TextBlock>
-			</Border>
+
+        <Panel>
+		<Border Padding="10" Background="LightGray">
+			<Grid ShowGridLines="true"
+				HorizontalAlignment="Stretch" 
+				VerticalAlignment="Stretch"
+				Background="LightGray">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="50"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+				<Border Background="Black" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
+					<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Production Units</TextBlock>
+				</Border>
+                    <Border Background="White" CornerRadius="10" Grid.Row="1" Grid.Column="0" Margin="10">
+                        <Grid ShowGridLines="true" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Border>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Production Units</TextBlock>
+                            </Border>
+                        </Grid>
+				    </Border>         
+                <Border Background="White" CornerRadius="10" Grid.Row="1" Grid.Column="1"  Margin="10">
+
+				</Border>
+                <Border Background="White" CornerRadius="10" Grid.Row="2" Grid.Column="0"  Margin="10">
+					
+				</Border>
+                <Border Background="White" CornerRadius="10" Grid.Row="2" Grid.Column="1"  Margin="10">
+					
+				</Border>
+			</Grid>
 		</Border>
 	</Panel>
 </Window>
