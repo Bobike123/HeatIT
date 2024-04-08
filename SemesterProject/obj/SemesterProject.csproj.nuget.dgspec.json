@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\asus\\OneDrive\\Desktop\\carti\\Sem2\\SP\\SemesterProjectSem2\\semesterproject\\SemesterProject.csproj": {}
+    "C:\\Users\\Predator\\Desktop\\myprogram\\SP2\\SemesterProject\\SemsterProjectSem2\\SemesterProject\\SemesterProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\asus\\OneDrive\\Desktop\\carti\\Sem2\\SP\\SemesterProjectSem2\\semesterproject\\SemesterProject.csproj": {
+    "C:\\Users\\Predator\\Desktop\\myprogram\\SP2\\SemesterProject\\SemsterProjectSem2\\SemesterProject\\SemesterProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\asus\\OneDrive\\Desktop\\carti\\Sem2\\SP\\SemesterProjectSem2\\semesterproject\\SemesterProject.csproj",
+        "projectUniqueName": "C:\\Users\\Predator\\Desktop\\myprogram\\SP2\\SemesterProject\\SemsterProjectSem2\\SemesterProject\\SemesterProject.csproj",
         "projectName": "SemesterProject",
-        "projectPath": "C:\\Users\\asus\\OneDrive\\Desktop\\carti\\Sem2\\SP\\SemesterProjectSem2\\semesterproject\\SemesterProject.csproj",
-        "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\asus\\OneDrive\\Desktop\\carti\\Sem2\\SP\\SemesterProjectSem2\\semesterproject\\obj\\",
+        "projectPath": "C:\\Users\\Predator\\Desktop\\myprogram\\SP2\\SemesterProject\\SemsterProjectSem2\\SemesterProject\\SemesterProject.csproj",
+        "packagesPath": "C:\\Users\\Predator\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Predator\\Desktop\\myprogram\\SP2\\SemesterProject\\SemsterProjectSem2\\SemesterProject\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Predator\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
