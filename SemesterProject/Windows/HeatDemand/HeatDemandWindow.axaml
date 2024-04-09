@@ -13,7 +13,7 @@
 			<Grid ShowGridLines="False"
 				HorizontalAlignment="Stretch" 
 				VerticalAlignment="Stretch"
-				Background="White">
+				Background="LightGray">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="*"/>
 					<ColumnDefinition Width="*"/>
@@ -28,7 +28,7 @@
 					<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">Heat Demand</TextBlock>
 				</Border>
 				<Border Background="DarkGray" CornerRadius="10" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Margin="10">
-					<TextBlock FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center">GRAPH?!?!?!</TextBlock>
+					<TextBlock x:Name="graphSettings" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center">GRAPH?!?!?!</TextBlock>
 				</Border>
 				<Border Background="White" CornerRadius="10" Grid.Row="2" Grid.Column="0" Margin="10">
 					<Grid ShowGridLines="False">
@@ -116,7 +116,7 @@
 					</Grid>
 				</Border>
 				<Border Background="DarkGray" CornerRadius="10" Grid.Row="2" Grid.Column="3" Margin="10">
-					<Grid ShowGridLines="True">
+					<Grid ShowGridLines="False">
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="*" />
 							<ColumnDefinition Width="*" />
@@ -136,26 +136,32 @@
 							<ToggleButton x:Name="HourButton" Click="HourButtonCommand" IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30"/>
 						</Border>
 						<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="15" Foreground="Black" Grid.Row="1" Grid.Column="0" Margin="10">Hour</TextBlock>
-						<Border Grid.Row="2" Grid.Column="0" Margin="10">
+
+
+						<Border Grid.Row="1" Grid.Column="1" Margin="10">
 							<ToggleButton x:Name="DayButton" Click="DayButtonCommand" IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30"/>
 						</Border>
 						<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="15" Foreground="Black" Grid.Row="1" Grid.Column="1" Margin="10">Day</TextBlock>
-						<Border Grid.Row="1" Grid.Column="1" Margin="10">
+						
+						
+						<Border Grid.Row="1" Grid.Column="2" Margin="10">
 							<ToggleButton x:Name="WeekButton" Click="WeekButtonCommand" IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30"/>
 						</Border>
 						<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="15" Foreground="Black" Grid.Row="1" Grid.Column="2" Margin="10">Week</TextBlock>
-						<Border Grid.Row="2" Grid.Column="1" Margin="10">
+						
+						
+						<Border Grid.Row="2" Grid.Column="0" Margin="10">
 							<ToggleButton x:Name="MonthButton" Click="MonthButtonCommand" IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30"/>
 						</Border>
 						<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="15" Foreground="Black" Grid.Row="2" Grid.Column="0" Margin="10">Month</TextBlock>
-						<Border Grid.Row="1" Grid.Column="2" Margin="10">
-							<ToggleButton x:Name="YearButton" Click="YearButtonCommand" IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30"/>
-						</Border>
-						<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="15" Foreground="Black" Grid.Row="2" Grid.Column="1" Margin="10">Year</TextBlock>
+						
+						
 						<Border Grid.Row="2" Grid.Column="2" Margin="10">
 							<ToggleButton x:Name="MaxButton" Click="MaxButtonCommand" IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30"/>
 						</Border>
 						<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="15" Foreground="Black" Grid.Row="2" Grid.Column="2" Margin="10">Max</TextBlock>
+						
+						
 						<Border Background="White" CornerRadius="10" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
 							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black">Selected the day:</TextBlock>
 						</Border>
