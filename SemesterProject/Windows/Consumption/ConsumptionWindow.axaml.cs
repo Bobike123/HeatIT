@@ -24,7 +24,6 @@ namespace SemesterProject.Views
             {
                 //HourGraph display
                 DayButton.IsChecked = false; WeekButton.IsChecked = false; MonthButton.IsChecked = false;   MaxButton.IsChecked = false;
-             
             }
         }
         public void DayButtonCommand(object sender, RoutedEventArgs args)
