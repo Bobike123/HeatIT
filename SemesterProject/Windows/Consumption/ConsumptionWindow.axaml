@@ -9,9 +9,162 @@
         Width="960" Height="660">
 	<Panel>
 		<Border Padding="10" Background="Gray">
-			<Border Background="Black" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="10">
-				<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">Consumption</TextBlock>
-			</Border>
+			<Grid ShowGridLines="False"
+				HorizontalAlignment="Stretch" 
+				VerticalAlignment="Stretch"
+				Background="LightGray">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="100"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+                                        
+				</Grid.RowDefinitions>
+				<Border Background="Black" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="10">
+					<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">Consumption</TextBlock>
+				</Border>
+				<Border  CornerRadius="10" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Margin="10">
+                                        <Grid ShowGridLines="False"
+                                                HorizontalAlignment="Stretch" 
+                                                VerticalAlignment="Stretch"
+                                                Background="White">
+                                                <Grid.RowDefinitions>
+                                                        <RowDefinition Height="*"/>
+                                                        <RowDefinition Height="*"/>
+                                                </Grid.RowDefinitions>
+                                        <Border Background="DarkGray" Grid.Row="0" CornerRadius="10" Margin="10">
+					        <TextBlock  x:Name="graphSettings" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center">GRAPH 1 ?!?!?!</TextBlock>
+                                        </Border>
+                                        <Border Background="DarkGray" Grid.Row="1" CornerRadius="10" Margin="10">
+					        <TextBlock   FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center">GRAPH 2 ?!?!?!</TextBlock>
+                                        </Border>                                        </Grid>
+                                </Border>
+				<Border Background="White" CornerRadius="10" Grid.Row="2" Grid.Column="0" Margin="10">
+					<Grid ShowGridLines="False">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<Border Background="White" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black">Heat Consumption</TextBlock>
+						</Border>
+						<Border Grid.Row="1" Grid.Column="0">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="Black">Current:</TextBlock>
+						</Border>
+						<Border Grid.Row="2" Grid.Column="0">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="Black">Highest:</TextBlock>
+						</Border>
+						<Border Grid.Row="3" Grid.Column="0">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="Black">Lowest:</TextBlock>
+						</Border>
+						<Border Grid.Row="4" Grid.Column="0">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="Black">Average:</TextBlock>
+						</Border>
+					</Grid>
+				</Border>
+				<Border Background="White" CornerRadius="10" Grid.Row="2" Grid.Column="1" Margin="10">
+					<Grid ShowGridLines="False">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<Border Background="White" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black">Electricity Consumption</TextBlock>
+						</Border>
+						<Border Grid.Row="1" Grid.Column="0">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="Black">Current:</TextBlock>
+						</Border>
+						<Border Grid.Row="2" Grid.Column="0">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="Black">Highest:</TextBlock>
+						</Border>
+						<Border Grid.Row="3" Grid.Column="0">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="Black">Lowest:</TextBlock>
+						</Border>
+						<Border Grid.Row="4" Grid.Column="0">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="Black">Average:</TextBlock>
+						</Border>
+					</Grid>
+				</Border>
+				<Border Background="DarkGray" CornerRadius="10" Grid.Row="2" Grid.Column="3" Margin="10">
+					<Grid ShowGridLines="False">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<Border Background="White" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black">Selected Time Period</TextBlock>
+						</Border>
+						<Border Grid.Row="1" Grid.Column="0" Margin="10">
+							<ToggleButton x:Name="HourButton" Click="HourButtonCommand" IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30"/>
+						</Border>
+						<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="15" Foreground="Black" Grid.Row="1" Grid.Column="0" Margin="10">Hour</TextBlock>
+
+
+						<Border Grid.Row="1" Grid.Column="1" Margin="10">
+							<ToggleButton x:Name="DayButton" Click="DayButtonCommand" IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30"/>
+						</Border>
+						<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="15" Foreground="Black" Grid.Row="1" Grid.Column="1" Margin="10">Day</TextBlock>
+						
+						
+						<Border Grid.Row="1" Grid.Column="2" Margin="10">
+							<ToggleButton x:Name="WeekButton" Click="WeekButtonCommand" IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30"/>
+						</Border>
+						<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="15" Foreground="Black" Grid.Row="1" Grid.Column="2" Margin="10">Week</TextBlock>
+						
+						
+						<Border Grid.Row="2" Grid.Column="0" Margin="10">
+							<ToggleButton x:Name="MonthButton" Click="MonthButtonCommand" IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30"/>
+						</Border>
+						<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="15" Foreground="Black" Grid.Row="2" Grid.Column="0" Margin="10">Month</TextBlock>
+						
+						
+						<Border Grid.Row="2" Grid.Column="2" Margin="10">
+							<ToggleButton x:Name="MaxButton" Click="MaxButtonCommand" IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30"/>
+						</Border>
+						<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="15" Foreground="Black" Grid.Row="2" Grid.Column="2" Margin="10">Max</TextBlock>
+						
+						
+						<Border Background="White" CornerRadius="10" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black">Selected the day:</TextBlock>
+						</Border>
+						<Border Background="White" CornerRadius="10" Grid.Row="4" Grid.Column="0" Margin="10">
+							<TextBox HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10" Background="White" Foreground="Black">DAY</TextBox>
+						</Border>
+						<Border Background="White" CornerRadius="10" Grid.Row="4" Grid.Column="1" Margin="10">
+							<TextBox HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10" Background="White" Foreground="Black">MONTH</TextBox>
+						</Border>
+						<Border Background="White" CornerRadius="10" Grid.Row="4" Grid.Column="2" Margin="10">
+							<TextBox HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10" Background="White" Foreground="Black">YEAR</TextBox>
+						</Border>
+					</Grid>
+				</Border>
+			</Grid>
 		</Border>
 	</Panel>
 </Window>

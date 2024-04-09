@@ -13,7 +13,7 @@
 			<Grid ShowGridLines="False"
 				HorizontalAlignment="Stretch" 
 				VerticalAlignment="Stretch"
-				Background="White">
+				Background="LightGray">
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="*"/>
 					<ColumnDefinition Width="*"/>
