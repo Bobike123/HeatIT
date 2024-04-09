@@ -81,5 +81,11 @@ namespace SemesterProject.Views
             productionValuesWindow.Show();
         }
 
+        public void OpenShowMoreButton(object sender, RoutedEventArgs args)
+        {
+            var showMoreWindow= new ShowMoreWindow();
+            showMoreWindow.Show();
+        }
+
     }
 }

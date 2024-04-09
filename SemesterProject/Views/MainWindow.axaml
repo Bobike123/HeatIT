@@ -179,7 +179,7 @@
 								</StackPanel>
 							</Border>
 							<Border Grid.Row="1" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="2">
-								<Button Click="ShowMore"
+								<Button Click="OpenShowMoreButton"
 										FontSize="16"
 										Height="60" Width="180"
 										HorizontalAlignment="Center"
