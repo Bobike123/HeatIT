@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
-using static AssetManager;
 
 namespace SemesterProject
 {
@@ -34,7 +33,11 @@ namespace SemesterProject
             {
                 return true;
             }
-            return false;
+            else
+            {
+                File.Create(Path);
+                return true;
+            }
         }
     }
 }

@@ -9,6 +9,7 @@
       "SemesterProject/1.0.0": {
         "dependencies": {
           "Avalonia": "11.0.10",
+          "Avalonia.Controls.DataGrid": "11.0.10",
           "Avalonia.Desktop": "11.0.10",
           "Avalonia.Diagnostics": "11.0.10",
           "Avalonia.Fonts.Inter": "11.0.10",

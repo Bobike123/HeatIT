@@ -1,10 +1,8 @@
 using System;
 using System.Data;
-using SemesterProject;
-public class AssetManager
-{
-    public static ProductionUnit[] ProductionUnits { get; internal set; }
 
+namespace SemesterProject
+{
     public class ProductionUnit
     {
         public string Name {get; set;} //GB OB GM or EK
@@ -23,15 +21,15 @@ public class AssetManager
             CO2Emissions = co2Emissions;
             FuelType = fuelType;
         }
+        public static ProductionUnit GetProductionUnit(string name)
+        {
+            foreach (var unit in ReadFile.productionUnits)
+            {
+                if (unit.Name == name)
+                return unit;
+            }
+            return new ProductionUnit("", 0, 0, 0, 0, "");
+        }
     }
 
-    public static ProductionUnit GetProductionUnit(string name)
-    {
-        foreach (var unit in ReadFile.productionUnits)
-        {
-            if (unit.Name == name)
-            return unit;
-        }
-        return new ProductionUnit("", 0, 0, 0, 0, "");
-    }
 }
