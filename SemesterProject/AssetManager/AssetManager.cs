@@ -1,6 +1,7 @@
 using System;
 using System.Data;
-public class AssetManager
+
+namespace SemesterProject
 {
     public class ProductionUnit
     {
@@ -20,23 +21,15 @@ public class AssetManager
             CO2Emissions = co2Emissions;
             FuelType = fuelType;
         }
-    }
-
-    public static ProductionUnit[] ProductionUnits = new ProductionUnit[]
-    {
-        new ProductionUnit("GB", 5.0, 0, 500, 215, "gas"),
-        new ProductionUnit("OB", 4.0, 0, 700, 265, "oil"),
-        new ProductionUnit("GM", 3.6, 2.7, 1100, 640, "gas"),
-        new ProductionUnit("EK", 8.0, -8.0, 50, 0, "electricity"),
-    };
-
-    public static ProductionUnit GetProductionUnit(string name)
-    {
-        foreach (var unit in ProductionUnits)
+        public static ProductionUnit GetProductionUnit(string name)
         {
-            if (unit.Name == name)
-            return unit;
+            foreach (var unit in ReadFile.productionUnits)
+            {
+                if (unit.Name == name)
+                return unit;
+            }
+            return new ProductionUnit("", 0, 0, 0, 0, "");
         }
-        return new ProductionUnit("", 0, 0, 0, 0, "");
     }
+
 }

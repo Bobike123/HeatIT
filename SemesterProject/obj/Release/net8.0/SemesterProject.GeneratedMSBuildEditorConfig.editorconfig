@@ -1,0 +1,57 @@
+is_global = true
+build_property.AvaloniaNameGeneratorIsEnabled = true
+build_property.AvaloniaNameGeneratorBehavior = InitializeComponent
+build_property.AvaloniaNameGeneratorDefaultFieldModifier = internal
+build_property.AvaloniaNameGeneratorFilterByPath = *
+build_property.AvaloniaNameGeneratorFilterByNamespace = *
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = SemesterProject
+build_property.ProjectDir = C:\Users\hp\OneDrive\Desktop\New folder (2)\SemesterProject\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+
+[C:/Users/hp/OneDrive/Desktop/New folder (2)/SemesterProject/App.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/hp/OneDrive/Desktop/New folder (2)/SemesterProject/AssetManager/AssetManager.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/hp/OneDrive/Desktop/New folder (2)/SemesterProject/Views/MainWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/hp/OneDrive/Desktop/New folder (2)/SemesterProject/Windows/CO2Emmisions/CO2EmmisionWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/hp/OneDrive/Desktop/New folder (2)/SemesterProject/Windows/ConsumptionOfPrimaryEnergy/ConsumptionOfPrimaryEnergyWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/hp/OneDrive/Desktop/New folder (2)/SemesterProject/Windows/Consumption/ConsumptionWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/hp/OneDrive/Desktop/New folder (2)/SemesterProject/Windows/ElectricityPrices/ElectricityPricesWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/hp/OneDrive/Desktop/New folder (2)/SemesterProject/Windows/ExpensesAndProfit/ExpensesAndProfitWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/hp/OneDrive/Desktop/New folder (2)/SemesterProject/Windows/HeatDemand/HeatDemandWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/hp/OneDrive/Desktop/New folder (2)/SemesterProject/Windows/HeatProduction/HeatProductionWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/hp/OneDrive/Desktop/New folder (2)/SemesterProject/Windows/PrioritiesOfProductionUnits/PrioritiesOfProductionUnitsWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/hp/OneDrive/Desktop/New folder (2)/SemesterProject/Windows/ProductionUits/ProductionValuesWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/hp/OneDrive/Desktop/New folder (2)/SemesterProject/Windows/ProductionValues/ProductionValuesWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
