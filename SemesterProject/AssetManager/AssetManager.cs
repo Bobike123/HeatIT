@@ -12,7 +12,7 @@ namespace SemesterProject
         public double CO2Emissions {get; set;} //kg/MWh(th)
         public string FuelType {get; set;} //gas oil or electricity
 
-        public ProductionUnit(string name, double maxHeat, double maxElectricity, double productionCosts, double  , string fuelType)
+        public ProductionUnit(string name, double maxHeat, double maxElectricity, double productionCosts, double co2Emissions, string fuelType)
         {
             Name = name;
             MaxHeat = maxHeat;
