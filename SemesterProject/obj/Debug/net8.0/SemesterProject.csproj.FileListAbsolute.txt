@@ -394,6 +394,7 @@ C:\Users\Admin\Desktop\avalonia_project\semproj\SemsterProjectSem2\semesterproje
 C:\Users\Admin\Desktop\avalonia_project\semproj\SemsterProjectSem2\semesterproject\obj\Debug\net8.0\SemesterProject.csproj.CopyComplete
 C:\Users\Admin\Desktop\avalonia_project\semproj\SemsterProjectSem2\semesterproject\obj\Debug\net8.0\SemesterProject.genruntimeconfig.cache
 C:\Users\Admin\Desktop\avalonia_project\semproj\SemsterProjectSem2\semesterproject\obj\Debug\net8.0\ref\SemesterProject.dll
+<<<<<<< HEAD
 C:\Users\hp\OneDrive\Desktop\New folder (2)\SemesterProject\obj\Debug\net8.0\SemesterProject.csproj.AssemblyReference.cache
 C:\Users\hp\OneDrive\Desktop\New folder (2)\SemesterProject\obj\Debug\net8.0\Avalonia\Resources.Inputs.cache
 C:\Users\hp\OneDrive\Desktop\New folder (2)\SemesterProject\obj\Debug\net8.0\Avalonia\resources
@@ -416,6 +417,8 @@ C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\ob
 C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\SemesterProject.csproj.CoreCompileInputs.cache
 C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\SemesterProject.sourcelink.json
 C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\refint\SemesterProject.dll
+=======
+>>>>>>> ProductionValues
 C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\bin\Debug\net8.0\SemesterProject.exe
 C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\bin\Debug\net8.0\SemesterProject.deps.json
 C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\bin\Debug\net8.0\SemesterProject.runtimeconfig.json
@@ -530,10 +533,25 @@ C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\bi
 C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\bin\Debug\net8.0\runtimes\win-arm64\native\libSkiaSharp.dll
 C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\bin\Debug\net8.0\runtimes\win-x64\native\libSkiaSharp.dll
 C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\bin\Debug\net8.0\runtimes\win-x86\native\libSkiaSharp.dll
+<<<<<<< HEAD
+=======
+C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\SemesterProject.csproj.AssemblyReference.cache
+C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\Avalonia\Resources.Inputs.cache
+C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\Avalonia\resources
+C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\SemesterProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\SemesterProject.AssemblyInfoInputs.cache
+C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\SemesterProject.AssemblyInfo.cs
+C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\SemesterProject.csproj.CoreCompileInputs.cache
+C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\SemesterProject.sourcelink.json
+>>>>>>> ProductionValues
 C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\Avalonia\references
 C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\Avalonia\original.dll
 C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\Avalonia\original.pdb
 C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\Avalonia\original.ref.dll
+<<<<<<< HEAD
+=======
+C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\refint\SemesterProject.dll
+>>>>>>> ProductionValues
 C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\SemesterProject.dll
 C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\SemesterProject.pdb
 C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\Semester.6E7620CB.Up2Date
