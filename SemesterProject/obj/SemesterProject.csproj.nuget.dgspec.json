@@ -77,6 +77,10 @@
             "Avalonia.Themes.Fluent": {
               "target": "Package",
               "version": "[11.0.10, )"
+            },
+            "ScottPlot.Avalonia": {
+              "target": "Package",
+              "version": "[5.0.25, )"
             }
           },
           "imports": [

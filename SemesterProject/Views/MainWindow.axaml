@@ -165,34 +165,17 @@
 						<Grid ShowGridLines="False">
 							<Grid.ColumnDefinitions>
 								<ColumnDefinition Width="*" />
-								<ColumnDefinition Width="auto" />
+								<ColumnDefinition Width="*" />
 							</Grid.ColumnDefinitions>
 							<Grid.RowDefinitions>
-								<RowDefinition Height="140" />
-								<RowDefinition Height="80" />
+								<RowDefinition Height="*" />
+								<RowDefinition Height="*" />
+								<RowDefinition Height="*" />
 							</Grid.RowDefinitions>
-							<Border Grid.Row="0" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="2">
-								<StackPanel VerticalAlignment="Stretch" Margin="10">
-									<TextBlock x:Name="income" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="30" Foreground="Blue">Income:</TextBlock>
-									<TextBlock x:Name="expenses" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="30" Foreground="Red">Expenses:</TextBlock>
-									<TextBlock x:Name="profit" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="30" Foreground="Green">Profit:</TextBlock>
-								</StackPanel>
-							</Border>
-							<Border Grid.Row="1" Grid.RowSpan="1" Grid.Column="0" Grid.ColumnSpan="2">
-								<Button Click="OpenShowMoreButton"
-										FontSize="16"
-										Height="60" Width="180"
-										HorizontalAlignment="Center"
-										HorizontalContentAlignment="Center"
-										VerticalContentAlignment="Center"
-										VerticalAlignment="Center"
-										CornerRadius="10"
-										Margin="5"
-										Background="Gray"
-										Foreground="Black">
-									<TextBlock FontSize="30">Show More</TextBlock>
-								</Button>
-							</Border>
+
+									<TextBlock Grid.Row="0" x:Name="income" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Foreground="Blue">Income:</TextBlock>
+									<TextBlock Grid.Row="1" x:Name="expenses" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Foreground="Red">Expenses:</TextBlock>
+									<TextBlock Grid.Row="2" x:Name="profit" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Foreground="Green">Profit:</TextBlock>
 						</Grid>
 					</Border>
 					<Border CornerRadius="10" Margin="10" Grid.Row="4" Grid.Column="3" Grid.RowSpan="2" Background="White">

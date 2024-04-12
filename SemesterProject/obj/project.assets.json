@@ -783,6 +783,41 @@
           }
         }
       },
+      "ScottPlot/5.0.25": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "2.88.7",
+          "SkiaSharp.NativeAssets.Linux.NoDependencies": "2.88.7"
+        },
+        "compile": {
+          "lib/net8.0/ScottPlot.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/ScottPlot.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "ScottPlot.Avalonia/5.0.25": {
+        "type": "package",
+        "dependencies": {
+          "Avalonia": "11.0.2",
+          "Avalonia.Skia": "11.0.2",
+          "ScottPlot": "5.0.25"
+        },
+        "compile": {
+          "lib/net8.0/ScottPlot.Avalonia.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/ScottPlot.Avalonia.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "SkiaSharp/2.88.7": {
         "type": "package",
         "dependencies": {
@@ -801,6 +836,36 @@
         }
       },
       "SkiaSharp.NativeAssets.Linux/2.88.7": {
+        "type": "package",
+        "dependencies": {
+          "SkiaSharp": "2.88.7"
+        },
+        "compile": {
+          "lib/net6.0/_._": {}
+        },
+        "runtime": {
+          "lib/net6.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/linux-arm/native/libSkiaSharp.so": {
+            "assetType": "native",
+            "rid": "linux-arm"
+          },
+          "runtimes/linux-arm64/native/libSkiaSharp.so": {
+            "assetType": "native",
+            "rid": "linux-arm64"
+          },
+          "runtimes/linux-musl-x64/native/libSkiaSharp.so": {
+            "assetType": "native",
+            "rid": "linux-musl-x64"
+          },
+          "runtimes/linux-x64/native/libSkiaSharp.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          }
+        }
+      },
+      "SkiaSharp.NativeAssets.Linux.NoDependencies/2.88.7": {
         "type": "package",
         "dependencies": {
           "SkiaSharp": "2.88.7"
@@ -2474,6 +2539,46 @@
         "reactiveui.nuspec"
       ]
     },
+    "ScottPlot/5.0.25": {
+      "sha512": "2Y4SJXsbg7BbT5Xd30BieF0skdT3KkYAVNOQHS55lHlh8AHdLOB8TsxRuiLRQbF+6lKoq/9TYwSxeg25I5DuOA==",
+      "type": "package",
+      "path": "scottplot/5.0.25",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net462/ScottPlot.dll",
+        "lib/net462/ScottPlot.xml",
+        "lib/net6.0/ScottPlot.dll",
+        "lib/net6.0/ScottPlot.xml",
+        "lib/net8.0/ScottPlot.dll",
+        "lib/net8.0/ScottPlot.xml",
+        "lib/netstandard2.0/ScottPlot.dll",
+        "lib/netstandard2.0/ScottPlot.xml",
+        "readme.md",
+        "scottplot.5.0.25.nupkg.sha512",
+        "scottplot.nuspec"
+      ]
+    },
+    "ScottPlot.Avalonia/5.0.25": {
+      "sha512": "jLjNZ87YrylCJK0IlhBLPNJDNvKp+aLkAPtMCsQski/0C/ivw4NKUtqeJ0zASjr6SI604XDqastvq87K4XlANg==",
+      "type": "package",
+      "path": "scottplot.avalonia/5.0.25",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net462/ScottPlot.Avalonia.dll",
+        "lib/net462/ScottPlot.Avalonia.xml",
+        "lib/net6.0/ScottPlot.Avalonia.dll",
+        "lib/net6.0/ScottPlot.Avalonia.xml",
+        "lib/net8.0/ScottPlot.Avalonia.dll",
+        "lib/net8.0/ScottPlot.Avalonia.xml",
+        "readme.md",
+        "scottplot.avalonia.5.0.25.nupkg.sha512",
+        "scottplot.avalonia.nuspec"
+      ]
+    },
     "SkiaSharp/2.88.7": {
       "sha512": "LJHAMrbWO00J7jXWLWehyjqFo29T4VzABimfJb4nICqpEe3c/KvQGWL4ItON8ymzhxYOeFgyxeRzuNzO4GHSug==",
       "type": "package",
@@ -2569,6 +2674,29 @@
         "runtimes/linux-x64/native/libSkiaSharp.so",
         "skiasharp.nativeassets.linux.2.88.7.nupkg.sha512",
         "skiasharp.nativeassets.linux.nuspec"
+      ]
+    },
+    "SkiaSharp.NativeAssets.Linux.NoDependencies/2.88.7": {
+      "sha512": "KkMftfAz1lGPnuhyecuLJzeyvMjXtHp9cYVQc/oeLhF8KYrxtUxRy5LOX5oROhyLHy/CyqEl9MoAhqmSH7cV7g==",
+      "type": "package",
+      "path": "skiasharp.nativeassets.linux.nodependencies/2.88.7",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.txt",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/net462/SkiaSharp.NativeAssets.Linux.NoDependencies.targets",
+        "buildTransitive/net462/SkiaSharp.NativeAssets.Linux.NoDependencies.targets",
+        "lib/net462/_._",
+        "lib/net6.0/_._",
+        "lib/netcoreapp3.1/_._",
+        "lib/netstandard1.3/_._",
+        "runtimes/linux-arm/native/libSkiaSharp.so",
+        "runtimes/linux-arm64/native/libSkiaSharp.so",
+        "runtimes/linux-musl-x64/native/libSkiaSharp.so",
+        "runtimes/linux-x64/native/libSkiaSharp.so",
+        "skiasharp.nativeassets.linux.nodependencies.2.88.7.nupkg.sha512",
+        "skiasharp.nativeassets.linux.nodependencies.nuspec"
       ]
     },
     "SkiaSharp.NativeAssets.macOS/2.88.7": {
@@ -4577,7 +4705,8 @@
       "Avalonia.Diagnostics >= 11.0.10",
       "Avalonia.Fonts.Inter >= 11.0.10",
       "Avalonia.ReactiveUI >= 11.0.10",
-      "Avalonia.Themes.Fluent >= 11.0.10"
+      "Avalonia.Themes.Fluent >= 11.0.10",
+      "ScottPlot.Avalonia >= 5.0.25"
     ]
   },
   "packageFolders": {
@@ -4657,6 +4786,10 @@
           "Avalonia.Themes.Fluent": {
             "target": "Package",
             "version": "[11.0.10, )"
+          },
+          "ScottPlot.Avalonia": {
+            "target": "Package",
+            "version": "[5.0.25, )"
           }
         },
         "imports": [

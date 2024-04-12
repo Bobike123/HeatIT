@@ -83,8 +83,8 @@ namespace SemesterProject.Views
 
         public void OpenShowMoreButton(object sender, RoutedEventArgs args)
         {
-            var showMoreWindow= new ShowMoreWindow();
-            showMoreWindow.Show();
+            var expensesAndProfitWindow= new ExpensesAndProfitWindow();
+            expensesAndProfitWindow.Show();
         }
 
     }

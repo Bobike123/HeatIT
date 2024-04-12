@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "NsRPBXmnEsRiFxAGS67o90tJ7P+Yk6qFEPmWk3jJJ1YT0AIEU2ODf1bk4f5Zr3NwSik1+F6HTJavxjFE18FAXQ==",
+  "dgSpecHash": "cPgxch6+UoZFdimXwC5q2dr/hd1oclFh7chl/d84rLCPlILdexS0Fg7lM1+lA/zejfzVaD5cNiSbu3++hAXG1g==",
   "success": true,
   "projectFilePath": "C:\\Users\\asus\\OneDrive\\Desktop\\carti\\Sem2\\SP\\SemesterProjectSem2\\SemesterProject\\SemesterProject.csproj",
   "expectedPackageFiles": [
@@ -37,8 +37,11 @@
     "C:\\Users\\asus\\.nuget\\packages\\microsoft.netcore.platforms\\2.1.2\\microsoft.netcore.platforms.2.1.2.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\reactiveui\\18.3.1\\reactiveui.18.3.1.nupkg.sha512",
+    "C:\\Users\\asus\\.nuget\\packages\\scottplot\\5.0.25\\scottplot.5.0.25.nupkg.sha512",
+    "C:\\Users\\asus\\.nuget\\packages\\scottplot.avalonia\\5.0.25\\scottplot.avalonia.5.0.25.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\skiasharp\\2.88.7\\skiasharp.2.88.7.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\skiasharp.nativeassets.linux\\2.88.7\\skiasharp.nativeassets.linux.2.88.7.nupkg.sha512",
+    "C:\\Users\\asus\\.nuget\\packages\\skiasharp.nativeassets.linux.nodependencies\\2.88.7\\skiasharp.nativeassets.linux.nodependencies.2.88.7.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.7\\skiasharp.nativeassets.macos.2.88.7.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\skiasharp.nativeassets.webassembly\\2.88.7\\skiasharp.nativeassets.webassembly.2.88.7.nupkg.sha512",
     "C:\\Users\\asus\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.7\\skiasharp.nativeassets.win32.2.88.7.nupkg.sha512",
