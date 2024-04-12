@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "C3Hk71fLvzf6LO6m059eSjZe1MhpbMdXBJoDuvaJfg4beEXjwOYPg3qMUJIS+YU2BmWgDl21RGiOJf3K1yqD0g==",
+  "dgSpecHash": "3w4IQZA+fHZIg4O1LLHl6kTIgyyoddgN//+spxKyKngGlEQdNlR4l7Ig237jWJQkRgFmujlBSNa3aGpq1hKZIQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\rados\\Avalonia\\SemesterProjectF24\\SemsterProjectSem2\\SemesterProject\\SemesterProject.csproj",
+  "projectFilePath": "C:\\Users\\rados\\Avalonia\\SemsterProjectSemF24\\SemesterProject\\SemesterProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\rados\\.nuget\\packages\\avalonia\\11.0.10\\avalonia.11.0.10.nupkg.sha512",
     "C:\\Users\\rados\\.nuget\\packages\\avalonia.angle.windows.natives\\2.1.0.2023020321\\avalonia.angle.windows.natives.2.1.0.2023020321.nupkg.sha512",

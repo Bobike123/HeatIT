@@ -4585,11 +4585,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\rados\\Avalonia\\SemesterProjectF24\\SemsterProjectSem2\\SemesterProject\\SemesterProject.csproj",
+      "projectUniqueName": "C:\\Users\\rados\\Avalonia\\SemsterProjectSemF24\\SemesterProject\\SemesterProject.csproj",
       "projectName": "SemesterProject",
-      "projectPath": "C:\\Users\\rados\\Avalonia\\SemesterProjectF24\\SemsterProjectSem2\\SemesterProject\\SemesterProject.csproj",
+      "projectPath": "C:\\Users\\rados\\Avalonia\\SemsterProjectSemF24\\SemesterProject\\SemesterProject.csproj",
       "packagesPath": "C:\\Users\\rados\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\rados\\Avalonia\\SemesterProjectF24\\SemsterProjectSem2\\SemesterProject\\obj\\",
+      "outputPath": "C:\\Users\\rados\\Avalonia\\SemsterProjectSemF24\\SemesterProject\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\rados\\AppData\\Roaming\\NuGet\\NuGet.Config"
