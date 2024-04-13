@@ -258,7 +258,7 @@
 				</Border>
                                 <!--Last Thing Left-->
                                 <Border Background="White" CornerRadius="10" Grid.Row="3" Grid.Column="0" Margin="5">
-					<Grid ShowGridLines="True">
+					<Grid ShowGridLines="false">
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="*" />
 							<ColumnDefinition Width="*" />	
