@@ -24,7 +24,7 @@ namespace SemesterProject.Views
         public void DisplayCSVContent()
         {
             var csvFilePath = Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager\\data.csv");
-            SourceDataManager.CSVContentRead(csvFilePath);
+            SourceDataManager.CSVDisplayGraph(csvFilePath);
         }
 
 

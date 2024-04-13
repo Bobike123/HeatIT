@@ -11,7 +11,7 @@ namespace SemesterProject.Views
 {
     public class SourceDataManager
     {
-        public static void CSVContentRead(string filePath)
+        public static void CSVDisplayGraph(string filePath)
         {
             int[] columns = { 0, 1, 5, 6 };
             // Read from the CSV file
