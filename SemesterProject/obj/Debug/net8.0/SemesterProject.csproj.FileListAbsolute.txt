@@ -429,3 +429,14 @@ C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\ob
 C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\Semester.6E7620CB.Up2Date
 C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\SemesterProject.genruntimeconfig.cache
 C:\Users\rados\Avalonia\SemesterProjectF24\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\ref\SemesterProject.dll
+C:\Users\alans\Desktop\SMP\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\SemesterProject.csproj.AssemblyReference.cache
+C:\Users\alans\Desktop\SMP\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\Avalonia\Resources.Inputs.cache
+C:\Users\alans\Desktop\SMP\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\Avalonia\resources
+C:\Users\alans\Desktop\SMP\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\SemesterProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alans\Desktop\SMP\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\SemesterProject.AssemblyInfoInputs.cache
+C:\Users\alans\Desktop\SMP\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\SemesterProject.AssemblyInfo.cs
+C:\Users\alans\Desktop\SMP\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\SemesterProject.csproj.CoreCompileInputs.cache
+C:\Users\alans\Desktop\SMP\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\SemesterProject.sourcelink.json
+C:\Users\alans\Desktop\SMP\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\SemesterProject.dll
+C:\Users\alans\Desktop\SMP\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\refint\SemesterProject.dll
+C:\Users\alans\Desktop\SMP\SemsterProjectSem2\SemesterProject\obj\Debug\net8.0\SemesterProject.pdb
