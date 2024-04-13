@@ -5,6 +5,7 @@ using Avalonia.Media;
 using Avalonia.Logging;
 using Avalonia.Controls;
 using System.Diagnostics;
+using ScottPlot.Avalonia;
 using Avalonia.Markup.Xaml;
 using Avalonia.Diagnostics;
 using Avalonia.Interactivity;
@@ -23,8 +24,9 @@ namespace SemesterProject.Views
         }
         public void DisplayCSVContent()
         {
+            int[] columns = [0,1,4,5,6];
             var csvFilePath = Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager\\data.csv");
-            SourceDataManager.CSVContentRead(csvFilePath);
+            SourceDataManager.CSVDisplayGraph(csvFilePath, columns );
         }
 
 
@@ -36,11 +38,11 @@ namespace SemesterProject.Views
                 data=["1","2","3"];
                 //HourGraph display
                 DisplayCSVContent();
-                graphSettings.Text=data[0];
                 DayButton.IsChecked = false; WeekButton.IsChecked = false; MonthButton.IsChecked = false;   MaxButton.IsChecked = false;
              
             }
         }
+        
         public void DayButtonCommand(object sender, RoutedEventArgs args)
         {
             if (DayButton.IsChecked == true)

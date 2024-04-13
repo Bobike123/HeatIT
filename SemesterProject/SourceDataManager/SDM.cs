@@ -11,17 +11,19 @@ namespace SemesterProject.Views
 {
     public class SourceDataManager
     {
-        public static void CSVContentRead(string filePath)
+        public static void CSVDisplayGraph(string filePath, int[] columns)
         {
-            int[] columns = { 0, 1, 5, 6 };
+            
             // Read from the CSV file
             string[][] data = [];
             using (StreamReader reader = new StreamReader(filePath))
             {
                 string[] lines = File.ReadAllLines(filePath);
-                data = new string[lines.Length][];
-                for (int i = 0; i < lines.Length; i++)
-                    data[i] = lines[i].Split(",");
+                data = new string[lines.Length-3][];
+                for (int i = 3,j=0; i < lines.Length; i++,j++)
+                {
+                    data[j] = lines[i].Split(",");
+                }
             }
             string[][] newdata = new string[data.Length][];
             for (int i = 0; i < data.Length; i++)
