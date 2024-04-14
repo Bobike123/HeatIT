@@ -11,6 +11,7 @@ using Avalonia.Diagnostics;
 using Avalonia.Interactivity;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.CSharp.Scripting;
+using ScottPlot.Colormaps;
 
 namespace SemesterProject.Views
 {
@@ -22,23 +23,35 @@ namespace SemesterProject.Views
             InitializeComponent();
             this.AttachDevTools();
         }
-        public void DisplayCSVContent(int[] columns)
+        public void DisplayCSVContent(int[] columns, string period)
         {
-            var csvFilePath = Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager\\data.csv");
+            AvaPlot avaPlot1 = this.Find<AvaPlot>("AvaPlot1")!;
+            avaPlot1.Plot.Clear();
+            var csvFilePath = Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv");
             string[][] newData = SourceDataManager.CSVDisplayGraph(csvFilePath, columns);
-            double[] data_X = new double[newData.Length];
-            double[] data_Y = new double[newData.Length];
+            double min=200,max=-1, av;
+            double[] data_X = new double[newData.Length], data_Y = new double[newData.Length];
             int count = 0;
             for (int i = 0; i < newData.Length; i++)
             {
                 data_X[i] = double.Parse(newData[i][0]) + count * 0.041;
                 data_Y[i] = double.Parse(newData[i][2]);
+                if(double.Parse(newData[i][2])>max)max=double.Parse(newData[i][2]);
+                if(double.Parse(newData[i][2])<min)min=double.Parse(newData[i][2]);
                 count = (count + 1) % 24;
-
             }
-
-            AvaPlot avaPlot1 = this.Find<AvaPlot>("AvaPlot1")!;
+            av=(max*min)/2;
+            highest.Text=max.ToString();
+            lowest.Text=min.ToString();
+            average.Text=av.ToString();
+            
+            if (period == "summer") avaPlot1.Plot.Title("Heat Demand Graph for Summer Period");
+            else avaPlot1.Plot.Title("Heat Demand Graph for Winter Period");
+            avaPlot1.Plot.XLabel("Days");
+            avaPlot1.Plot.YLabel("MWh");
             avaPlot1.Plot.Add.Scatter(data_X, data_Y);
+            avaPlot1.Plot.Axes.SetLimits(8,14.95);//one week
+            avaPlot1.Plot.Axes.SetLimitsY(0,9);//comparation of the two periods
             avaPlot1.Refresh();
         }
 
@@ -46,14 +59,14 @@ namespace SemesterProject.Views
         {
             WinterPeriod.Background = new SolidColorBrush(Colors.Gray);
             SummerPeriod.Background = new SolidColorBrush(Color.FromRgb(207, 3, 3));
-            DisplayCSVContent([4, 5, 6, 7]);
+            DisplayCSVContent([4, 5, 6, 7],"summer");
         }
 
         public void WinterPeriodButton(object sender, RoutedEventArgs args)
         {
             SummerPeriod.Background = new SolidColorBrush(Colors.Gray);
             WinterPeriod.Background = new SolidColorBrush(Color.FromRgb(207, 3, 3));
-            DisplayCSVContent([0, 1, 2, 3]);
+            DisplayCSVContent([0, 1, 2, 3],"winter");
         }
     }
 }
