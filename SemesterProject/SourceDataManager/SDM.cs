@@ -11,32 +11,48 @@ namespace SemesterProject.Views
 {
     public class SourceDataManager
     {
-        public static void CSVDisplayGraph(string filePath, int[] columns)
+        public static string[][] CSVDisplayGraph(string filePath, int[] columns)
         {
-            
             // Read from the CSV file
-            string[][] data = [];
+            string[][
+
+            ] data;
             using (StreamReader reader = new StreamReader(filePath))
             {
                 string[] lines = File.ReadAllLines(filePath);
-                data = new string[lines.Length-3][];
-                for (int i = 3,j=0; i < lines.Length; i++,j++)
+                data = new string[lines.Length - 3][];
+                for (int i = 3, j = 0; i < lines.Length; i++, j++)
                 {
                     data[j] = lines[i].Split(",");
                 }
             }
-            string[][] newdata = new string[data.Length][];
+
+            string[][] newData = new string[data.Length][];
             for (int i = 0; i < data.Length; i++)
             {
-                newdata[i] = new string[columns.Length];
+                newData[i] = new string[columns.Length];
                 for (int j = 0; j < columns.Length; j++)
                 {
-                    newdata[i][j] = data[i][columns[j]];
+                    if (j == 0 || j == 1 || j == 4 || j == 5)
+                    {
+                        string[] splitValues = data[i][columns[j]].Split(new string[] { "/", "," }, StringSplitOptions.None);
+                        if (splitValues.Length >= 2)
+                        {
+                            newData[i][j] = splitValues[1];
+                        }
+                    }
+                    else
+                    {
+                        newData[i][j] = data[i][columns[j]];
+                    }
                 }
             }
+
             var csvFilePath = Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "newfile.csv");
-            AppendToCSV(csvFilePath, newdata);
+            AppendToCSV(csvFilePath, newData);
+            return newData;
         }
+
 
         public static void AppendToCSV(string filePath, string[][] data)
         {
@@ -47,11 +63,6 @@ namespace SemesterProject.Views
                     writer.WriteLine(string.Join(",", line));
                 }
             }
-        }
-
-        internal static void CSVDisplayGraph(string csvFilePath)
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -22,72 +22,38 @@ namespace SemesterProject.Views
             InitializeComponent();
             this.AttachDevTools();
         }
-        public void DisplayCSVContent()
+        public void DisplayCSVContent(int[] columns)
         {
-            int[] columns = [0,1,4,5,6];
             var csvFilePath = Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager\\data.csv");
-            SourceDataManager.CSVDisplayGraph(csvFilePath, columns );
-        }
-
-
-        public void HourButtonCommand(object sender, RoutedEventArgs args)
-        {
-            if (HourButton.IsChecked == true)
+            string[][] newData = SourceDataManager.CSVDisplayGraph(csvFilePath, columns);
+            double[] data_X = new double[newData.Length];
+            double[] data_Y = new double[newData.Length];
+            int count = 0;
+            for (int i = 0; i < newData.Length; i++)
             {
-                string[] data= [];
-                data=["1","2","3"];
-                //HourGraph display
-                DisplayCSVContent();
-                DayButton.IsChecked = false; WeekButton.IsChecked = false; MonthButton.IsChecked = false;   MaxButton.IsChecked = false;
-             
-            }
-        }
-        
-        public void DayButtonCommand(object sender, RoutedEventArgs args)
-        {
-            if (DayButton.IsChecked == true)
-            {
-               
-                //DayGraph display
-                DisplayCSVContent();
-                HourButton.IsChecked = false; WeekButton.IsChecked = false; MonthButton.IsChecked = false;   MaxButton.IsChecked = false;
-              
+                data_X[i] = double.Parse(newData[i][0]) + count * 0.041;
+                data_Y[i] = double.Parse(newData[i][2]);
+                count = (count + 1) % 24;
+
             }
 
+            AvaPlot avaPlot1 = this.Find<AvaPlot>("AvaPlot1")!;
+            avaPlot1.Plot.Add.Scatter(data_X, data_Y);
+            avaPlot1.Refresh();
         }
-        public void WeekButtonCommand(object sender, RoutedEventArgs args)
-        {
-            if (WeekButton.IsChecked == true)
-            {
-               
-                //WeekGraph display
-                DisplayCSVContent();
-                HourButton.IsChecked = false; DayButton.IsChecked = false; MonthButton.IsChecked = false;   MaxButton.IsChecked = false;
-               
-            }
-        }
-        public void MonthButtonCommand(object sender, RoutedEventArgs args)
-        {
-            if (MonthButton.IsChecked == true)
-            {
-               
-                //MonthGraph display
-                DisplayCSVContent();
-                HourButton.IsChecked = false; DayButton.IsChecked = false; WeekButton.IsChecked = false;   MaxButton.IsChecked = false;
-              
-            }
-        }
-        public void MaxButtonCommand(object sender, RoutedEventArgs args)
-        {
 
-            if (MaxButton.IsChecked == true)
-            {
-                
-                //MaxGraph display
-                DisplayCSVContent();
-                HourButton.IsChecked = false; DayButton.IsChecked = false; WeekButton.IsChecked = false; MonthButton.IsChecked = false;  
-              
-            }
+        public void SummerPeriodButton(object sender, RoutedEventArgs args)
+        {
+            WinterPeriod.Background = new SolidColorBrush(Colors.Gray);
+            SummerPeriod.Background = new SolidColorBrush(Color.FromRgb(207, 3, 3));
+            DisplayCSVContent([4, 5, 6, 7]);
+        }
+
+        public void WinterPeriodButton(object sender, RoutedEventArgs args)
+        {
+            SummerPeriod.Background = new SolidColorBrush(Colors.Gray);
+            WinterPeriod.Background = new SolidColorBrush(Color.FromRgb(207, 3, 3));
+            DisplayCSVContent([0, 1, 2, 3]);
         }
     }
 }

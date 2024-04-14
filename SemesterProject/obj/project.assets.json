@@ -4710,23 +4710,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\alans\\.nuget\\packages\\": {},
+    "C:\\Users\\asus\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\alans\\Desktop\\SMP\\SemsterProjectSem2\\SemesterProject\\SemesterProject.csproj",
+      "projectUniqueName": "C:\\Users\\asus\\OneDrive\\Desktop\\carti\\Sem2\\SP\\SemesterProjectSem2\\SemesterProject\\SemesterProject.csproj",
       "projectName": "SemesterProject",
-      "projectPath": "C:\\Users\\alans\\Desktop\\SMP\\SemsterProjectSem2\\SemesterProject\\SemesterProject.csproj",
-      "packagesPath": "C:\\Users\\alans\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\alans\\Desktop\\SMP\\SemsterProjectSem2\\SemesterProject\\obj\\",
+      "projectPath": "C:\\Users\\asus\\OneDrive\\Desktop\\carti\\Sem2\\SP\\SemesterProjectSem2\\SemesterProject\\SemesterProject.csproj",
+      "packagesPath": "C:\\Users\\asus\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\asus\\OneDrive\\Desktop\\carti\\Sem2\\SP\\SemesterProjectSem2\\SemesterProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\alans\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\asus\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4735,6 +4735,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4810,13 +4811,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Wystąpił problem podczas czytania pliku pamięci podręcznej C:\\Users\\alans\\Desktop\\SMP\\SemsterProjectSem2\\SemesterProject\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }
