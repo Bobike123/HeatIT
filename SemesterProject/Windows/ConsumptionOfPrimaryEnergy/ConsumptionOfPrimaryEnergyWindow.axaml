@@ -87,10 +87,9 @@
                                                 <Rectangle Grid.Row="5" Grid.Column="0" Fill="Blue" Width="18" Height="18" Margin="10"/>
 					</Grid>
 				</Border>
-                                <Border Background="DarkGray" CornerRadius="10" Grid.Row="2" Grid.Column="1" Margin="10">
-					<Grid ShowGridLines="False">
+                        <Border Background="DarkGray" CornerRadius="10" Grid.Row="2" Grid.Column="1" Margin="10">
+							<Grid ShowGridLines="False">
 						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="*" />
 							<ColumnDefinition Width="*" />
 							<ColumnDefinition Width="*" />
 						</Grid.ColumnDefinitions>
@@ -98,56 +97,39 @@
 							<RowDefinition Height="*" />
 							<RowDefinition Height="*" />
 							<RowDefinition Height="*" />
-							<RowDefinition Height="*" />
-							<RowDefinition Height="*" />
 						</Grid.RowDefinitions>
-						<Border Background="White" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
+						<Border Background="White" CornerRadius="10" Grid.ColumnSpan="2" Margin="10">
 							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black">Selected Time Period</TextBlock>
 						</Border>
-						<Border Grid.Row="1" Grid.Column="0" Margin="10">
-							<ToggleButton x:Name="HourButton" Click="HourButtonCommand" IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30"/>
+						<Border Grid.Row="1" Grid.ColumnSpan="2" Margin="10">
+							<Button 
+							x:Name="SummerPeriod" 
+							Click="SummerPeriodButton"  
+							HorizontalAlignment="Stretch" 
+							VerticalAlignment="Stretch"  
+							HorizontalContentAlignment="Center" 
+							VerticalContentAlignment="Center" 
+							Foreground="White" 
+							FontSize="20"
+							Background="#CF0303"
+							CornerRadius="10">
+							Summer Period</Button>
 						</Border>
-						<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="15" Foreground="Black" Grid.Row="1" Grid.Column="0" Margin="10">Hour</TextBlock>
-
-
-						<Border Grid.Row="1" Grid.Column="1" Margin="10">
-							<ToggleButton x:Name="DayButton" Click="DayButtonCommand" IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30"/>
-						</Border>
-						<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="15" Foreground="Black" Grid.Row="1" Grid.Column="1" Margin="10">Day</TextBlock>
-						
-						
-						<Border Grid.Row="1" Grid.Column="2" Margin="10">
-							<ToggleButton x:Name="WeekButton" Click="WeekButtonCommand" IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30"/>
-						</Border>
-						<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="15" Foreground="Black" Grid.Row="1" Grid.Column="2" Margin="10">Week</TextBlock>
-						
-						
-						<Border Grid.Row="2" Grid.Column="0" Margin="10">
-							<ToggleButton x:Name="MonthButton" Click="MonthButtonCommand" IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30"/>
-						</Border>
-						<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="15" Foreground="Black" Grid.Row="2" Grid.Column="0" Margin="10">Month</TextBlock>
-						
-						
-						<Border Grid.Row="2" Grid.Column="2" Margin="10">
-							<ToggleButton x:Name="MaxButton" Click="MaxButtonCommand" IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Height="30"/>
-						</Border>
-						<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="15" Foreground="Black" Grid.Row="2" Grid.Column="2" Margin="10">Max</TextBlock>
-						
-						
-						<Border Background="White" CornerRadius="10" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black">Selected the day:</TextBlock>
-						</Border>
-						<Border Background="White" CornerRadius="10" Grid.Row="4" Grid.Column="0" Margin="10">
-							<TextBox HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10" Background="White" Foreground="Black">DAY</TextBox>
-						</Border>
-						<Border Background="White" CornerRadius="10" Grid.Row="4" Grid.Column="1" Margin="10">
-							<TextBox HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10" Background="White" Foreground="Black">MONTH</TextBox>
-						</Border>
-						<Border Background="White" CornerRadius="10" Grid.Row="4" Grid.Column="2" Margin="10">
-							<TextBox HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="10" Background="White" Foreground="Black">YEAR</TextBox>
+						<Border Grid.Row="2" Grid.ColumnSpan="2" Margin="10">
+							<Button 
+							x:Name="WinterPeriod" 
+							Click="WinterPeriodButton"  
+							HorizontalAlignment="Stretch" 
+							VerticalAlignment="Stretch"  
+							HorizontalContentAlignment="Center" 
+							VerticalContentAlignment="Center" 
+							Foreground="White" 
+							FontSize="20"
+							Background="Gray"
+							CornerRadius="10">Winter Period</Button>
 						</Border>
 					</Grid>
-				</Border>
+						</Border>
 			</Grid>
 		</Border>
 	</Panel>

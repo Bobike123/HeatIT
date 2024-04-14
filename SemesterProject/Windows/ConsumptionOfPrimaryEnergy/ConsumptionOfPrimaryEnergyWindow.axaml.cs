@@ -18,41 +18,19 @@ namespace SemesterProject.Views
             InitializeComponent();
             this.AttachDevTools();
         }
-        public void HourButtonCommand(object sender, RoutedEventArgs args)
+       
+        public void SummerPeriodButton(object sender, RoutedEventArgs args)
         {
-            if (HourButton.IsChecked == true)
-            {
-                DayButton.IsChecked = false; WeekButton.IsChecked = false; MonthButton.IsChecked = false; MaxButton.IsChecked = false;
-            }
+            WinterPeriod.Background = new SolidColorBrush(Colors.Gray);
+            SummerPeriod.Background = new SolidColorBrush(Color.FromRgb(207, 3, 3));
+            //DisplayCSVContent([4, 5, 6, 7],"summer");
         }
-        public void DayButtonCommand(object sender, RoutedEventArgs args)
-        {
-            if(DayButton.IsChecked == true)
-            {
-                HourButton.IsChecked = false; WeekButton.IsChecked = false; MonthButton.IsChecked=false; MaxButton.IsChecked=false;
-            }
-        }
-        public void WeekButtonCommand(object sender, RoutedEventArgs args)
-        {
-            if(WeekButton.IsChecked == true)
-            {
-                HourButton.IsChecked = false; DayButton.IsChecked = false; MonthButton.IsChecked = false; MaxButton.IsChecked=false;
-            }
 
-        }
-        public void MonthButtonCommand(object sender, RoutedEventArgs args)
+        public void WinterPeriodButton(object sender, RoutedEventArgs args)
         {
-            if (MonthButton.IsChecked == true)
-            {
-                HourButton.IsChecked = false; DayButton.IsChecked = false; WeekButton.IsChecked = false; MaxButton.IsChecked = false;
-            }
-        }
-        public void MaxButtonCommand(object sender, RoutedEventArgs args)
-        {
-            if (MaxButton.IsChecked == true)
-            {
-                HourButton.IsChecked = false; DayButton.IsChecked = false; WeekButton.IsChecked = false; MonthButton.IsChecked = false; 
-            }
+            SummerPeriod.Background = new SolidColorBrush(Colors.Gray);
+            WinterPeriod.Background = new SolidColorBrush(Color.FromRgb(207, 3, 3));
+            //DisplayCSVContent([0, 1, 2, 3],"winter");
         }
 
         

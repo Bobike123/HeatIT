@@ -25,66 +25,20 @@ namespace SemesterProject.Views
             //SourceDataManager.CSVDisplayGraph(csvFilePath);
         }
 
+        public void SummerPeriodButton(object sender, RoutedEventArgs args)
+        {
+            WinterPeriod.Background = new SolidColorBrush(Colors.Gray);
+            SummerPeriod.Background = new SolidColorBrush(Color.FromRgb(207, 3, 3));
+            //DisplayCSVContent([4, 5, 6, 7],"summer");
+        }
 
-        public void HourButtonCommand(object sender, RoutedEventArgs args)
+        public void WinterPeriodButton(object sender, RoutedEventArgs args)
         {
-            if (HourButton.IsChecked == true)
-            {
-                string[] data= [];
-                data=["1","2","3"];
-                //HourGraph display
-                DisplayCSVContent();
-                //graphSettings.Text=data[0];
-                DayButton.IsChecked = false; WeekButton.IsChecked = false; MonthButton.IsChecked = false;   MaxButton.IsChecked = false;
-             
-            }
+            SummerPeriod.Background = new SolidColorBrush(Colors.Gray);
+            WinterPeriod.Background = new SolidColorBrush(Color.FromRgb(207, 3, 3));
+            //DisplayCSVContent([0, 1, 2, 3],"winter");
         }
-        public void DayButtonCommand(object sender, RoutedEventArgs args)
-        {
-            if (DayButton.IsChecked == true)
-            {
-               
-                //DayGraph display
-                DisplayCSVContent();
-                HourButton.IsChecked = false; WeekButton.IsChecked = false; MonthButton.IsChecked = false;   MaxButton.IsChecked = false;
-              
-            }
-
-        }
-        public void WeekButtonCommand(object sender, RoutedEventArgs args)
-        {
-            if (WeekButton.IsChecked == true)
-            {
-               
-                //WeekGraph display
-                DisplayCSVContent();
-                HourButton.IsChecked = false; DayButton.IsChecked = false; MonthButton.IsChecked = false;   MaxButton.IsChecked = false;
-               
-            }
-        }
-        public void MonthButtonCommand(object sender, RoutedEventArgs args)
-        {
-            if (MonthButton.IsChecked == true)
-            {
-               
-                //MonthGraph display
-                DisplayCSVContent();
-                HourButton.IsChecked = false; DayButton.IsChecked = false; WeekButton.IsChecked = false;   MaxButton.IsChecked = false;
-              
-            }
-        }
-        public void MaxButtonCommand(object sender, RoutedEventArgs args)
-        {
-
-            if (MaxButton.IsChecked == true)
-            {
-                
-                //MaxGraph display
-                DisplayCSVContent();
-                HourButton.IsChecked = false; DayButton.IsChecked = false; WeekButton.IsChecked = false; MonthButton.IsChecked = false;  
-              
-            }
-        }
+        
     
     }
 
