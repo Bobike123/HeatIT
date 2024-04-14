@@ -19,13 +19,13 @@
 					<ColumnDefinition Width="*"/>
 				</Grid.ColumnDefinitions>
 				<Grid.RowDefinitions>
-					<RowDefinition Height="100"/>
-					<RowDefinition Height="*"/>
+					<RowDefinition Height="50"/>
+					<RowDefinition Height="350"/>
 					<RowDefinition Height="*"/>
                                         
 				</Grid.RowDefinitions>
 				<Border Background="Black" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="10">
-					<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">Consumption</TextBlock>
+					<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">CONSUMPTION</TextBlock>
 				</Border>
 				<Border  CornerRadius="10" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Margin="10">
                                         <Grid ShowGridLines="False"
@@ -60,16 +60,16 @@
 							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black">Heat Consumption</TextBlock>
 						</Border>
 						<Border Grid.Row="1" Grid.Column="0">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="Black">Current:</TextBlock>
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Current:</TextBlock>
 						</Border>
 						<Border Grid.Row="2" Grid.Column="0">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="Black">Highest:</TextBlock>
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Highest:</TextBlock>
 						</Border>
 						<Border Grid.Row="3" Grid.Column="0">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="Black">Lowest:</TextBlock>
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Lowest:</TextBlock>
 						</Border>
 						<Border Grid.Row="4" Grid.Column="0">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="Black">Average:</TextBlock>
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Average:</TextBlock>
 						</Border>
 					</Grid>
 				</Border>
@@ -90,16 +90,16 @@
 							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black">Electricity Consumption</TextBlock>
 						</Border>
 						<Border Grid.Row="1" Grid.Column="0">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="Black">Current:</TextBlock>
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Current:</TextBlock>
 						</Border>
 						<Border Grid.Row="2" Grid.Column="0">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="Black">Highest:</TextBlock>
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Highest:</TextBlock>
 						</Border>
 						<Border Grid.Row="3" Grid.Column="0">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="Black">Lowest:</TextBlock>
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Lowest:</TextBlock>
 						</Border>
 						<Border Grid.Row="4" Grid.Column="0">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="Black">Average:</TextBlock>
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Average:</TextBlock>
 						</Border>
 					</Grid>
 				</Border>

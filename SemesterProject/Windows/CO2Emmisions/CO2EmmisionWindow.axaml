@@ -19,13 +19,13 @@
                                 <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                                <RowDefinition Height="100"/>
-                                <RowDefinition Height="300"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="350"/>
                                 <RowDefinition Height="50"/>
                                 <RowDefinition Height="180"/>
                         </Grid.RowDefinitions>
                         <Border Background="Black" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
-                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">CO2 Emissions</TextBlock>
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">CO2 EMISSIONS</TextBlock>
                         </Border>
                         <Border Background="Gray"  Grid.Row="1" Grid.ColumnSpan="3" CornerRadius="10" Margin="10">
                                 <TextBlock Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center">Graph</TextBlock>

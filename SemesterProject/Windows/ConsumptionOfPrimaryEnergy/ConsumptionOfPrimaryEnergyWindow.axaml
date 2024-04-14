@@ -9,7 +9,7 @@
         Width="960" Height="660">
 	<Panel>
 		<Border Padding="10" Background="Gray">
-			<Grid ShowGridLines="True"
+			<Grid ShowGridLines="False"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
                         Background="LightGray">
@@ -18,18 +18,18 @@
                                 <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                                <RowDefinition Height="100"/>
-                                <RowDefinition Height="270"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="*"/>
                                 <RowDefinition Height="270"/>
                         </Grid.RowDefinitions>
                         <Border Background="Black" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
-                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30">Consumption of primary energy</TextBlock>
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">CONSUMPTION OF PRIMARY ENERGY</TextBlock>
                         </Border>
                         <Border Background="Gray"  Grid.Row="1" Grid.ColumnSpan="3" CornerRadius="10" Margin="10">
                                 <TextBlock Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center">Graph</TextBlock>
                         </Border>
                         <Border Background="Gray" CornerRadius="10" Grid.Row="2"  Grid.Column="0" Margin="10">
-					<Grid ShowGridLines="True">
+					<Grid ShowGridLines="False">
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="50" />
                                                         <ColumnDefinition Width="*" />
@@ -88,7 +88,7 @@
 					</Grid>
 				</Border>
                                 <Border Background="DarkGray" CornerRadius="10" Grid.Row="2" Grid.Column="1" Margin="10">
-					<Grid ShowGridLines="True">
+					<Grid ShowGridLines="False">
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="*" />
 							<ColumnDefinition Width="*" />
