@@ -60,7 +60,7 @@
 						</Border>
 					</Grid>
 				</Border>
-				<Border Background="White" CornerRadius="10" Grid.Row="2" Grid.Column="1" Margin="10">
+				<Border Background="DarkGray" CornerRadius="10" Grid.Row="2" Grid.Column="1" Margin="10">
 					<Grid ShowGridLines="False">
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="*" />
@@ -75,7 +75,7 @@
 						<Border Background="DarkGray" CornerRadius="10" Grid.Row="0" Grid.Column="0"  Margin="2">
 							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">Current Heating Grid</TextBlock>
 						</Border>
-						<Border Background="Yellow" CornerRadius="10" Grid.Row="1" Margin="5">
+						<Border Background="Orange" CornerRadius="10" Grid.Row="1" Margin="5">
 							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Gas Boiler</TextBlock>
 						</Border>
 						<Border Background="Red" CornerRadius="10" Grid.Row="2" Margin="5">
