@@ -1,7 +1,9 @@
-<Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+<Window
+	xmlns="https://github.com/avaloniaui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:ScottPlot="clr-namespace:ScottPlot.Avalonia;assembly=ScottPlot.Avalonia"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="SemesterProject.Views.CO2EmmisionWindow"
         Icon="/Assets/avalonia-logo.ico"
@@ -13,39 +15,39 @@
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch"
                         Background="LightGray">
-                        <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                                <RowDefinition Height="50"/>
-                                <RowDefinition Height="350"/>
-                                <RowDefinition Height="50"/>
-                                <RowDefinition Height="180"/>
-                        </Grid.RowDefinitions>
-                        <Border Background="Black" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
-                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">CO2 EMISSIONS</TextBlock>
-                        </Border>
-                        <Border Background="Gray"  Grid.Row="1" Grid.ColumnSpan="3" CornerRadius="10" Margin="10">
-                                <TextBlock Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center">Graph</TextBlock>
-                        </Border>
-                        <Border Background="White" CornerRadius="10" Grid.Row="2" Grid.ColumnSpan="3" Margin="10"/>
-                        <Border Background="White" CornerRadius="10" Grid.Row="2" Grid.Column="0" Margin="10">
-                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Highest emissions: kg/MWh(th)</TextBlock>
-                        </Border>
-                        <Border Background="White" CornerRadius="10" Grid.Row="2" Grid.Column="1" Margin="10">
-                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Lowest emissions: kg/MWh(th)</TextBlock>
-                        </Border>
-                        <Border Background="White" CornerRadius="10" Grid.Row="2" Grid.Column="2" Margin="10">
-                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Average emissions: kg/MWh(th)</TextBlock>
-                        </Border>
-                        <Border Background="White" CornerRadius="10" Grid.Row="3"  Grid.Column="0" Margin="10">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="50"/>
+					<RowDefinition Height="350"/>
+					<RowDefinition Height="50"/>
+					<RowDefinition Height="180"/>
+				</Grid.RowDefinitions>
+				<Border Background="Black" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
+					<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">CO2 EMISSIONS</TextBlock>
+				</Border>
+				<Border Background="Gray"  Grid.Row="1" Grid.ColumnSpan="3" CornerRadius="10" Margin="10">
+					<ScottPlot:AvaPlot Name="AvaPlot1"/>
+				</Border>
+				<Border Background="White" CornerRadius="10" Grid.Row="2" Grid.ColumnSpan="3" Margin="10"/>
+				<Border Background="White" CornerRadius="10" Grid.Row="2" Grid.Column="0" Margin="10">
+					<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Highest emissions: kg/MWh(th)</TextBlock>
+				</Border>
+				<Border Background="White" CornerRadius="10" Grid.Row="2" Grid.Column="1" Margin="10">
+					<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Lowest emissions: kg/MWh(th)</TextBlock>
+				</Border>
+				<Border Background="White" CornerRadius="10" Grid.Row="2" Grid.Column="2" Margin="10">
+					<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Average emissions: kg/MWh(th)</TextBlock>
+				</Border>
+				<Border Background="White" CornerRadius="10" Grid.Row="3"  Grid.Column="0" Margin="10">
 					<Grid ShowGridLines="False">
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="*" />
 							<ColumnDefinition Width="*" />
-                                                        <ColumnDefinition Width="*" />
+							<ColumnDefinition Width="*" />
 						</Grid.ColumnDefinitions>
 						<Grid.RowDefinitions>
 							<RowDefinition Height="*" />
@@ -53,7 +55,7 @@
 							<RowDefinition Height="*" />
 							<RowDefinition Height="*" />
 						</Grid.RowDefinitions>
-                                                <Border Background="Red" CornerRadius="10" Grid.Row="0" Grid.Column="0" Margin="5">
+						<Border Background="Red" CornerRadius="10" Grid.Row="0" Grid.Column="0" Margin="5">
 							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">GB</TextBlock>
 						</Border>
 						<Border Background="White" CornerRadius="10" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="10">
@@ -70,12 +72,12 @@
 						</Border>
 					</Grid>
 				</Border>
-                                <Border Background="White" CornerRadius="10" Grid.Row="3"  Grid.Column="1" Margin="10">
+				<Border Background="White" CornerRadius="10" Grid.Row="3"  Grid.Column="1" Margin="10">
 					<Grid ShowGridLines="False">
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="*" />
 							<ColumnDefinition Width="*" />
-                                                        <ColumnDefinition Width="*" />
+							<ColumnDefinition Width="*" />
 						</Grid.ColumnDefinitions>
 						<Grid.RowDefinitions>
 							<RowDefinition Height="*" />
@@ -83,7 +85,7 @@
 							<RowDefinition Height="*" />
 							<RowDefinition Height="*" />
 						</Grid.RowDefinitions>
-                                                <Border Background="Yellow" CornerRadius="10" Grid.Row="0" Grid.Column="0" Margin="5">
+						<Border Background="Yellow" CornerRadius="10" Grid.Row="0" Grid.Column="0" Margin="5">
 							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">OB</TextBlock>
 						</Border>
 						<Border Background="White" CornerRadius="10" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="10">
@@ -100,12 +102,12 @@
 						</Border>
 					</Grid>
 				</Border>
-                                <Border Background="White" CornerRadius="10" Grid.Row="3"  Grid.Column="2" Margin="10">
+				<Border Background="White" CornerRadius="10" Grid.Row="3"  Grid.Column="2" Margin="10">
 					<Grid ShowGridLines="False">
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="*" />
 							<ColumnDefinition Width="*" />
-                                                        <ColumnDefinition Width="*" />
+							<ColumnDefinition Width="*" />
 						</Grid.ColumnDefinitions>
 						<Grid.RowDefinitions>
 							<RowDefinition Height="*" />
@@ -113,7 +115,7 @@
 							<RowDefinition Height="*" />
 							<RowDefinition Height="*" />
 						</Grid.RowDefinitions>
-                                                <Border Background="Orange" CornerRadius="10" Grid.Row="0" Grid.Column="0" Margin="5">
+						<Border Background="Orange" CornerRadius="10" Grid.Row="0" Grid.Column="0" Margin="5">
 							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">GM</TextBlock>
 						</Border>
 						<Border Background="White" CornerRadius="10" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="10">

@@ -1,7 +1,9 @@
-<Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+<Window
+	xmlns="https://github.com/avaloniaui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:ScottPlot="clr-namespace:ScottPlot.Avalonia;assembly=ScottPlot.Avalonia"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="SemesterProject.Views.ConsumptionWindow"
         Icon="/Assets/avalonia-logo.ico"
@@ -22,27 +24,27 @@
 					<RowDefinition Height="50"/>
 					<RowDefinition Height="350"/>
 					<RowDefinition Height="*"/>
-                                        
 				</Grid.RowDefinitions>
 				<Border Background="Black" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="10">
 					<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">CONSUMPTION</TextBlock>
 				</Border>
 				<Border  CornerRadius="10" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Margin="10">
-                                        <Grid ShowGridLines="False"
+					<Grid ShowGridLines="False"
                                                 HorizontalAlignment="Stretch" 
                                                 VerticalAlignment="Stretch"
                                                 Background="White">
-                                                <Grid.RowDefinitions>
-                                                        <RowDefinition Height="*"/>
-                                                        <RowDefinition Height="*"/>
-                                                </Grid.RowDefinitions>
-                                        <Border Background="DarkGray" Grid.Row="0" CornerRadius="10" Margin="10">
-					        <TextBlock  x:Name="graphSettings" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center">GRAPH 1 ?!?!?!</TextBlock>
-                                        </Border>
-                                        <Border Background="DarkGray" Grid.Row="1" CornerRadius="10" Margin="10">
-					        <TextBlock   FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Center">GRAPH 2 ?!?!?!</TextBlock>
-                                        </Border>                                        </Grid>
-                                </Border>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*"/>
+							<RowDefinition Height="*"/>
+						</Grid.RowDefinitions>
+						<Border Background="DarkGray" Grid.Row="0" CornerRadius="10" Margin="10">
+							<ScottPlot:AvaPlot Name="AvaPlot1"/>
+						</Border>
+						<Border Background="DarkGray" Grid.Row="1" CornerRadius="10" Margin="10">
+							<ScottPlot:AvaPlot Name="AvaPlot2"/>
+						</Border>
+					</Grid>
+				</Border>
 				<Border Background="White" CornerRadius="10" Grid.Row="2" Grid.Column="0" Margin="10">
 					<Grid ShowGridLines="False">
 						<Grid.ColumnDefinitions>

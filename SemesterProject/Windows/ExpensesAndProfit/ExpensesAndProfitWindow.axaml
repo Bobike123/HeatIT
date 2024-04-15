@@ -1,7 +1,9 @@
-<Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+<Window
+	xmlns="https://github.com/avaloniaui"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:ScottPlot="clr-namespace:ScottPlot.Avalonia;assembly=ScottPlot.Avalonia"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="SemesterProject.Views.ExpensesAndProfitWindow"
         Icon="/Assets/avalonia-logo.ico"
@@ -22,39 +24,38 @@
 					<RowDefinition Height="50"/>
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="50"/>
-                                        <RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
 					<RowDefinition Height="50"/>
 				</Grid.RowDefinitions>
 				<Border Background="Black" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="10">
 					<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">EXPENSES AND PROFIT</TextBlock>
-                                </Border>
-                                <Border Background="Gray"  Grid.Row="1" Grid.ColumnSpan="3" CornerRadius="10" Margin="10">
-                                        <TextBlock Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center">Money Graph</TextBlock>
-                                </Border>
-                                <Border Background="Gray"  Grid.Row="3" Grid.ColumnSpan="3" CornerRadius="10" Margin="10">
-                                        <TextBlock Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center">Second Graph?</TextBlock>
-                                </Border>
-                                <Border Background="White" CornerRadius="10" Grid.Row="2" Grid.ColumnSpan="3" Margin="10"/>
-                                <Border Background="White" CornerRadius="10" Grid.Row="5" Grid.ColumnSpan="3" Margin="10"/>
-                                <Border Background="White" Grid.Row="2" CornerRadius="10" Margin="10">
-                                        <TextBlock Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center">Highest Expenses :</TextBlock>
-                                </Border>
-                                <Border Background="White" Grid.Row="2" Grid.Column="1" CornerRadius="10" Margin="10">
-                                        <TextBlock Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center">Lowest Expenses :</TextBlock>
-                                </Border>
-                                <Border Background="White" Grid.Row="2" Grid.Column="2" CornerRadius="10" Margin="10">
-                                        <TextBlock Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center">Average Expenses :</TextBlock>
-                                </Border>
-
-                                <Border Background="White" Grid.Row="5" CornerRadius="10" Margin="10">
-                                        <TextBlock Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center">Highest Profit :</TextBlock>
-                                </Border>
-                                <Border Background="White" Grid.Row="5" Grid.Column="1" CornerRadius="10" Margin="10">
-                                        <TextBlock Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center">Lowest Profit :</TextBlock>
-                                </Border>
-                                <Border Background="White" Grid.Row="5" Grid.Column="2" CornerRadius="10" Margin="10">
-                                        <TextBlock Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center">Average Profit :</TextBlock>
-                                </Border>
+				</Border>
+				<Border Background="Gray"  Grid.Row="1" Grid.ColumnSpan="3" CornerRadius="10" Margin="10">
+					<ScottPlot:AvaPlot Name="AvaPlot1"/>
+				</Border>
+				<Border Background="Gray"  Grid.Row="3" Grid.ColumnSpan="3" CornerRadius="10" Margin="10">
+					<ScottPlot:AvaPlot Name="AvaPlot2"/>
+				</Border>
+				<Border Background="White" CornerRadius="10" Grid.Row="2" Grid.ColumnSpan="3" Margin="10"/>
+				<Border Background="White" CornerRadius="10" Grid.Row="5" Grid.ColumnSpan="3" Margin="10"/>
+				<Border Background="White" Grid.Row="2" CornerRadius="10" Margin="10">
+					<TextBlock Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center">Highest Expenses :</TextBlock>
+				</Border>
+				<Border Background="White" Grid.Row="2" Grid.Column="1" CornerRadius="10" Margin="10">
+					<TextBlock Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center">Lowest Expenses :</TextBlock>
+				</Border>
+				<Border Background="White" Grid.Row="2" Grid.Column="2" CornerRadius="10" Margin="10">
+					<TextBlock Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center">Average Expenses :</TextBlock>
+				</Border>
+				<Border Background="White" Grid.Row="5" CornerRadius="10" Margin="10">
+					<TextBlock Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center">Highest Profit :</TextBlock>
+				</Border>
+				<Border Background="White" Grid.Row="5" Grid.Column="1" CornerRadius="10" Margin="10">
+					<TextBlock Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center">Lowest Profit :</TextBlock>
+				</Border>
+				<Border Background="White" Grid.Row="5" Grid.Column="2" CornerRadius="10" Margin="10">
+					<TextBlock Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center">Average Profit :</TextBlock>
+				</Border>
 			</Grid>
 		</Border>
 	</Panel>
