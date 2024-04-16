@@ -1,21 +1,13 @@
-using System;
 using Avalonia;
 using System.IO;
 using Avalonia.Media;
-using Avalonia.Logging;
 using Avalonia.Controls;
-using System.Diagnostics;
 using ScottPlot.Avalonia;
-using Avalonia.Markup.Xaml;
-using Avalonia.Diagnostics;
 using Avalonia.Interactivity;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Scripting;
-using ScottPlot.Colormaps;
+
 
 namespace SemesterProject.Views
 {
-
     public partial class HeatDemandWindow : Window
     {
         public HeatDemandWindow()

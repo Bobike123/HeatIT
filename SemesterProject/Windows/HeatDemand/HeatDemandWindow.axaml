@@ -113,7 +113,7 @@
 							VerticalContentAlignment="Center" 
 							Foreground="White" 
 							FontSize="20"
-							Background="#CF0303"
+							Background="Gray"
 							CornerRadius="10">
 							Summer Period</Button>
 						</Border>

@@ -61,11 +61,9 @@
 						</Border>
 					</Grid>
 				</Border>
-				<Border Background="White" CornerRadius="10" Grid.Row="2" Grid.Column="1" Margin="10">
+				<Border Background="DarkGray" CornerRadius="10" Grid.Row="2" Grid.Column="1" Margin="10">
 					<Grid ShowGridLines="False">
 						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="*" />
-							<ColumnDefinition Width="*" />
 							<ColumnDefinition Width="*" />
 						</Grid.ColumnDefinitions>
 						<Grid.RowDefinitions>
@@ -75,44 +73,20 @@
 							<RowDefinition Height="*" />
 							<RowDefinition Height="*" />
 						</Grid.RowDefinitions>
-						<Border Background="DarkGray" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Current Heating Grid</TextBlock>
+						<Border Background="DarkGray" CornerRadius="10" Grid.Row="0" Grid.Column="0"  Margin="2">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">Current Heating Grid</TextBlock>
 						</Border>
-						<Border Background="Green" CornerRadius="10" Grid.Row="1" Grid.Column="0" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">GB1</TextBlock>
+						<Border Background="Orange" CornerRadius="10" Grid.Row="1" Margin="5">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Gas Boiler</TextBlock>
 						</Border>
-						<Border Background="Orange" CornerRadius="10" Grid.Row="1" Grid.Column="1" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">OB1</TextBlock>
+						<Border Background="Red" CornerRadius="10" Grid.Row="2" Margin="5">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Oil Boiler</TextBlock>
 						</Border>
-						<Border Background="Red" CornerRadius="10" Grid.Row="1" Grid.Column="2" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">GM2</TextBlock>
+						<Border Background="Blue" CornerRadius="10" Grid.Row="3" Margin="5">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Gas Motor</TextBlock>
 						</Border>
-						<Border Background="Green" CornerRadius="10" Grid.Row="2" Grid.Column="0" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">GB2</TextBlock>
-						</Border>
-						<Border Background="Orange" CornerRadius="10" Grid.Row="2" Grid.Column="1" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">OB2</TextBlock>
-						</Border>
-						<Border Background="Yellow" CornerRadius="10" Grid.Row="2" Grid.Column="2" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">EK1</TextBlock>
-						</Border>
-						<Border Background="Green" CornerRadius="10" Grid.Row="3" Grid.Column="0" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">GB3</TextBlock>
-						</Border>
-						<Border Background="Orange" CornerRadius="10" Grid.Row="3" Grid.Column="1" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">OB3</TextBlock>
-						</Border>
-						<Border Background="Yellow" CornerRadius="10" Grid.Row="3" Grid.Column="2" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">EK2</TextBlock>
-						</Border>
-						<Border Background="Green" CornerRadius="10" Grid.Row="4" Grid.Column="0" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">GB4</TextBlock>
-						</Border>
-						<Border Background="Red" CornerRadius="10" Grid.Row="4" Grid.Column="1" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">GM1</TextBlock>
-						</Border>
-						<Border Background="Yellow" CornerRadius="10" Grid.Row="4" Grid.Column="2" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="16">EK3</TextBlock>
+						<Border Background="Green" CornerRadius="10" Grid.Row="4" Margin="5">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Electric Boiler</TextBlock>
 						</Border>
 					</Grid>
 				</Border>

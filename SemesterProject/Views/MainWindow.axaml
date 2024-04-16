@@ -56,7 +56,7 @@
     </Window.Styles>
 	<Panel>
 		<Border Padding="10" Background="Gray">
-			<Grid ShowGridLines="false"
+			<Grid ShowGridLines="True"
 				HorizontalAlignment="Stretch" 
 				VerticalAlignment="Stretch"
 				Background="LightGray">

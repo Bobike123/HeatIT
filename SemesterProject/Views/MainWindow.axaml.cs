@@ -1,12 +1,6 @@
 using Avalonia;
-using System;
-using Avalonia.Media;
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
-using Avalonia.Diagnostics;
 using Avalonia.Interactivity;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Microsoft.CodeAnalysis.CSharp.Scripting;
 
 namespace SemesterProject.Views
 {
@@ -16,10 +10,6 @@ namespace SemesterProject.Views
         {
             InitializeComponent();
             this.AttachDevTools();
-        }
-        public void ShowMore(object sender, RoutedEventArgs args)
-        {
-
         }
 
         public void ModifyProfitExpensesIncome(object sender, RoutedEventArgs args)

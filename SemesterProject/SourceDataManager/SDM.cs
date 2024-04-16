@@ -14,9 +14,7 @@ namespace SemesterProject.Views
         public static string[][] CSVDisplayGraph(string filePath, int[] columns)
         {
             // Read from the CSV file
-            string[][
-
-            ] data;
+            string[][] data;
             using (StreamReader reader = new StreamReader(filePath))
             {
                 string[] lines = File.ReadAllLines(filePath);
