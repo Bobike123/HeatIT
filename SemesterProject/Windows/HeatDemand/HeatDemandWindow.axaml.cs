@@ -40,10 +40,10 @@ namespace SemesterProject.Views
                 if(double.Parse(newData[i][2])<min)min=double.Parse(newData[i][2]);
                 count = (count + 1) % 24;
             }
-            av=(max*min)/2;
-            highest.Text=max.ToString();
-            lowest.Text=min.ToString();
-            average.Text=av.ToString();
+            av=(max+min)/2;
+            highest.Text=max.ToString("0.00");
+            lowest.Text=min.ToString("0.00");
+            average.Text=av.ToString("0.00");
             
             if (period == "summer") avaPlot1.Plot.Title("Heat Demand Graph for Summer Period");
             else avaPlot1.Plot.Title("Heat Demand Graph for Winter Period");
