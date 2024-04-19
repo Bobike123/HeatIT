@@ -1,4 +1,5 @@
 using Avalonia;
+using SemesterProject;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 
@@ -8,6 +9,8 @@ namespace SemesterProject.Views
     {
         public MainWindow()
         {
+            ReadFile assetManager = new ReadFile();
+            assetManager.Load();
             InitializeComponent();
             this.AttachDevTools();
         }
