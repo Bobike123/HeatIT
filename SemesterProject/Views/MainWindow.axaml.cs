@@ -10,7 +10,7 @@ namespace SemesterProject.Views
         public MainWindow()
         {
             ReadFile assetManager = new ReadFile();
-            assetManager.Load();
+            assetManager.Save();
             InitializeComponent();
             this.AttachDevTools();
         }
