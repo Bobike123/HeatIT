@@ -15,10 +15,10 @@ namespace SemesterProject
         public static string PathJson = Path.Combine(Directory.GetCurrentDirectory(), "AssetManager", "units.json");
         public static ProductionUnit[] productionUnits =
         [
-            new ProductionUnit("GB", 5.0, 0, 500, 215, "gas"),
-            new ProductionUnit("OB", 4.0, 0, 700, 265, "oil"),
-            new ProductionUnit("GM", 3.6, 2.7, 1100, 640, "gas"),
-            new ProductionUnit("EK", 8.0, -8.0, 50, 0, "electricity"),
+            new ProductionUnit("GB", "5.0", "0", "500", "215", "gas"),
+            new ProductionUnit("OB", "4.0", "0", "700", "265", "oil"),
+            new ProductionUnit("GM", "3.6", "2.7", "1100", "640", "gas"),
+            new ProductionUnit("EK", "8.0", "-8.0", "50", "0", "electricity"),
         ];
         public void Save()
         {

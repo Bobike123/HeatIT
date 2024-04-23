@@ -5,14 +5,14 @@ namespace SemesterProject
 {
     public class ProductionUnit
     {
-        public string Name {get; set;} //GB OB GM or EK
-        public double MaxHeat {get; set;} //MW
-        public double MaxElectricity {get; set;} //MW 
-        public double ProductionCosts {get; set;} //DKK/MWh(th)
-        public double CO2Emissions {get; set;} //kg/MWh(th)
-        public string FuelType {get; set;} //gas oil or electricity
+        public string? Name {get; set;} //GB OB GM or EK
+        public string? MaxHeat {get; set;} //MW
+        public string? MaxElectricity {get; set;} //MW 
+        public string? ProductionCosts {get; set;} //DKK/MWh(th)
+        public string? CO2Emissions {get; set;} //kg/MWh(th)
+        public string? FuelType {get; set;} //gas oil or electricity
 
-        public ProductionUnit(string name, double maxHeat, double maxElectricity, double productionCosts, double co2Emissions, string fuelType)
+        public ProductionUnit(string name, string maxHeat, string maxElectricity, string productionCosts, string co2Emissions, string fuelType)
         {
             Name = name;
             MaxHeat = maxHeat;
@@ -28,7 +28,7 @@ namespace SemesterProject
                 if (unit.Name == name)
                 return unit;
             }
-            return new ProductionUnit("", 0, 0, 0, 0, "");
+            return new ProductionUnit("", "", "", "", "", "");
         }
     }
 

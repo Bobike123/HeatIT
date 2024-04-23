@@ -22,29 +22,22 @@
 					<RowDefinition Height="50"/>
 					<RowDefinition Height="*"/>
 					<RowDefinition Height="*"/>
+					<RowDefinition Height="100"/>
 				</Grid.RowDefinitions>
 				<!--Page Title -->
 				<Border Background="Black" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
-					<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">PRODUCTION UNITS</TextBlock>
+					<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">PRODUCTION UNITS</TextBlock>
 				</Border>
 				<!--First Box Left -->
 				<Border Background="White" CornerRadius="10" Grid.Row="1" Grid.Column="0" Margin="5">
 					<Grid ShowGridLines="false" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 						<Grid.RowDefinitions>
-							<RowDefinition Height="20"/>
-							<RowDefinition Height="*"/>
 							<RowDefinition Height="*"/>
 						</Grid.RowDefinitions>
 						<!--Tag-->
-						<Border>
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="17" Foreground="Black">GAS BOILER</TextBlock>
-						</Border>
 						<!--Picture-->
-						<Border Grid.Row = "1" Margin="10,0,10,0">
-							<Image Source ="/Assets/GasBoiler.jpg" Stretch="Fill"></Image>
-						</Border>
 						<!--Data-->
-						<Border Grid.Row = "2">
+						<Border Grid.Row = "1">
 							<Grid ShowGridLines="false"
 								HorizontalAlignment="Stretch" 
 								VerticalAlignment="Stretch">
@@ -86,12 +79,12 @@
 											<RowDefinition Height="*"/>
 											<RowDefinition Height="*"/>
 										</Grid.RowDefinitions>
-										<TextBlock x:Name="GasBoiler" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black">Gas Boiler</TextBlock>
-										<TextBlock x:Name="GBMH" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
-										<TextBlock x:Name="GBME" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
-										<TextBlock x:Name="GBPC" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
-										<TextBlock x:Name="GBCO2" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
-										<TextBlock x:Name="GBFT" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
+										<TextBox x:Name="AName" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black" >Gas Boiler</TextBox>
+										<TextBox x:Name="AMH" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >5.0</TextBox>
+										<TextBox x:Name="AME" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >0</TextBox>
+										<TextBox x:Name="APC" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >500</TextBox>
+										<TextBox x:Name="ACO2" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >215</TextBox>
+										<TextBox x:Name="AFT" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >Gas</TextBox>
 									</Grid>
 								</Border>
 							</Grid>
@@ -102,20 +95,12 @@
 				<Border Background="White" CornerRadius="10" Grid.Row="1" Grid.Column="1"  Margin="5">
 					<Grid ShowGridLines="false" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 						<Grid.RowDefinitions>
-							<RowDefinition Height="20"/>
-							<RowDefinition Height="*"/>
 							<RowDefinition Height="*"/>
 						</Grid.RowDefinitions>
 						<!--Tag-->
-						<Border>
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="17" Foreground="Black">OIL BOILER</TextBlock>
-						</Border>
 						<!--Picture-->
-						<Border Grid.Row = "1" Margin="10,0,10,0">
-							<Image Source ="/Assets/OilBoiler.jpg" Stretch="Fill"></Image>
-						</Border>
 						<!--Data-->
-						<Border Grid.Row = "2">
+						<Border Grid.Row = "1">
 							<Grid ShowGridLines="false"
 								HorizontalAlignment="Stretch" 
 								VerticalAlignment="Stretch">
@@ -157,12 +142,12 @@
 											<RowDefinition Height="*"/>
 											<RowDefinition Height="*"/>
 										</Grid.RowDefinitions>
-										<TextBlock x:Name="OilBoiler" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black">Oil Boiler</TextBlock>
-										<TextBlock x:Name="OBMH" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
-										<TextBlock x:Name="OBME" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
-										<TextBlock x:Name="OBPC" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
-										<TextBlock x:Name="OBCO2" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
-										<TextBlock x:Name="OBFT" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
+										<TextBox x:Name="BName" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black" >Oil Boiler</TextBox>
+										<TextBox x:Name="BMH" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >4.0</TextBox>
+										<TextBox x:Name="BME" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >0</TextBox>
+										<TextBox x:Name="BPC" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >700</TextBox>
+										<TextBox x:Name="BCO2" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >265</TextBox>
+										<TextBox x:Name="BFT" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >Oil</TextBox>
 									</Grid>
 								</Border>
 							</Grid>
@@ -173,18 +158,10 @@
 				<Border Background="White" CornerRadius="10" Grid.Row="2" Grid.Column="0"  Margin="5">
 					<Grid ShowGridLines="false" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 						<Grid.RowDefinitions>
-							<RowDefinition Height="20"/>
-							<RowDefinition Height="*"/>
 							<RowDefinition Height="*"/>
 						</Grid.RowDefinitions>
 						<!--Tag-->
-						<Border>
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="17" Foreground="Black">GAS BOILER</TextBlock>
-						</Border>
 						<!--Picture-->
-						<Border Grid.Row = "1" Margin="10,0,10,0">
-							<Image Source ="/Assets/GasMotor.jpg" Stretch="Fill"></Image>
-						</Border>
 						<!--Data-->
 						<Border Grid.Row = "2">
 							<Grid ShowGridLines="false"
@@ -228,12 +205,12 @@
 											<RowDefinition Height="*"/>
 											<RowDefinition Height="*"/>
 										</Grid.RowDefinitions>
-										<TextBlock x:Name="GasMotor" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black">Gas Motor</TextBlock>
-										<TextBlock x:Name="GMMH" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
-										<TextBlock x:Name="GMME" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
-										<TextBlock x:Name="GMPC" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
-										<TextBlock x:Name="GMCO2" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
-										<TextBlock x:Name="GMFT" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
+										<TextBox x:Name="CName" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black">Gas Motor</TextBox>
+										<TextBox x:Name="CMH" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >3.6</TextBox>
+										<TextBox x:Name="CME" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >2.7</TextBox>
+										<TextBox x:Name="CPC" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >1100</TextBox>
+										<TextBox x:Name="CCO2" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >640</TextBox>
+										<TextBox x:Name="CFT" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >Gas</TextBox>
 									</Grid>
 								</Border>
 							</Grid>
@@ -244,20 +221,12 @@
 				<Border Background="White" CornerRadius="10" Grid.Row="2" Grid.Column="1"  Margin="5">
 					<Grid ShowGridLines="false" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 						<Grid.RowDefinitions>
-							<RowDefinition Height="20"/>
-							<RowDefinition Height="*"/>
 							<RowDefinition Height="*"/>
 						</Grid.RowDefinitions>
 						<!--Tag-->
-						<Border>
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="17" Foreground="Black">ELECTRIC BOILER</TextBlock>
-						</Border>
 						<!--Picture-->
-						<Border Grid.Row = "1" Margin="10,0,10,0" >
-							<Image  Source ="/Assets/ElectricBoiler.jpg" Stretch="Fill"></Image>
-						</Border>
 						<!--Data-->
-						<Border Grid.Row = "2">
+						<Border Grid.Row = "1">
 							<Grid ShowGridLines="false"
 								HorizontalAlignment="Stretch" 
 								VerticalAlignment="Stretch">
@@ -299,17 +268,27 @@
 											<RowDefinition Height="*"/>
 											<RowDefinition Height="*"/>
 										</Grid.RowDefinitions>
-										<TextBlock x:Name="ElectricBoiler" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black">Electric Boiler</TextBlock>
-										<TextBlock x:Name="EBMH" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
-										<TextBlock x:Name="EBME" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
-										<TextBlock x:Name="EBPC" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
-										<TextBlock x:Name="EBCO2" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
-										<TextBlock x:Name="EBFT" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
+										<TextBox x:Name="DName" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black">Electric Boiler</TextBox>
+										<TextBox x:Name="DMH" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >8.0</TextBox>
+										<TextBox x:Name="DME" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >-8.0</TextBox>
+										<TextBox x:Name="DPC" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >50</TextBox>
+										<TextBox x:Name="DCO2" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >0</TextBox>
+										<TextBox x:Name="DFT" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >Electricity</TextBox>
 									</Grid>
 								</Border>
 							</Grid>
 						</Border>
 					</Grid>
+				</Border>
+				<Border Background="Black" Grid.Row="3" Grid.ColumnSpan="2" CornerRadius="10" Margin="10">
+					<Button
+					Click="GetTableContent" 
+					HorizontalAlignment="Stretch" 
+					VerticalAlignment="Stretch" 
+					HorizontalContentAlignment="Center"
+					VerticalContentAlignment="Center">
+					<TextBlock x:Name="SaveButton" FontSize="30">Save</TextBlock>
+					</Button>
 				</Border>
 			</Grid>
 		</Border>

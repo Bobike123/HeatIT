@@ -78,6 +78,10 @@
               "target": "Package",
               "version": "[11.0.10, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
             "ScottPlot.Avalonia": {
               "target": "Package",
               "version": "[5.0.25, )"
