@@ -79,12 +79,12 @@
 											<RowDefinition Height="*"/>
 											<RowDefinition Height="*"/>
 										</Grid.RowDefinitions>
-										<TextBox x:Name="AName" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black" >Gas Boiler</TextBox>
-										<TextBox x:Name="AMH" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >5.0</TextBox>
-										<TextBox x:Name="AME" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >0</TextBox>
-										<TextBox x:Name="APC" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >500</TextBox>
-										<TextBox x:Name="ACO2" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >215</TextBox>
-										<TextBox x:Name="AFT" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >Gas</TextBox>
+										<TextBox x:Name="AName" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue" >Gas Boiler</TextBox>
+										<TextBox x:Name="AMH" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue"  >5.0</TextBox>
+										<TextBox x:Name="AME" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue"  >0</TextBox>
+										<TextBox x:Name="APC" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue"  >500</TextBox>
+										<TextBox x:Name="ACO2" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue"  >215</TextBox>
+										<TextBox x:Name="AFT" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue"  >Gas</TextBox>
 									</Grid>
 								</Border>
 							</Grid>
@@ -142,12 +142,12 @@
 											<RowDefinition Height="*"/>
 											<RowDefinition Height="*"/>
 										</Grid.RowDefinitions>
-										<TextBox x:Name="BName" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black" >Oil Boiler</TextBox>
-										<TextBox x:Name="BMH" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >4.0</TextBox>
-										<TextBox x:Name="BME" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >0</TextBox>
-										<TextBox x:Name="BPC" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >700</TextBox>
-										<TextBox x:Name="BCO2" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >265</TextBox>
-										<TextBox x:Name="BFT" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >Oil</TextBox>
+										<TextBox x:Name="BName" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue" >Oil Boiler</TextBox>
+										<TextBox x:Name="BMH" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue"  >4.0</TextBox>
+										<TextBox x:Name="BME" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue"  >0</TextBox>
+										<TextBox x:Name="BPC" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue"  >700</TextBox>
+										<TextBox x:Name="BCO2" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue"  >265</TextBox>
+										<TextBox x:Name="BFT" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue"  >Oil</TextBox>
 									</Grid>
 								</Border>
 							</Grid>
@@ -205,12 +205,12 @@
 											<RowDefinition Height="*"/>
 											<RowDefinition Height="*"/>
 										</Grid.RowDefinitions>
-										<TextBox x:Name="CName" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black">Gas Motor</TextBox>
-										<TextBox x:Name="CMH" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >3.6</TextBox>
-										<TextBox x:Name="CME" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >2.7</TextBox>
-										<TextBox x:Name="CPC" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >1100</TextBox>
-										<TextBox x:Name="CCO2" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >640</TextBox>
-										<TextBox x:Name="CFT" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >Gas</TextBox>
+										<TextBox x:Name="CName" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue">Gas Motor</TextBox>
+										<TextBox x:Name="CMH" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue"  >3.6</TextBox>
+										<TextBox x:Name="CME" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue"  >2.7</TextBox>
+										<TextBox x:Name="CPC" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue"  >1100</TextBox>
+										<TextBox x:Name="CCO2" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue"  >640</TextBox>
+										<TextBox x:Name="CFT" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue"  >Gas</TextBox>
 									</Grid>
 								</Border>
 							</Grid>
@@ -268,12 +268,12 @@
 											<RowDefinition Height="*"/>
 											<RowDefinition Height="*"/>
 										</Grid.RowDefinitions>
-										<TextBox x:Name="DName" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black">Electric Boiler</TextBox>
-										<TextBox x:Name="DMH" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >8.0</TextBox>
-										<TextBox x:Name="DME" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >-8.0</TextBox>
-										<TextBox x:Name="DPC" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >50</TextBox>
-										<TextBox x:Name="DCO2" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >0</TextBox>
-										<TextBox x:Name="DFT" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Black"  >Electricity</TextBox>
+										<TextBox x:Name="DName" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue">Electric Boiler</TextBox>
+										<TextBox x:Name="DMH" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue"  >8.0</TextBox>
+										<TextBox x:Name="DME" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue"  >-8.0</TextBox>
+										<TextBox x:Name="DPC" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue"  >50</TextBox>
+										<TextBox x:Name="DCO2" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue"  >0</TextBox>
+										<TextBox x:Name="DFT" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="20" Background="White" Foreground="Blue"  >Electricity</TextBox>
 									</Grid>
 								</Border>
 							</Grid>
@@ -282,7 +282,7 @@
 				</Border>
 				<Border Background="Black" Grid.Row="3" Grid.ColumnSpan="2" CornerRadius="10" Margin="10">
 					<Button
-					Click="GetTableContent" 
+					Click="SaveTableContent" 
 					HorizontalAlignment="Stretch" 
 					VerticalAlignment="Stretch" 
 					HorizontalContentAlignment="Center"

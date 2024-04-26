@@ -23,7 +23,7 @@ namespace SemesterProject
         public void Save()
         {
             string? json = JsonSerializer.Serialize(productionUnits);
-            File.WriteAllText(PathJson, json);
+            File.WriteAllText(Path.Combine(Directory.GetCurrentDirectory(), "ResultDataManager", "SavedJsonData.json"), json);
         }
         public void Load()
         {

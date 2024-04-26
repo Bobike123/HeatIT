@@ -1,1 +1,34 @@
-[{"Name":"GB","MaxHeat":"5.0","MaxElectricity":"0","ProductionCosts":"500","CO2Emissions":"215","FuelType":"gas"},{"Name":"OB","MaxHeat":"4.0","MaxElectricity":"0","ProductionCosts":"700","CO2Emissions":"265","FuelType":"oil"},{"Name":"GM","MaxHeat":"3.6","MaxElectricity":"2.7","ProductionCosts":"1100","CO2Emissions":"640","FuelType":"gas"},{"Name":"EK","MaxHeat":"8.0","MaxElectricity":"-8.0","ProductionCosts":"50","CO2Emissions":"0","FuelType":"electricity"}]
+[
+    {
+        "Name": "GB",
+        "MaxHeat": "5.0",
+        "MaxElectricity": "0",
+        "ProductionCosts": "500",
+        "CO2Emissions": "215",
+        "FuelType": "gas"
+    },
+    {
+        "Name": "OB",
+        "MaxHeat": "4.0",
+        "MaxElectricity": "0",
+        "ProductionCosts": "700",
+        "CO2Emissions": "265",
+        "FuelType": "oil"
+    },
+    {
+        "Name": "GM",
+        "MaxHeat": "3.6",
+        "MaxElectricity": "2.7",
+        "ProductionCosts": "1100",
+        "CO2Emissions": "640",
+        "FuelType": "gas"
+    },
+    {
+        "Name": "EK",
+        "MaxHeat": "8.0",
+        "MaxElectricity": "-8.0",
+        "ProductionCosts": "50",
+        "CO2Emissions": "0",
+        "FuelType": "electricity"
+    }
+]

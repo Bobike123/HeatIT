@@ -16,7 +16,7 @@ namespace SemesterProject.Views
             this.AttachDevTools();
         }
 
-        public void DisplayCSVContent(int[] columns, string period)
+        public void DisplayHeatDemandContent(int[] columns, string period)
         {
             AvaPlot avaPlot1 = this.Find<AvaPlot>("AvaPlot1")!;//initializes the graph
             avaPlot1.Plot.Clear();
@@ -54,14 +54,14 @@ namespace SemesterProject.Views
         {
             WinterPeriod.Background = new SolidColorBrush(Colors.Gray);
             SummerPeriod.Background = new SolidColorBrush(Color.FromRgb(207, 3, 3));
-            DisplayCSVContent([4,6],"summer");//4 date 6 heat demand
+            DisplayHeatDemandContent([4,6],"summer");//4 date 6 heat demand
         }
 
         public void WinterPeriodButton(object sender, RoutedEventArgs args)
         {
             SummerPeriod.Background = new SolidColorBrush(Colors.Gray);
             WinterPeriod.Background = new SolidColorBrush(Color.FromRgb(207, 3, 3));
-            DisplayCSVContent([0, 2],"winter");//0 date 2 heat demand
+            DisplayHeatDemandContent([0, 2],"winter");//0 date 2 heat demand
         }
     }
 }
