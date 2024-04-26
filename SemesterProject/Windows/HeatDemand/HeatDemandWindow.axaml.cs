@@ -15,28 +15,32 @@ namespace SemesterProject.Views
             InitializeComponent();
             this.AttachDevTools();
         }
+
         public void DisplayCSVContent(int[] columns, string period)
         {
-            AvaPlot avaPlot1 = this.Find<AvaPlot>("AvaPlot1")!;
+            AvaPlot avaPlot1 = this.Find<AvaPlot>("AvaPlot1")!;//initializes the graph
             avaPlot1.Plot.Clear();
-            var csvFilePath = Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv");
-            string[][] newData = SourceDataManager.CSVDisplayGraph(csvFilePath, columns);
+            //clears the graph if any previous information was displayed on it
+            string[][] newData = SourceDataManager.CSVDisplayGraph(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv"), columns);
+            //newData is siplified data that can be used for the graph
             double min=200,max=-1, av;
             double[] data_X = new double[newData.Length], data_Y = new double[newData.Length];
-            int count = 0;
+            int count = 0;//cout for the 24 hours of the day used for the x axis
             for (int i = 0; i < newData.Length; i++)
             {
-                data_X[i] = double.Parse(newData[i][0]) + count * 0.041;
-                data_Y[i] = double.Parse(newData[i][2]);
-                if(double.Parse(newData[i][2])>max)max=double.Parse(newData[i][2]);
-                if(double.Parse(newData[i][2])<min)min=double.Parse(newData[i][2]);
+                data_X[i] = double.Parse(newData[i][0]) + count * 0.041;//creates the x axis
+                data_Y[i] = double.Parse(newData[i][1]);                //creates the y axis
+                if(double.Parse(newData[i][1])>max)max=double.Parse(newData[i][1]);//calculates the maximum variable
+                if(double.Parse(newData[i][1])<min)min=double.Parse(newData[i][1]);//calculates the minimum variable
                 count = (count + 1) % 24;
             }
+            //modifies the highest lowest and average data from the axaml file
             av=(max+min)/2;
             highest.Text=max.ToString("0.00");
             lowest.Text=min.ToString("0.00");
             average.Text=av.ToString("0.00");
             
+            //modifies the title of the graph depending on the time of the year
             if (period == "summer") avaPlot1.Plot.Title("Heat Demand Graph for Summer Period");
             else avaPlot1.Plot.Title("Heat Demand Graph for Winter Period");
             avaPlot1.Plot.XLabel("Days");
@@ -46,19 +50,18 @@ namespace SemesterProject.Views
             avaPlot1.Plot.Axes.SetLimitsY(0,9);//comparation of the two periods
             avaPlot1.Refresh();
         }
-
         public void SummerPeriodButton(object sender, RoutedEventArgs args)
         {
             WinterPeriod.Background = new SolidColorBrush(Colors.Gray);
             SummerPeriod.Background = new SolidColorBrush(Color.FromRgb(207, 3, 3));
-            DisplayCSVContent([4, 5, 6, 7],"summer");
+            DisplayCSVContent([4,6],"summer");//4 date 6 heat demand
         }
 
         public void WinterPeriodButton(object sender, RoutedEventArgs args)
         {
             SummerPeriod.Background = new SolidColorBrush(Colors.Gray);
             WinterPeriod.Background = new SolidColorBrush(Color.FromRgb(207, 3, 3));
-            DisplayCSVContent([0, 1, 2, 3],"winter");
+            DisplayCSVContent([0, 2],"winter");//0 date 2 heat demand
         }
     }
 }
