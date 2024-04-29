@@ -26,7 +26,6 @@ namespace SemesterProject.Views
             //clears the graph if any previous information was displayed on it
             string[][] newData = SourceDataManager.CSVDisplayGraph(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv"), columns);
             //newData is siplified data that can be used for the graph
-            double min = 200, max = -1, av;
             double[] data_X = new double[newData.Length];
             double[] data_Y = new double[newData.Length]; 
             double[] yAxis = new double[newData.Length];
@@ -36,17 +35,11 @@ namespace SemesterProject.Views
             {
                 data_X[i] = double.Parse(newData[i][0]) + count * 0.041;//creates the x axis
                 data_Y[i] = double.Parse(newData[i][1]);                //creates the y axis
-                if (double.Parse(newData[i][1]) > max) max = double.Parse(newData[i][1]);//calculates the maximum variable
-                if (double.Parse(newData[i][1]) < min) min = double.Parse(newData[i][1]);//calculates the minimum variable
                 count = (count + 1) % 24;
                 yAxis[i] = 0;
                 boilBoiler[i] = double.Parse(ReadFile.productionUnits[0].MaxHeat!);
             }
             //modifies the highest lowest and average data from the axaml file
-            av = (max + min) / 2;
-            highest.Text = max.ToString("0.00");
-            lowest.Text = min.ToString("0.00");
-            average.Text = av.ToString("0.00");
 
             avaPlot1.Plot.XLabel("Days");
             avaPlot1.Plot.YLabel("MWh");
@@ -58,13 +51,13 @@ namespace SemesterProject.Views
             if (period == "summer") 
             {
                 avaPlot1.Plot.Title("Heat Demand Graph for Summer Period");
-                avaPlot1.Plot.Add.FillY(data_X, yAxis, data_Y);
+                avaPlot1.Plot.Add.FillY(data_X, yAxis, data_Y).FillStyle.Color = ScottPlot.Color.FromHex("#FFA500");;
             }
             else 
             {
                 avaPlot1.Plot.Title("Heat Demand Graph for Winter Period");
-                avaPlot1.Plot.Add.FillY(data_X, yAxis, boilBoiler);
-                avaPlot1.Plot.Add.FillY(data_X, boilBoiler, data_Y);
+                avaPlot1.Plot.Add.FillY(data_X, boilBoiler, data_Y).FillStyle.Color = ScottPlot.Color.FromHex("#FFA500");
+                avaPlot1.Plot.Add.FillY(data_X, yAxis, boilBoiler).FillStyle.Color = ScottPlot.Color.FromHex("#ff0000");;
             }
 
             avaPlot1.Refresh();

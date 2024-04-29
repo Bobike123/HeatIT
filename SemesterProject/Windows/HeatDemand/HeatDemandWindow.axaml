@@ -21,9 +21,9 @@
 					<ColumnDefinition Width="*"/>
 				</Grid.ColumnDefinitions>
 				<Grid.RowDefinitions>
-					<RowDefinition Height="50"/>
+					<RowDefinition Height="0.2*"/>
 					<RowDefinition Height="*"/>
-					<RowDefinition Height="200"/>
+					<RowDefinition Height="0.5*"/>
 				</Grid.RowDefinitions>
 				<Border Background="Black" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="10">
 					<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">HEAT DEMAND</TextBlock>
@@ -60,50 +60,19 @@
 						</Border>
 					</Grid>
 				</Border>
-				<Border Background="DarkGray" CornerRadius="10" Grid.Row="2" Grid.Column="1" Margin="10">
-					<Grid ShowGridLines="False">
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="*" />
-						</Grid.ColumnDefinitions>
-						<Grid.RowDefinitions>
-							<RowDefinition Height="*" />
-							<RowDefinition Height="*" />
-							<RowDefinition Height="*" />
-							<RowDefinition Height="*" />
-							<RowDefinition Height="*" />
-						</Grid.RowDefinitions>
-						<Border Background="DarkGray" CornerRadius="10" Grid.Row="0" Grid.Column="0"  Margin="2">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">Current Heating Grid</TextBlock>
-						</Border>
-						<Border Background="Orange" CornerRadius="10" Grid.Row="1" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Gas Boiler</TextBlock>
-						</Border>
-						<Border Background="Red" CornerRadius="10" Grid.Row="2" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Oil Boiler</TextBlock>
-						</Border>
-						<Border Background="Blue" CornerRadius="10" Grid.Row="3" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Gas Motor</TextBlock>
-						</Border>
-						<Border Background="Green" CornerRadius="10" Grid.Row="4" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Electric Boiler</TextBlock>
-						</Border>
-					</Grid>
-				</Border>
-				<Border Background="DarkGray" CornerRadius="10" Grid.Row="2" Grid.Column="3" Margin="10">
+				<Border Background="DarkGray" CornerRadius="10" Grid.Row="2" Grid.ColumnSpan="2" Grid.Column="1" Margin="10">
 					<Grid ShowGridLines="False">
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="*" />
 							<ColumnDefinition Width="*" />
 						</Grid.ColumnDefinitions>
 						<Grid.RowDefinitions>
-							<RowDefinition Height="*" />
 							<RowDefinition Height="*" />
 							<RowDefinition Height="*" />
 						</Grid.RowDefinitions>
 						<Border Background="White" CornerRadius="10" Grid.ColumnSpan="2" Margin="10">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black">Selected Time Period</TextBlock>
-						</Border>
-						<Border Grid.Row="1" Grid.ColumnSpan="2" Margin="10">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black">Selected Time Period</TextBlock>						</Border>
+						<Border Grid.Row="1" Margin="10">
 							<Button 
 							x:Name="SummerPeriod" 
 							Click="SummerPeriodButton"  
@@ -117,7 +86,7 @@
 							CornerRadius="10">
 							Summer Period</Button>
 						</Border>
-						<Border Grid.Row="2" Grid.ColumnSpan="2" Margin="10">
+						<Border  Grid.Column="1" Grid.Row="1" Margin="10">
 							<Button 
 							x:Name="WinterPeriod" 
 							Click="WinterPeriodButton"  

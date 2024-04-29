@@ -26,21 +26,6 @@ namespace SemesterProject.Views
             var cO2EmmisionsWindow = new CO2EmmisionWindow();
             cO2EmmisionsWindow.Show();
         }
-        public void OpenConsumption(object sender, RoutedEventArgs args)
-        {
-            var consumptionWindow = new ConsumptionWindow();
-            consumptionWindow.Show();
-        }
-        public void OpenConsumptionOfPrimaryEnergy(object sender, RoutedEventArgs args)
-        {
-            var consumptionOfPrimaryEnergyWindow = new ConsumptionOfPrimaryEnergyWindow();
-            consumptionOfPrimaryEnergyWindow.Show();
-        }
-        public void OpenElectricityPrices(object sender, RoutedEventArgs args)
-        {
-            var electricityPricesWindow = new ElectriciyPricesWindow();
-            electricityPricesWindow.Show();
-        }
         public void OpenExpensesAndProfit(object sender, RoutedEventArgs args)
         {
             var expensesAndProfitWindow = new ExpensesAndProfitWindow();
@@ -57,11 +42,6 @@ namespace SemesterProject.Views
             var heatProductionWindow = new HeatProductionWindow();
             heatProductionWindow.Show();
         }
-        public void OpenPrioritiesOfProductionUnits(object sender, RoutedEventArgs args)
-        {
-            var prioritiesOfProductionUnitsWindow = new PrioritiesOfProductionUnitsWindow();
-            prioritiesOfProductionUnitsWindow.Show();
-        }
 
         public void OpenProductionUits(object sender, RoutedEventArgs args)
         {
@@ -73,12 +53,5 @@ namespace SemesterProject.Views
             var productionValuesWindow = new ProductionValuesWindow();
             productionValuesWindow.Show();
         }
-
-        public void OpenShowMoreButton(object sender, RoutedEventArgs args)
-        {
-            var expensesAndProfitWindow= new ExpensesAndProfitWindow();
-            expensesAndProfitWindow.Show();
-        }
-
     }
 }
