@@ -50,6 +50,7 @@
 							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black">Heat Production Data</TextBlock>
 						</Border>
 						<Border Grid.Row="1" Grid.Column="0">
+<<<<<<< HEAD
 							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Foreground="Black">Highest:</TextBlock>
 						</Border>
 						<Border Grid.Row="2" Grid.Column="0">
@@ -57,6 +58,15 @@
 						</Border>
 						<Border Grid.Row="3" Grid.Column="0">
 							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Foreground="Black">Average:</TextBlock>
+=======
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Highest:</TextBlock>
+						</Border>
+						<Border Grid.Row="2" Grid.Column="0">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Lowest:</TextBlock>
+						</Border>
+						<Border Grid.Row="3" Grid.Column="0">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Average:</TextBlock>
+>>>>>>> 5c735a894a583882e17e6a71b1e571792caaf702
 						</Border>
 					</Grid>
 				</Border>
@@ -73,19 +83,19 @@
 							<RowDefinition Height="*" />
 						</Grid.RowDefinitions>
 						<Border Background="DarkGray" CornerRadius="10" Grid.Row="0" Grid.Column="0"  Margin="2">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">Current Heating Grid</TextBlock>
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Current Heating Grid</TextBlock>
 						</Border>
 						<Border Background="Orange" CornerRadius="10" Grid.Row="1" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Gas Boiler</TextBlock>
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15">Gas Boiler</TextBlock>
 						</Border>
 						<Border Background="Red" CornerRadius="10" Grid.Row="2" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Oil Boiler</TextBlock>
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15">Oil Boiler</TextBlock>
 						</Border>
 						<Border Background="Blue" CornerRadius="10" Grid.Row="3" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Gas Motor</TextBlock>
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15">Gas Motor</TextBlock>
 						</Border>
 						<Border Background="Green" CornerRadius="10" Grid.Row="4" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Electric Boiler</TextBlock>
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15">Electric Boiler</TextBlock>
 						</Border>
 					</Grid>
 				</Border>
@@ -112,7 +122,11 @@
 							HorizontalContentAlignment="Center" 
 							VerticalContentAlignment="Center" 
 							Foreground="White" 
+<<<<<<< HEAD
 							FontSize="20"
+=======
+							FontSize="15"
+>>>>>>> 5c735a894a583882e17e6a71b1e571792caaf702
 							Background="Gray"
 							CornerRadius="10">
 							Summer Period</Button>
@@ -126,7 +140,7 @@
 							HorizontalContentAlignment="Center" 
 							VerticalContentAlignment="Center"
 							Foreground="White" 
-							FontSize="20"
+							FontSize="15"
 							Background="Gray"
 							CornerRadius="10">Winter Period</Button>
 						</Border>
