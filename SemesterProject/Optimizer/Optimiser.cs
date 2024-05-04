@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Linq;
 
 namespace SemesterProject;
@@ -7,7 +8,7 @@ namespace SemesterProject;
         public void Optimization()
         {
             var firstSc = ReadFile.productionUnits.OrderBy(unit => ChangeToDouble(unit.ProductionCosts!)).ToList();
-
+            
             var secondSc = ReadFile.productionUnits.OrderBy(unit => 
             {
                 double netProductionCost;
@@ -28,6 +29,10 @@ namespace SemesterProject;
         }
         private double GetCurrentElectricityPrice()
         {
+            
+            //string[][] newData = SourceDataManager.CSVDisplayGraph(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv"), columns);
+
+            
             //Implement logic to get current electricity price based on the time.
             return 100.00;
         }
