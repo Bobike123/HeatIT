@@ -48,20 +48,8 @@ namespace SemesterProject.Views
 
 
             var csvFilePath = Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "newfile.csv");
-            AppendToCSV(csvFilePath, newData);
+            ResultDataManager.AppendToCSV(csvFilePath, newData);
             return newData;
-        }
-
-
-        public static void AppendToCSV(string filePath, string[][] data)
-        {
-            using (StreamWriter writer = new StreamWriter(filePath, true))
-            {
-                foreach (string[] line in data)
-                {
-                    writer.WriteLine(string.Join(",", line));
-                }
-            }
         }
     }
 }
