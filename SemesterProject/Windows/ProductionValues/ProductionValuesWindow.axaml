@@ -23,35 +23,103 @@
 		</Grid>
 		<Grid ShowGridLines="False" ColumnDefinitions="*,*,*" RowDefinitions="100,6*,4*">
 			<Border Background="White" CornerRadius="10" Grid.Column="0" Grid.Row="2" Margin="10">
-				<Panel>
-					<Grid RowDefinitions="*,10,*,*,*,50">
-						<TextBlock FontSize="20" HorizontalAlignment="Center" Grid.Row="0" Foreground="Black" Margin="0,10,0,0">Production:</TextBlock>
-						<TextBlock Grid.Row="2" HorizontalAlignment="Left" FontSize="18" Margin="7,0,0,0" Foreground="Black">Current:</TextBlock>
-						<TextBlock Grid.Row="3" HorizontalAlignment="Left" FontSize="18" Margin="7,0,0,0" Foreground="Black">Highest:</TextBlock>
-						<TextBlock Grid.Row="4" HorizontalAlignment="Left" FontSize="18" Margin="7,0,0,0" Foreground="Black">Lowest:</TextBlock>
-						<TextBlock Grid.Row="5" HorizontalAlignment="Left" FontSize="18" Margin="7,0,0,0" Foreground="Black">Average:</TextBlock>
+				<Grid ShowGridLines="False">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<TextBlock x:Name="HighestElectricity" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black"></TextBlock>
+						<TextBlock x:Name="LowestElectricity" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black"></TextBlock>
+						<TextBlock x:Name="AverageElectricity" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black"></TextBlock>
+						<Border Background="White" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black">Electricity Data</TextBlock>
+						</Border>
+						<Border Grid.Row="1" Grid.Column="0">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Foreground="Black">Highest:</TextBlock>
+						</Border>
+						<Border Grid.Row="2" Grid.Column="0">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Foreground="Black">Lowest:</TextBlock>
+						</Border>
+						<Border Grid.Row="3" Grid.Column="0">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Foreground="Black">Average:</TextBlock>
+						</Border>
 					</Grid>
-				</Panel>
 			</Border>
 			<Border Background="White" CornerRadius="10" Grid.Column="1" Grid.Row="2" Margin="10">
-				<Panel>
-					<Grid RowDefinitions="*,10,*,*,*,50">
-						<TextBlock FontSize="20" HorizontalAlignment="Center" Grid.Row="0" Foreground="Black" Margin="0,10,0,0">Consumption:</TextBlock>
-						<TextBlock Grid.Row="2" HorizontalAlignment="Left" FontSize="18" Margin="7,0,0,0" Foreground="Black">Current:</TextBlock>
-						<TextBlock Grid.Row="3" HorizontalAlignment="Left" FontSize="18" Margin="7,0,0,0" Foreground="Black">Highest:</TextBlock>
-						<TextBlock Grid.Row="4" HorizontalAlignment="Left" FontSize="18" Margin="7,0,0,0" Foreground="Black">Lowest:</TextBlock>
-						<TextBlock Grid.Row="5" HorizontalAlignment="Left" FontSize="18" Margin="7,0,0,0" Foreground="Black">Average:</TextBlock>
+				<Grid ShowGridLines="False">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<TextBlock x:Name="HighestProduction" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black"></TextBlock>
+						<TextBlock x:Name="LowestProduction" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black"></TextBlock>
+						<TextBlock x:Name="AverageProduction" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black"></TextBlock>
+						<Border Background="White" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black">Production Data</TextBlock>
+						</Border>
+						<Border Grid.Row="1" Grid.Column="0">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Foreground="Black">Highest:</TextBlock>
+						</Border>
+						<Border Grid.Row="2" Grid.Column="0">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Foreground="Black">Lowest:</TextBlock>
+						</Border>
+						<Border Grid.Row="3" Grid.Column="0">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25" Foreground="Black">Average:</TextBlock>
+						</Border>
 					</Grid>
-				</Panel>
 			</Border>
-			<Border Background="Gray" CornerRadius="10" Grid.Column="2" Grid.Row="2" Margin="10">
-				<Panel>
-					<Border Background="White" CornerRadius="20" Margin="5"  VerticalAlignment="Top" HorizontalAlignment="Stretch">
-						<TextBlock FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Top" Foreground="Black" Margin="3">Select time period:</TextBlock>
-					</Border>
-					<Button Background="Orange" CornerRadius="10" FontSize="25" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="5,60,5,5" HorizontalContentAlignment="Center">Summer Period</Button>
-					<Button Background="Blue" CornerRadius="10" FontSize="25" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="5,5,5,30" HorizontalContentAlignment="Center">Winter Period</Button>
-				</Panel>
+			<Border Background="DarkGray" CornerRadius="10" Grid.Column="2" Grid.Row="2" Margin="10">
+				<Grid ShowGridLines="False">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<Border Background="White" CornerRadius="10" Grid.ColumnSpan="2" Margin="10">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black">Selected Time Period</TextBlock>						</Border>
+						<Border Grid.Row="1" Margin="10">
+							<Button 
+							x:Name="SummerPeriod" 
+							Click="SummerPeriodButton"  
+							HorizontalAlignment="Stretch" 
+							VerticalAlignment="Stretch"  
+							HorizontalContentAlignment="Center" 
+							VerticalContentAlignment="Center" 
+							Foreground="White" 
+							FontSize="20"
+							Background="Gray"
+							CornerRadius="10">
+							Summer Period</Button>
+						</Border>
+						<Border  Grid.Column="1" Grid.Row="1" Margin="10">
+							<Button 
+							x:Name="WinterPeriod" 
+							Click="WinterPeriodButton"  
+							HorizontalAlignment="Stretch" 
+							VerticalAlignment="Stretch"  
+							HorizontalContentAlignment="Center" 
+							VerticalContentAlignment="Center"
+							Foreground="White" 
+							FontSize="20"
+							Background="Gray"
+							CornerRadius="10">Winter Period</Button>
+						</Border>
+					</Grid>
 			</Border>
 		</Grid>
 	</Panel>
