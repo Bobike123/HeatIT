@@ -3,10 +3,10 @@ using System;
 namespace SemesterProject;
 public class Optimizer
 {
-    public static void Calculation(string[][] olas, int[] columns)
+    public static void Calculation(string[][] olas)
     {
-        double[][] netProduction = new double[olas.Length][];
-        double[] array = new double[ReadFile.productionUnits.Length];
+        //double[][] netProduction = new double[olas.Length][];
+        //double[] array = new double[ReadFile.productionUnits.Length];
         string[][] unitsSUMMER = new string[olas.Length][];
         string[][] unitsWINTER = new string[olas.Length][];
 

@@ -1,11 +1,5 @@
 using System;
 using System.IO;
-using Avalonia.Controls;
-using Avalonia.Logging;
-using System.Diagnostics;
-using Avalonia.Media;
-using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia;
 
 namespace SemesterProject.Views
 {
@@ -45,8 +39,6 @@ namespace SemesterProject.Views
                     }
                 }
             }
-
-
             var csvFilePath = Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "newfile.csv");
             ResultDataManager.AppendToCSV(csvFilePath, newData);
             return newData;
