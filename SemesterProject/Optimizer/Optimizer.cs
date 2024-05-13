@@ -1,8 +1,5 @@
 using System;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Runtime.CompilerServices;
-using SemesterProject.Views;
+using System.IO;
 
 namespace SemesterProject;
 public class Optimizer
@@ -61,14 +58,14 @@ public class Optimizer
         string[][] orderedSummer = Convert(unitsSUMMER);
         string[][] orderedWinter = Convert(unitsWINTER);
         // Do something with 'units' array, such as writing to a CSV file
-        ResultDataManager.AppendToCSV("newFile.csv", orderedWinter);
-        string[][] empty = {
+        ResultDataManager.AppendToCSV(Path.Combine(Directory.GetCurrentDirectory(), "Optimizer", "newFile.csv"), orderedWinter);
+        string[][] empty = [
             [""],
             [""]
-        };
-        ResultDataManager.AppendToCSV("newFile.csv", empty);
+        ];
+        ResultDataManager.AppendToCSV(Path.Combine(Directory.GetCurrentDirectory(), "Optimizer", "newFile.csv"), empty);
 
-        ResultDataManager.AppendToCSV("newFile.csv", orderedSummer);
+        ResultDataManager.AppendToCSV(Path.Combine(Directory.GetCurrentDirectory(), "Optimizer", "newFile.csv"), orderedSummer);
 
         double[] sumWinter = new double[unitsWINTER[0].Length];
         double[] sumsummer = new double[unitsSUMMER[0].Length];
@@ -122,7 +119,7 @@ public class Optimizer
         }
         return stringArray;
     }
-    public static void OperatingPoint(string[][] data, double[][] cost, int period)
+    public static void OperatingPoint(string[][] data, int period)
     {
         double[][] skies = new double[data.Length][];
         double[][] operatingPoint = new double[data.Length][];
@@ -137,6 +134,6 @@ public class Optimizer
         }
         
         string[][] operatingPointString = Convert(operatingPoint);
-        ResultDataManager.AppendToCSV("operatingPoint.csv", operatingPointString);
+        ResultDataManager.AppendToCSV(Path.Combine(Directory.GetCurrentDirectory(), "Optimizer", "operatingPoint.csv"), operatingPointString);
     }
 }

@@ -56,8 +56,8 @@ namespace SemesterProject.Views
             else 
             {
                 avaPlot1.Plot.Title("Heat Demand Graph for Winter Period");
-                avaPlot1.Plot.Add.FillY(data_X, boilBoiler, data_Y).FillStyle.Color = ScottPlot.Color.FromHex("#FFA500");
-                avaPlot1.Plot.Add.FillY(data_X, yAxis, boilBoiler).FillStyle.Color = ScottPlot.Color.FromHex("#ff0000");
+                avaPlot1.Plot.Add.FillY(data_X, boilBoiler, data_Y).FillStyle.Color = ScottPlot.Color.FromHex("#ff0000");
+                avaPlot1.Plot.Add.FillY(data_X, yAxis, boilBoiler).FillStyle.Color = ScottPlot.Color.FromHex("#FFA500");
             }
 
             avaPlot1.Refresh();
