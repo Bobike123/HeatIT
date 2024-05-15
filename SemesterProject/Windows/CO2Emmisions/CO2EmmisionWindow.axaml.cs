@@ -23,7 +23,6 @@ namespace SemesterProject.Views
             FirstUnit.Content = ReadFile.productionUnits[0].Name;
             SecondUnit.Content = ReadFile.productionUnits[1].Name;
             ThirdUnit.Content = ReadFile.productionUnits[2].Name;
-            ForthUnit.Content = ReadFile.productionUnits[3].Name;
             this.AttachDevTools();
         }
         public void DisplayGraphContent(int[] columns, string period, int unit)
@@ -84,7 +83,6 @@ namespace SemesterProject.Views
             FirstUnit.Background = new SolidColorBrush(Color.FromRgb(255, 165, 0));
             SecondUnit.Background = new SolidColorBrush(Colors.Gray);
             ThirdUnit.Background = new SolidColorBrush(Colors.Gray);
-            ForthUnit.Background = new SolidColorBrush(Colors.Gray);
             if(SummerPeriod.Background!.Equals(Color.FromRgb(207,3,3)))SummerPeriodButton(sender, args); 
             else if (WinterPeriod.Background!.Equals(Color.FromRgb(207,3,3)))WinterPeriodButton(sender,args);
             //DisplayHeatDemandContent([0, 2],"winter");//0 date 2 heat demand
@@ -95,7 +93,6 @@ namespace SemesterProject.Views
             FirstUnit.Background = new SolidColorBrush(Colors.Gray);
             SecondUnit.Background = new SolidColorBrush(Color.FromRgb(255, 165, 0));
             ThirdUnit.Background = new SolidColorBrush(Colors.Gray);
-            ForthUnit.Background = new SolidColorBrush(Colors.Gray);
             if(SummerPeriod.Background!.Equals(Color.FromRgb(207,3,3)))SummerPeriodButton(sender, args); 
             else if (WinterPeriod.Background!.Equals(Color.FromRgb(207,3,3)))WinterPeriodButton(sender,args);
             //DisplayHeatDemandContent([0, 2],"winter");//0 date 2 heat demand
@@ -106,21 +103,10 @@ namespace SemesterProject.Views
             FirstUnit.Background = new SolidColorBrush(Colors.Gray);
             SecondUnit.Background = new SolidColorBrush(Colors.Gray);
             ThirdUnit.Background = new SolidColorBrush(Color.FromRgb(255, 165, 0));
-            ForthUnit.Background = new SolidColorBrush(Colors.Gray);
             if(SummerPeriod.Background!.Equals(Color.FromRgb(207,3,3)))SummerPeriodButton(sender, args); 
             else if (WinterPeriod.Background!.Equals(Color.FromRgb(207,3,3)))WinterPeriodButton(sender,args);
             //DisplayHeatDemandContent([0, 2],"winter");//0 date 2 heat demand
         }
-        public void ForthUnitButton(object sender, RoutedEventArgs args)
-        {
-            selection = 3;
-            FirstUnit.Background = new SolidColorBrush(Colors.Gray);
-            SecondUnit.Background = new SolidColorBrush(Colors.Gray);
-            ThirdUnit.Background = new SolidColorBrush(Colors.Gray);
-            ForthUnit.Background = new SolidColorBrush(Color.FromRgb(255, 165, 0));
-            if(SummerPeriod.Background!.Equals(Color.FromRgb(207,3,3)))SummerPeriodButton(sender, args); 
-            else if (WinterPeriod.Background!.Equals(Color.FromRgb(207,3,3)))WinterPeriodButton(sender,args);
-            //DisplayHeatDemandContent([0, 2],"winter");//0 date 2 heat demand
-        }
+        
     }
 }
