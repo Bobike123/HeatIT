@@ -25,12 +25,20 @@ namespace SemesterProject.Views
                 newData[i] = new string[columns.Length];
                 for (int j = 0; j < columns.Length; j++)
                 {
-                    if (columns[j] == 0 || columns[j] == 1 || columns[j] == 4 || columns[j] == 5)//check to see if the columns are dates or not
+                    if (columns[j] == 0 || columns[j] == 4)//gets the day from the dates
                     {
                         string[] splitValues = data[i][columns[j]].Split(new string[] { "/", "," }, StringSplitOptions.None);//only takes the day from the date
                         if (splitValues.Length >= 2)
                         {
                             newData[i][j] = splitValues[1];
+                        }
+                    }
+                    else if (columns[j] == 1 || columns[j] == 5)//gets the hour form the dates
+                    {
+                        string[] splitValues = data[i][columns[j]].Split(new string[] { "/", ",", " ", ":" }, StringSplitOptions.None);//only takes the day from the date
+                        if (splitValues.Length >= 2)
+                        {
+                            newData[i][j] = splitValues[3];
                         }
                     }
                     else // not dates, no modify

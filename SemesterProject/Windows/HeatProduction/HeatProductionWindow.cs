@@ -4,6 +4,8 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using ScottPlot.Avalonia;
 using System.IO;
+using System.Collections.Generic;
+
 using ScottPlot.Colormaps;
 using System;
 using Microsoft.CodeAnalysis;
@@ -23,60 +25,64 @@ namespace SemesterProject.Views
         public void DisplayHeatDemandContent(int[] columns, string period)
         {
             AvaPlot myPlot = this.Find<AvaPlot>("AvaPlot1")!;
-            //AvaPlot myPlot = new();//initializes the graph
+            myPlot.Plot.Clear();
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv");
             string[] categoryNames = { "unit1", "unit2", "unit3", "unit4" };
+            string[][] Dates = [];
+            string[][] heatDemand = [];
             ScottPlot.Color[] categoryColors = { ScottPlot.Colors.Red, ScottPlot.Colors.Yellow, ScottPlot.Colors.Orange, ScottPlot.Colors.Blue };
-            for (int x = 0; x < 60; x++)
+            if (period == "summer")
             {
-                double[] values = Generate.RandomSample(categoryNames.Length, 1000, 5000);
-                double nextBarBase = 0;
+                Dates = SourceDataManager.CSVDisplayGraph(path, [4, 5]);
+                heatDemand = SourceDataManager.CSVDisplayGraph(path, [2]);
+            }
+            else
+            {
+                Dates = SourceDataManager.CSVDisplayGraph(path, [0, 1]);
+                heatDemand = SourceDataManager.CSVDisplayGraph(path, [6]);
 
+            }
+            for (int x = 0; x < Dates.Length; x++)
+            {
+                double[] values = Generate.RandomSample(categoryNames.Length, 0, 2.5);
+                double nextBarBase = 0;
                 for (int i = 0; i < values.Length; i++)
                 {
                     Bar bar = new()
                     {
-                        Value = nextBarBase + values[i],
-                        FillColor = categoryColors[i],
-                        ValueBase = nextBarBase,
+                        Size = 1,
                         Position = x,
+                        ValueBase = nextBarBase,
+                        FillColor = categoryColors[i],
+                        Value = nextBarBase + double.Parse(heatDemand[x][0]) / 4,
+                        //nextBarBase + values[i],
+                        BorderColor = categoryColors[i],
                     };
 
                     myPlot.Plot.Add.Bar(bar);
-                    nextBarBase += values[i];
+                    nextBarBase += double.Parse(heatDemand[x][0]) / 4;
                 }
             }
 
             // use custom tick labels on the bottom
             ScottPlot.TickGenerators.NumericManual tickGen = new();
-            for (int x = 0; x < 4; x++)
+            for (int x = 0; x < Dates.Length; x++)
             {
-                tickGen.AddMajor(x, $"Q{x + 1}");
+                tickGen.AddMajor(x, $"{Dates[x][0]} {Dates[x][1]}");
             }
             myPlot.Plot.Axes.Bottom.TickGenerator = tickGen;
 
             // display groups in the legend
-            for (int i = 0; i < 3; i++)
-            {
-                LegendItem item = new()
-                {
-                    Label = categoryNames[i],
-                    FillColor = categoryColors[i]
-                };
-                myPlot.Plot.Legend.ManualItems.Add(item);
-            }
-            myPlot.Plot.Legend.Orientation = Orientation.Horizontal;
 
             // tell the plot to autoscale with no padding beneath the bars
-            myPlot.Plot.Axes.Margins(bottom: 0, top: .3);
-            myPlot.Plot.SavePng("demo.png", 400, 300);
-            myPlot.Refresh();
-            /*AvaPlot avaPlot1 = this.Find<AvaPlot>("AvaPlot1")!;//initializes the graph
-            avaPlot1.Plot.Clear();
-            //clears the graph if any previous information was displayed on it
-            string[][] newData = SourceDataManager.CSVDisplayGraph(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv"), columns);
+            myPlot.Plot.Axes.Margins(bottom: 0, top: 0);
+            myPlot.Plot.Axes.SetLimitsY(0, Optimizer.CalculateMax([2, 6]));//comparation of the two periods
+
+            myPlot.Refresh();/*
+            string[][] newData = SourceDataManager.CSVDisplayGraph(path, columns);
             //newData is siplified data that can be used for the graph
             double[] data_X = new double[newData.Length];
-            double[] data_Y = new double[newData.Length]; 
+            double[] data_Y = new double[newData.Length];
             double[] yAxis = new double[newData.Length];
             double[] boilBoiler = new double[newData.Length];
             int count = 0;//cout for the 24 hours of the day used for the x axis
@@ -97,12 +103,12 @@ namespace SemesterProject.Views
             avaPlot1.Plot.Axes.SetLimitsY(0, 9);//comparation of the two periods
 
             //modifies the title of the graph depending on the time of the year
-            if (period == "summer") 
+            if (period == "summer")
             {
                 avaPlot1.Plot.Title("Heat Demand Graph for Summer Period");
                 avaPlot1.Plot.Add.FillY(data_X, yAxis, data_Y).FillStyle.Color = ScottPlot.Color.FromHex("#FFA500");
             }
-            else 
+            else
             {
                 avaPlot1.Plot.Title("Heat Demand Graph for Winter Period");
                 avaPlot1.Plot.Add.FillY(data_X, boilBoiler, data_Y).FillStyle.Color = ScottPlot.Color.FromHex("#ff0000");
@@ -116,14 +122,14 @@ namespace SemesterProject.Views
         {
             WinterPeriod.Background = new SolidColorBrush(Avalonia.Media.Color.FromRgb(211, 211, 211));
             SummerPeriod.Background = new SolidColorBrush(Avalonia.Media.Color.FromRgb(207, 3, 3));
-            DisplayHeatDemandContent([4, 6], "summer");//4 date 6 heat demand
+            DisplayHeatDemandContent([0, 2], "winter");//4 date 6 heat demand
         }
 
         public void WinterPeriodButton(object sender, RoutedEventArgs args)
         {
             SummerPeriod.Background = new SolidColorBrush(Avalonia.Media.Color.FromRgb(211, 211, 211));
             WinterPeriod.Background = new SolidColorBrush(Avalonia.Media.Color.FromRgb(207, 3, 3));
-            DisplayHeatDemandContent([0, 2], "winter");//0 date 2 heat demand
+            DisplayHeatDemandContent([4, 6], "summer");//0 date 2 heat demand
         }
     }
 }

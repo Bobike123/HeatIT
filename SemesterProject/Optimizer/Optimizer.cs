@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using SemesterProject.Views;
 
 namespace SemesterProject;
 public class Optimizer
@@ -89,6 +90,17 @@ public class Optimizer
         {
             return unitsSUMMER;
         }
+    }
+    public static double CalculateMax(int[] columns)
+    {
+        double max = -99999;
+        string[][] calculateMax = SourceDataManager.CSVDisplayGraph(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv"), columns);
+        for (int i = 0; i < calculateMax.Length; i++)
+        {
+            if (double.Parse(calculateMax[i][1]) > max) max = double.Parse(calculateMax[i][1]);//calculates the maximum variable
+            if (double.Parse(calculateMax[i][0]) > max) max = double.Parse(calculateMax[i][0]);//calculates the maximum variable
+        }
+        return max * 1.2;
     }
     public static double ChangeToDouble(string value)
     {
