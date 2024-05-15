@@ -7,6 +7,7 @@ using System.IO;
 using ScottPlot.Colormaps;
 using System;
 using Microsoft.CodeAnalysis;
+using ScottPlot;
 
 namespace SemesterProject.Views
 {
@@ -21,7 +22,55 @@ namespace SemesterProject.Views
 
         public void DisplayHeatDemandContent(int[] columns, string period)
         {
-            AvaPlot avaPlot1 = this.Find<AvaPlot>("AvaPlot1")!;//initializes the graph
+            AvaPlot myPlot = this.Find<AvaPlot>("AvaPlot1")!;
+            //AvaPlot myPlot = new();//initializes the graph
+            string[] categoryNames = { "unit1", "unit2", "unit3", "unit4" };
+            ScottPlot.Color[] categoryColors = { ScottPlot.Colors.Red, ScottPlot.Colors.Yellow, ScottPlot.Colors.Orange, ScottPlot.Colors.Blue };
+            for (int x = 0; x < 60; x++)
+            {
+                double[] values = Generate.RandomSample(categoryNames.Length, 1000, 5000);
+                double nextBarBase = 0;
+
+                for (int i = 0; i < values.Length; i++)
+                {
+                    Bar bar = new()
+                    {
+                        Value = nextBarBase + values[i],
+                        FillColor = categoryColors[i],
+                        ValueBase = nextBarBase,
+                        Position = x,
+                    };
+
+                    myPlot.Plot.Add.Bar(bar);
+                    nextBarBase += values[i];
+                }
+            }
+
+            // use custom tick labels on the bottom
+            ScottPlot.TickGenerators.NumericManual tickGen = new();
+            for (int x = 0; x < 4; x++)
+            {
+                tickGen.AddMajor(x, $"Q{x + 1}");
+            }
+            myPlot.Plot.Axes.Bottom.TickGenerator = tickGen;
+
+            // display groups in the legend
+            for (int i = 0; i < 3; i++)
+            {
+                LegendItem item = new()
+                {
+                    Label = categoryNames[i],
+                    FillColor = categoryColors[i]
+                };
+                myPlot.Plot.Legend.ManualItems.Add(item);
+            }
+            myPlot.Plot.Legend.Orientation = Orientation.Horizontal;
+
+            // tell the plot to autoscale with no padding beneath the bars
+            myPlot.Plot.Axes.Margins(bottom: 0, top: .3);
+            myPlot.Plot.SavePng("demo.png", 400, 300);
+            myPlot.Refresh();
+            /*AvaPlot avaPlot1 = this.Find<AvaPlot>("AvaPlot1")!;//initializes the graph
             avaPlot1.Plot.Clear();
             //clears the graph if any previous information was displayed on it
             string[][] newData = SourceDataManager.CSVDisplayGraph(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv"), columns);
@@ -61,18 +110,19 @@ namespace SemesterProject.Views
             }
 
             avaPlot1.Refresh();
+            */
         }
         public void SummerPeriodButton(object sender, RoutedEventArgs args)
         {
-            WinterPeriod.Background = new SolidColorBrush(Colors.Gray);
-            SummerPeriod.Background = new SolidColorBrush(Color.FromRgb(207, 3, 3));
+            WinterPeriod.Background = new SolidColorBrush(Avalonia.Media.Color.FromRgb(211, 211, 211));
+            SummerPeriod.Background = new SolidColorBrush(Avalonia.Media.Color.FromRgb(207, 3, 3));
             DisplayHeatDemandContent([4, 6], "summer");//4 date 6 heat demand
         }
 
         public void WinterPeriodButton(object sender, RoutedEventArgs args)
         {
-            SummerPeriod.Background = new SolidColorBrush(Colors.Gray);
-            WinterPeriod.Background = new SolidColorBrush(Color.FromRgb(207, 3, 3));
+            SummerPeriod.Background = new SolidColorBrush(Avalonia.Media.Color.FromRgb(211, 211, 211));
+            WinterPeriod.Background = new SolidColorBrush(Avalonia.Media.Color.FromRgb(207, 3, 3));
             DisplayHeatDemandContent([0, 2], "winter");//0 date 2 heat demand
         }
     }
