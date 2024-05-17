@@ -2,8 +2,9 @@ using Xunit;
 using System.Collections.Generic;
 using SemesterProject;
 
-public class AsstManagerTests
+public class AssetManagerTests
 {
+    [Fact]
     public void ProductionUnit_GetProductionUnit()
     {
         // Initialize the static list with some test data
