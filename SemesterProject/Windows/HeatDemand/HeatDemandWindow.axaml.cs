@@ -47,7 +47,7 @@ namespace SemesterProject.Views
             avaPlot1.Plot.YLabel("MWh");
             avaPlot1.Plot.Add.Scatter(data_X, data_Y);
             avaPlot1.Plot.Axes.SetLimits(8, 14.95);//one week
-            avaPlot1.Plot.Axes.SetLimitsY(0, Optimizer.CalculateMax([2, 6]));//comparation of the two periods
+            avaPlot1.Plot.Axes.SetLimitsY(0, Optimizer.CalculateMax([2, 6], 1));//comparation of the two periods
             avaPlot1.Refresh();
         }
         public void SummerPeriodButton(object sender, RoutedEventArgs args)

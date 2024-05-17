@@ -6,8 +6,11 @@ using SemesterProject.Views;
 namespace SemesterProject;
 public class Optimizer
 {
-    public static double[][] Calculation(string period, string[][] olas, List<ProductionUnit> productionUnits)
+    public static double Calculation(string period, int boiler, int day)
     {
+        List<ProductionUnit> productionUnits = AssetManager.productionUnits;
+
+        string[][] olas = SourceDataManager.CSVDisplayGraph(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv"), [2, 6]);
         double[][] unitsSUMMER = new double[olas.Length][];
         double[][] unitsWINTER = new double[olas.Length][];
 
@@ -77,30 +80,39 @@ public class Optimizer
 
             }
         }
-        for (int i = 0; i < sumWinter.Length; i++)
-        {
-            Console.WriteLine($"Winter for the {i} unit {sumWinter[i]:00.00}");
-            Console.WriteLine($"Summer for the {i} unit {sumsummer[i]:00.00}");
-        }
         if (period == "winter")
         {
-            return unitsWINTER;
+            return unitsWINTER[boiler][day];
         }
         else
         {
-            return unitsSUMMER;
+            return unitsSUMMER[boiler][day];
         }
     }
-    public static double CalculateMax(int[] columns)
+    public static double CalculateMax(int[] columns, double multiplier)
     {
         double max = -99999;
         string[][] calculateMax = SourceDataManager.CSVDisplayGraph(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv"), columns);
         for (int i = 0; i < calculateMax.Length; i++)
         {
-            if (double.Parse(calculateMax[i][1]) > max) max = double.Parse(calculateMax[i][1]);//calculates the maximum variable
-            if (double.Parse(calculateMax[i][0]) > max) max = double.Parse(calculateMax[i][0]);//calculates the maximum variable
+            for (int j = 0; j < columns.Length; j++)
+                if (double.Parse(calculateMax[i][j]) * multiplier > max) max = double.Parse(calculateMax[i][j]) * multiplier;//calculates the maximum variable
         }
         return max * 1.2;
+    }
+    public static double[] CalculateValue(int day, string max, string period)
+    {
+        //calculate what values should be put for each boiler in that specific day.
+        //max is the heat demand that has to bea reached with the 4 boilers so that max profit can be achieve
+        //unitsSUMMER[j][i] = c + (Math.Abs(v) * ChangeToDouble(olas[j][1]));
+        //unitsWINTER[j][i] = c + (Math.Abs(v) * ChangeToDouble(olas[j][0]));
+        double[] units = [AssetManager.productionUnits.Count];
+        for (int boiler = 0; boiler < AssetManager.productionUnits.Count; boiler++)
+        {
+            units[boiler] = Calculation(period, boiler, day);
+        }
+
+        return [3.5, 2, 4];
     }
     public static double ChangeToDouble(string value)
     {

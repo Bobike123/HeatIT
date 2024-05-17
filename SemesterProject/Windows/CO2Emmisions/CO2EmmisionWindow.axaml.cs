@@ -40,9 +40,11 @@ namespace SemesterProject.Views
             {
                 data_X[i] = double.Parse(newData[i][0]) + count * 0.041;//creates the x axis
                 data_Y[i] = double.Parse(newData[i][1]) * double.Parse(AssetManager.productionUnits[unit].CO2Emissions!);                //creates the y axis
-                if (data_Y[i] > max) max = data_Y[i] + 100;
                 count = (count + 1) % 24;
             }
+            for (int num = 0; num < AssetManager.productionUnits.Count; num++)
+                if (double.Parse(AssetManager.productionUnits[num].CO2Emissions!) > max) max = double.Parse(AssetManager.productionUnits[num].CO2Emissions!);
+
             //modifies the highest lowest and average data from the axaml file
 
             //modifies the title of the graph depending on the time of the year
@@ -52,7 +54,7 @@ namespace SemesterProject.Views
             avaPlot1.Plot.YLabel("KG/MWh");
             avaPlot1.Plot.Add.Scatter(data_X, data_Y);
             avaPlot1.Plot.Axes.SetLimitsX(8, 14.95);//one week
-            avaPlot1.Plot.Axes.SetLimitsY(0, max);//comparation of the two periods
+            avaPlot1.Plot.Axes.SetLimitsY(0, Optimizer.CalculateMax([2, 6], max));//comparation of the two periods
             avaPlot1.Refresh();
         }
 

@@ -44,18 +44,20 @@ namespace SemesterProject.Views
             }
             for (int x = 0; x < Dates.Length; x++)
             {
-                double[] values = Generate.RandomSample(categoryNames.Length, 0, 2.5);
                 double nextBarBase = 0;
-                for (int i = 0; i < values.Length; i++)
+                for (int i = 0; i < AssetManager.productionUnits.Count; i++)
                 {
+                    double[] values = Optimizer.CalculateValue(x, heatDemand[x][0], period);
+                    //double[] values = Generate.RandomSample(categoryNames.Length, 0, 2.5);
+                    //at least 4 valuesOptimizer.CalculateValue(heatDemand[x][0])
                     Bar bar = new()
                     {
                         Size = 1,
                         Position = x,
                         ValueBase = nextBarBase,
                         FillColor = categoryColors[i],
-                        Value = nextBarBase + double.Parse(heatDemand[x][0]) / 4,
-                        //nextBarBase + values[i],
+                        Value = nextBarBase + values[i],
+                        //double.Parse(heatDemand[x][0]) / 4,//modify this to find 
                         BorderColor = categoryColors[i],
                     };
 
@@ -66,17 +68,16 @@ namespace SemesterProject.Views
 
             // use custom tick labels on the bottom
             ScottPlot.TickGenerators.NumericManual tickGen = new();
-            for (int x = 0; x < Dates.Length; x++)
+            tickGen.AddMajor(0, $"{Dates[0][0]}");
+            for (int x = 1; x < Dates.Length; x++)
             {
-                tickGen.AddMajor(x, $"{Dates[x][0]} {Dates[x][1]}");
+                if (Dates[x][0] != Dates[x - 1][0]) tickGen.AddMajor(x, $"{Dates[x][0]}");
             }
-            myPlot.Plot.Axes.Bottom.TickGenerator = tickGen;
-
             // display groups in the legend
 
             // tell the plot to autoscale with no padding beneath the bars
             myPlot.Plot.Axes.Margins(bottom: 0, top: 0);
-            myPlot.Plot.Axes.SetLimitsY(0, Optimizer.CalculateMax([2, 6]));//comparation of the two periods
+            myPlot.Plot.Axes.SetLimitsY(0, Optimizer.CalculateMax([2, 6], 1));//comparation of the two periods
 
             myPlot.Refresh();/*
             string[][] newData = SourceDataManager.CSVDisplayGraph(path, columns);
