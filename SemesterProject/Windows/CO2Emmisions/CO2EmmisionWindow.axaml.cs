@@ -20,10 +20,10 @@ namespace SemesterProject.Views
         public CO2EmmisionWindow()
         {
             InitializeComponent();
-            FirstUnit.Content = ReadFile.productionUnits[0].Name;
-            SecondUnit.Content = ReadFile.productionUnits[1].Name;
-            ThirdUnit.Content = ReadFile.productionUnits[2].Name;
-            ForthUnit.Content = ReadFile.productionUnits[3].Name;
+            FirstUnit.Content = AssetManager.productionUnits[0].Name;
+            SecondUnit.Content = AssetManager.productionUnits[1].Name;
+            ThirdUnit.Content = AssetManager.productionUnits[2].Name;
+            ForthUnit.Content = AssetManager.productionUnits[3].Name;
             this.AttachDevTools();
         }
         public void DisplayGraphContent(int[] columns, string period, int unit)
@@ -33,26 +33,26 @@ namespace SemesterProject.Views
             //clears the graph if any previous information was displayed on it
             string[][] newData = SourceDataManager.CSVDisplayGraph(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv"), columns);
             //newData is siplified data that can be used for the graph
-            double max=-1;
+            double max = -1;
             double[] data_X = new double[newData.Length], data_Y = new double[newData.Length];
             int count = 0;//cout for the 24 hours of the day used for the x axis
             for (int i = 0; i < newData.Length; i++)
             {
                 data_X[i] = double.Parse(newData[i][0]) + count * 0.041;//creates the x axis
-                data_Y[i] = double.Parse(newData[i][1]) * double.Parse(ReadFile.productionUnits[unit].CO2Emissions!);                //creates the y axis
-                if(data_Y[i]>max) max=data_Y[i]+100;
+                data_Y[i] = double.Parse(newData[i][1]) * double.Parse(AssetManager.productionUnits[unit].CO2Emissions!);                //creates the y axis
+                if (data_Y[i] > max) max = data_Y[i] + 100;
                 count = (count + 1) % 24;
             }
             //modifies the highest lowest and average data from the axaml file
 
             //modifies the title of the graph depending on the time of the year
-            if (period == "summer") avaPlot1.Plot.Title($"CO2 Emmisions for {ReadFile.productionUnits[unit].Name!} Graph for Summer Period");
-            else avaPlot1.Plot.Title($"CO2 Emmisions for {ReadFile.productionUnits[unit].Name!} Graph for Winter Period");
+            if (period == "summer") avaPlot1.Plot.Title($"CO2 Emmisions for {AssetManager.productionUnits[unit].Name!} Graph for Summer Period");
+            else avaPlot1.Plot.Title($"CO2 Emmisions for {AssetManager.productionUnits[unit].Name!} Graph for Winter Period");
             avaPlot1.Plot.XLabel("Days");
             avaPlot1.Plot.YLabel("KG/MWh");
             avaPlot1.Plot.Add.Scatter(data_X, data_Y);
             avaPlot1.Plot.Axes.SetLimitsX(8, 14.95);//one week
-            avaPlot1.Plot.Axes.SetLimitsY(0,max);//comparation of the two periods
+            avaPlot1.Plot.Axes.SetLimitsY(0, max);//comparation of the two periods
             avaPlot1.Refresh();
         }
 
@@ -85,8 +85,8 @@ namespace SemesterProject.Views
             SecondUnit.Background = new SolidColorBrush(Colors.Gray);
             ThirdUnit.Background = new SolidColorBrush(Colors.Gray);
             ForthUnit.Background = new SolidColorBrush(Colors.Gray);
-            if(SummerPeriod.Background!.Equals(Color.FromRgb(207,3,3)))SummerPeriodButton(sender, args); 
-            else if (WinterPeriod.Background!.Equals(Color.FromRgb(207,3,3)))WinterPeriodButton(sender,args);
+            if (SummerPeriod.Background!.Equals(Color.FromRgb(207, 3, 3))) SummerPeriodButton(sender, args);
+            else if (WinterPeriod.Background!.Equals(Color.FromRgb(207, 3, 3))) WinterPeriodButton(sender, args);
             //DisplayHeatDemandContent([0, 2],"winter");//0 date 2 heat demand
         }
         public void SecondUnitButton(object sender, RoutedEventArgs args)
@@ -96,8 +96,8 @@ namespace SemesterProject.Views
             SecondUnit.Background = new SolidColorBrush(Color.FromRgb(255, 165, 0));
             ThirdUnit.Background = new SolidColorBrush(Colors.Gray);
             ForthUnit.Background = new SolidColorBrush(Colors.Gray);
-            if(SummerPeriod.Background!.Equals(Color.FromRgb(207,3,3)))SummerPeriodButton(sender, args); 
-            else if (WinterPeriod.Background!.Equals(Color.FromRgb(207,3,3)))WinterPeriodButton(sender,args);
+            if (SummerPeriod.Background!.Equals(Color.FromRgb(207, 3, 3))) SummerPeriodButton(sender, args);
+            else if (WinterPeriod.Background!.Equals(Color.FromRgb(207, 3, 3))) WinterPeriodButton(sender, args);
             //DisplayHeatDemandContent([0, 2],"winter");//0 date 2 heat demand
         }
         public void ThirdUnitButton(object sender, RoutedEventArgs args)
@@ -107,8 +107,8 @@ namespace SemesterProject.Views
             SecondUnit.Background = new SolidColorBrush(Colors.Gray);
             ThirdUnit.Background = new SolidColorBrush(Color.FromRgb(255, 165, 0));
             ForthUnit.Background = new SolidColorBrush(Colors.Gray);
-            if(SummerPeriod.Background!.Equals(Color.FromRgb(207,3,3)))SummerPeriodButton(sender, args); 
-            else if (WinterPeriod.Background!.Equals(Color.FromRgb(207,3,3)))WinterPeriodButton(sender,args);
+            if (SummerPeriod.Background!.Equals(Color.FromRgb(207, 3, 3))) SummerPeriodButton(sender, args);
+            else if (WinterPeriod.Background!.Equals(Color.FromRgb(207, 3, 3))) WinterPeriodButton(sender, args);
             //DisplayHeatDemandContent([0, 2],"winter");//0 date 2 heat demand
         }
         public void ForthUnitButton(object sender, RoutedEventArgs args)
@@ -118,8 +118,8 @@ namespace SemesterProject.Views
             SecondUnit.Background = new SolidColorBrush(Colors.Gray);
             ThirdUnit.Background = new SolidColorBrush(Colors.Gray);
             ForthUnit.Background = new SolidColorBrush(Color.FromRgb(255, 165, 0));
-            if(SummerPeriod.Background!.Equals(Color.FromRgb(207,3,3)))SummerPeriodButton(sender, args); 
-            else if (WinterPeriod.Background!.Equals(Color.FromRgb(207,3,3)))WinterPeriodButton(sender,args);
+            if (SummerPeriod.Background!.Equals(Color.FromRgb(207, 3, 3))) SummerPeriodButton(sender, args);
+            else if (WinterPeriod.Background!.Equals(Color.FromRgb(207, 3, 3))) WinterPeriodButton(sender, args);
             //DisplayHeatDemandContent([0, 2],"winter");//0 date 2 heat demand
         }
     }
