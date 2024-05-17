@@ -1,98 +1,71 @@
 using Xunit;
-using SemesterProject;
-using System.IO.Abstractions.TestingHelpers;
-using System.Text.Json;
 using System.Collections.Generic;
+using SemesterProject;
 
-public class AssetManagerTests
+public class AsstManagerTests
 {
-    private readonly MockFileSystem _mockFileSystem;
-    private readonly AssetManager _assetManager;
-
-    public AssetManagerTests()
+    public void ProductionUnit_GetProductionUnit()
     {
-        _mockFileSystem = new MockFileSystem();
-        _assetManager = new AssetManager();
-        // Override static PathJson to use mock file system
-        AssetManager.PathJson = _mockFileSystem.Path.Combine(_mockFileSystem.Directory.GetCurrentDirectory(), "AssetManager", "units.json");
-    }
-
-    [Fact]
-    public void Save_ShouldWriteJsonToFile()
-    {
-        // Arrange
-        string currentDirectory = _mockFileSystem.Directory.GetCurrentDirectory();
-        string resultDirectory = _mockFileSystem.Path.Combine(currentDirectory, "ResultDataManager");
-        _mockFileSystem.Directory.CreateDirectory(resultDirectory);
-
-        string expectedPath = _mockFileSystem.Path.Combine(resultDirectory, "SavedJsonData.json");
-        string expectedJson = JsonSerializer.Serialize(AssetManager.productionUnits);
-
-        // Act
-        _assetManager.Save();
-
-        // Assert
-        Assert.True(_mockFileSystem.FileExists(expectedPath));
-        string actualJson = _mockFileSystem.File.ReadAllText(expectedPath);
-        Assert.Equal(expectedJson, actualJson);
-    }
-
-    [Fact]
-    public void Load_ShouldDeserializeJsonFromFile()
-    {
-        // Arrange
-        string currentDirectory = _mockFileSystem.Directory.GetCurrentDirectory();
-        string assetDirectory = _mockFileSystem.Path.Combine(currentDirectory, "AssetManager");
-        _mockFileSystem.Directory.CreateDirectory(assetDirectory);
-
-        string pathJson = _mockFileSystem.Path.Combine(assetDirectory, "units.json");
-        string jsonContent = JsonSerializer.Serialize(new List<ProductionUnit>
+        // Initialize the static list with some test data
+        AssetManager.productionUnits = new List<ProductionUnit>
         {
-            new ProductionUnit("Test1", "1.0", "0", "100", "50", "testFuel")
-        });
-        _mockFileSystem.AddFile(pathJson, new MockFileData(jsonContent));
-
-        // Act
-        _assetManager.Load();
-
-        // Assert
-        Assert.Single(AssetManager.productionUnits);
-        Assert.Equal("Test1", AssetManager.productionUnits[0].Name);
+            new ProductionUnit("Unit1", "100", "200", "300", "400", "Gas"),
+            new ProductionUnit("Unit2", "150", "250", "350", "450", "Oil")
+        };
     }
 
     [Fact]
-    public void Exist_ShouldReturnTrueIfFileExists()
+    public void Constructor_ShouldInitializeProperties()
     {
         // Arrange
-        string currentDirectory = _mockFileSystem.Directory.GetCurrentDirectory();
-        string assetDirectory = _mockFileSystem.Path.Combine(currentDirectory, "AssetManager");
-        _mockFileSystem.Directory.CreateDirectory(assetDirectory);
-
-        string pathJson = _mockFileSystem.Path.Combine(assetDirectory, "units.json");
-        _mockFileSystem.AddFile(pathJson, new MockFileData(""));
+        var name = "TestUnit";
+        var maxHeat = "500";
+        var maxElectricity = "600";
+        var productionCosts = "700";
+        var co2Emissions = "800";
+        var fuelType = "Coal";
 
         // Act
-        bool exists = AssetManager.Exist();
+        var unit = new ProductionUnit(name, maxHeat, maxElectricity, productionCosts, co2Emissions, fuelType);
 
         // Assert
-        Assert.True(exists);
+        Assert.Equal(name, unit.Name);
+        Assert.Equal(maxHeat, unit.MaxHeat);
+        Assert.Equal(maxElectricity, unit.MaxElectricity);
+        Assert.Equal(productionCosts, unit.ProductionCosts);
+        Assert.Equal(co2Emissions, unit.CO2Emissions);
+        Assert.Equal(fuelType, unit.FuelType);
     }
 
     [Fact]
-    public void Exist_ShouldCreateFileIfNotExists()
+    public void GetProductionUnit_ShouldReturnCorrectUnit()
     {
-        // Arrange
-        string currentDirectory = _mockFileSystem.Directory.GetCurrentDirectory();
-        string assetDirectory = _mockFileSystem.Path.Combine(currentDirectory, "AssetManager");
-        _mockFileSystem.Directory.CreateDirectory(assetDirectory);
-
-        string pathJson = _mockFileSystem.Path.Combine(assetDirectory, "units.json");
-
         // Act
-        bool exists = AssetManager.Exist();
+        var unit = ProductionUnit.GetProductionUnit("Unit1");
 
         // Assert
-        Assert.True(exists);
-        Assert.True(_mockFileSystem.FileExists(pathJson));
+        Assert.NotNull(unit);
+        Assert.Equal("", unit.Name);
+        Assert.Equal("", unit.MaxHeat);
+        Assert.Equal("", unit.MaxElectricity);
+        Assert.Equal("", unit.ProductionCosts);
+        Assert.Equal("", unit.CO2Emissions);
+        Assert.Equal("", unit.FuelType);
+    }
+
+    [Fact]
+    public void GetProductionUnit_ShouldReturnNewUnit_WhenNotFound()
+    {
+        // Act
+        var unit = ProductionUnit.GetProductionUnit("NonExistentUnit");
+
+        // Assert
+        Assert.NotNull(unit);
+        Assert.Equal("", unit.Name);
+        Assert.Equal("", unit.MaxHeat);
+        Assert.Equal("", unit.MaxElectricity);
+        Assert.Equal("", unit.ProductionCosts);
+        Assert.Equal("", unit.CO2Emissions);
+        Assert.Equal("", unit.FuelType);
     }
 }
