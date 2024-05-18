@@ -23,11 +23,11 @@
 				</Grid.ColumnDefinitions>
 				<Grid.RowDefinitions>
 					<RowDefinition Height="0.2*"/>
+					<RowDefinition Height="1.5*"/>
 					<RowDefinition Height="*"/>
-					<RowDefinition Height="0.5*"/>
 				</Grid.RowDefinitions>
 				<Border Background="Black" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="10">
-					<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">HEAT PRODUCTION</TextBlock>
+					<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">HEAT PRODUCTION</TextBlock>
 				</Border>
 				<Border Background="DarkGray" CornerRadius="10" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Margin="10">
 					<ScottPlot:AvaPlot Name="AvaPlot1"/>
@@ -81,7 +81,7 @@
 							HorizontalContentAlignment="Center" 
 							VerticalContentAlignment="Center" 
 							Foreground="White" 
-							FontSize="20"
+							FontSize="15"
 							Background="Gray"
 							CornerRadius="10">
 							Summer Period</Button>
@@ -95,7 +95,7 @@
 							HorizontalContentAlignment="Center" 
 							VerticalContentAlignment="Center"
 							Foreground="White" 
-							FontSize="20"
+							FontSize="15"
 							Background="Gray"
 							CornerRadius="10">Winter Period</Button>
 						</Border>

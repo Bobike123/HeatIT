@@ -41,10 +41,10 @@ namespace SemesterProject.Views
             average.Text = av.ToString("0.00");
 
             //modifies the title of the graph depending on the time of the year
-            if (period == "summer") avaPlot1.Plot.Title("Heat Demand Graph for Summer Period");
-            else avaPlot1.Plot.Title("Heat Demand Graph for Winter Period");
-            avaPlot1.Plot.XLabel("Days");
-            avaPlot1.Plot.YLabel("MWh");
+            if (period == "summer") avaPlot1.Plot.Title("Heat Demand Graph for Summer Period", size: 20);
+            else avaPlot1.Plot.Title("Heat Demand Graph for Winter Period", size: 20);
+            avaPlot1.Plot.XLabel("Days", size: 15);
+            avaPlot1.Plot.YLabel("MWh", size: 15);
             avaPlot1.Plot.Add.Scatter(data_X, data_Y);
             avaPlot1.Plot.Axes.SetLimits(8, 14.95);//one week
             avaPlot1.Plot.Axes.SetLimitsY(0, Optimizer.CalculateMax([2, 6], 1));//comparation of the two periods

@@ -10,9 +10,9 @@
         Title="ProductionValues"
         Width="960" Height="660">
 	<Panel Background="LightGray">
-		<Grid ShowGridLines="False" ColumnDefinitions="*,*" RowDefinitions="50,6*,4*">
+		<Grid ShowGridLines="False" ColumnDefinitions="*,*" RowDefinitions="0.2*,1.5*,*">
 			<Border Background="Black" CornerRadius="10" Grid.Row="0" Margin="10" Grid.ColumnSpan="2">
-				<TextBlock FontSize="25" HorizontalAlignment="Center" Grid.Row="0" Margin="0,0,0,0">PRODUCTION VALUES</TextBlock>
+				<TextBlock FontSize="20" HorizontalAlignment="Center" Grid.Row="0" Margin="0,0,0,0">PRODUCTION VALUES</TextBlock>
 			</Border>
 			<Border Background="White" CornerRadius="10" Grid.Column="0" Grid.Row="1" Margin="10,5,5,5">
 				<ScottPlot:AvaPlot Name="AvaPlot1"/>
@@ -29,7 +29,7 @@
 							<ColumnDefinition Width="*" />
 						</Grid.ColumnDefinitions>
 						<Grid.RowDefinitions>
-							<RowDefinition Height="*" />
+							<RowDefinition Height="0.2*" />
 							<RowDefinition Height="*" />
 							<RowDefinition Height="*" />
 							<RowDefinition Height="*" />

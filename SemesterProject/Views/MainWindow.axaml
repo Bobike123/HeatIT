@@ -96,7 +96,7 @@
 						</Button>
 					</Border>
 					<Border Grid.Row="3" Grid.Column="1" Margin="10">
-						<Button Click="OpenCO2Emmisions" 
+						<Button Click="OpenCO2Emissions" 
 							HorizontalAlignment="Stretch" 
 							VerticalAlignment="Stretch"  
 							HorizontalContentAlignment="Center" 
@@ -107,7 +107,7 @@
 							CornerRadius="10">
 							<StackPanel>
 								<TextBlock Text="CO2" HorizontalAlignment="Center"/>
-								<TextBlock Text="Emmisions" HorizontalAlignment="Center"/>
+								<TextBlock Text="Emissions" HorizontalAlignment="Center"/>
 							</StackPanel>
 						</Button>
 					</Border>
