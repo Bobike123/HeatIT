@@ -18,7 +18,6 @@ namespace SemesterProject.Views
                     data[j] = lines[i].Split(",");
                 }
             }
-
             string[][] newData = new string[data.Length][];
             for (int i = 0; i < data.Length; i++)
             {

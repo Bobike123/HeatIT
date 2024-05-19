@@ -2,11 +2,15 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using SemesterProject.Views;
+using System.Linq;
+using ScottPlot.AxisRules;
+using System.Globalization;
+using System.Security.Cryptography;
 
 namespace SemesterProject;
 public class Optimizer
 {
-    public static double Calculation(string period, int boiler, int day)
+    public static double[][] Calculation(string period)
     {
         List<ProductionUnit> productionUnits = AssetManager.productionUnits;
 
@@ -46,27 +50,7 @@ public class Optimizer
 
             }
         }
-        for (int i = 0; i < unitsSUMMER.Length; ++i)
-        {
-            Array.Sort(unitsSUMMER[i], new Comparison<double>(
-            (x, y) => { return x < y ? -1 : (x > y ? 1 : 0); }
-            ));
-        }
-
-        for (int i = 0; i < unitsWINTER.Length; ++i)
-        {
-            Array.Sort(unitsWINTER[i], new Comparison<double>(
-            (x, y) => { return x < y ? -1 : (x > y ? 1 : 0); }
-            ));
-        }
-
-        string[][] orderedSummer = Convert(unitsSUMMER);
-        string[][] orderedWinter = Convert(unitsWINTER);
         // Do something with 'units' array, such as writing to a CSV file
-        string[][] empty = [
-            [""],
-            [""]
-        ];
 
         double[] sumWinter = new double[unitsWINTER[0].Length];
         double[] sumsummer = new double[unitsSUMMER[0].Length];
@@ -82,13 +66,64 @@ public class Optimizer
         }
         if (period == "winter")
         {
-            return unitsWINTER[boiler][day];
+            //ResultDataManager.AppendDoubleArrayToCSV(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "newfile.csv"), unitsWINTER);
+            return unitsWINTER;
         }
         else
         {
-            return unitsSUMMER[boiler][day];
+            //ResultDataManager.AppendDoubleArrayToCSV(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "newfile.csv"), unitsSUMMER);
+            return unitsSUMMER;
         }
     }
+
+    public static double[] CalculateValue(string max, int day, string period)
+    {
+        double[] units = new double[AssetManager.productionUnits.Count];
+        string p = Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "newfile.csv");
+        double maxHeat = double.Parse(max);
+        double[][] calculatedUnits = Calculation(period);
+
+        // Initialize all units to 0
+        for (int unit = 0; unit < units.Length; unit++)
+        {
+            units[unit] = 0;
+        }
+
+        // Get sorted positions based on the heat production values of the units for the given day
+        int[] sortedarray = GetSortedPositions(calculatedUnits[day]);
+        double remainingHeat = maxHeat;
+
+        foreach (int position in sortedarray)
+        {
+            double maxHeatProduction = double.Parse(AssetManager.productionUnits[position].MaxHeat!);
+
+            if (remainingHeat > maxHeatProduction)
+            {
+                units[position] = maxHeatProduction;
+                remainingHeat -= maxHeatProduction;
+            }
+            else
+            {
+                units[position] = remainingHeat;
+                remainingHeat = 0;
+                break;
+            }
+        }
+
+        ResultDataManager.AppendDoubleArrayToCSV(p, [units]);
+
+        return units;
+    }
+
+    private static int[] GetSortedPositions(double[] units)
+    {
+        return units
+            .Select((value, index) => new { Value = value, Index = index })
+            .OrderBy(x => x.Value)
+            .Select(x => x.Index)
+            .ToArray();
+    }
+
     public static double CalculateMax(int[] columns, double multiplier)
     {
         double max = -99999;
@@ -100,20 +135,8 @@ public class Optimizer
         }
         return max * 1.2;
     }
-    public static double[] CalculateValue(int day, string max, string period)
-    {
-        //calculate what values should be put for each boiler in that specific day.
-        //max is the heat demand that has to bea reached with the 4 boilers so that max profit can be achieve
-        //unitsSUMMER[j][i] = c + (Math.Abs(v) * ChangeToDouble(olas[j][1]));
-        //unitsWINTER[j][i] = c + (Math.Abs(v) * ChangeToDouble(olas[j][0]));
-        double[] units = [AssetManager.productionUnits.Count];
-        for (int boiler = 0; boiler < AssetManager.productionUnits.Count; boiler++)
-        {
-            units[boiler] = Calculation(period, boiler, day);
-        }
 
-        return [3.5, 2, 4];
-    }
+
     public static double ChangeToDouble(string value)
     {
         try
