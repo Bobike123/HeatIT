@@ -21,14 +21,14 @@
 					<ColumnDefinition Width="*"/>
 				</Grid.ColumnDefinitions>
 				<Grid.RowDefinitions>
-					<RowDefinition Height="50"/>
+					<RowDefinition Height="0.2*"/>
 					<RowDefinition Height="*"/>
-					<RowDefinition Height="50"/>
+					<RowDefinition Height="0.2*"/>
 					<RowDefinition Height="*"/>
-					<RowDefinition Height="50"/>
+					<RowDefinition Height="0.2*"/>
 				</Grid.RowDefinitions>
 				<Border Background="Black" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="10">
-					<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25">EXPENSES AND PROFIT</TextBlock>
+					<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">EXPENSES AND PROFIT</TextBlock>
 				</Border>
 				<Border Background="Gray"  Grid.Row="1" Grid.ColumnSpan="3" CornerRadius="10" Margin="10">
 					<ScottPlot:AvaPlot Name="AvaPlot1"/>

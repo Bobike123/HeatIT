@@ -45,7 +45,6 @@ namespace SemesterProject.Views
             else avaPlot1.Plot.Title("Heat Demand Graph for Winter Period");
             avaPlot1.Plot.XLabel("Days");
             avaPlot1.Plot.YLabel("MWh");
-
             avaPlot1.Plot.Add.Scatter(data_X, data_Y);
             avaPlot1.Plot.Axes.SetLimits(8, 14.95);//one week
             avaPlot1.Plot.Axes.SetLimitsY(0, Optimizer.CalculateMax([2, 6], 1));//comparation of the two periods

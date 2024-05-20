@@ -21,10 +21,10 @@ namespace SemesterProject.Views
             expenses.Text = "";
             profit.Text = "";
         }
-        public void OpenCO2Emmisions(object sender, RoutedEventArgs args)
+        public void OpenCO2Emissions(object sender, RoutedEventArgs args)
         {
-            var cO2EmmisionsWindow = new CO2EmmisionWindow();
-            cO2EmmisionsWindow.Show();
+            var cO2EmissionsWindow = new CO2EmissionWindow();
+            cO2EmissionsWindow.Show();
         }
         public void OpenExpensesAndProfit(object sender, RoutedEventArgs args)
         {
