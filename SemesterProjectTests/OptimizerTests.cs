@@ -14,7 +14,7 @@ namespace SemesterProjectTests.OptimizerTests
         {
             //Arrange
 
-            List<ProductionUnit> productionUnits =
+            SemesterProject.AssetManager.productionUnits =
             [
                 new ProductionUnit("GB", "5.0", "0", "500", "215", "gas"),
                 new ProductionUnit("OB", "4.0", "0", "700", "265", "oil"),
@@ -30,7 +30,7 @@ namespace SemesterProjectTests.OptimizerTests
 
             //Assert
 
-            Assert.Equal(expected, SemesterProject.Optimizer.Calculation("summer", olas, productionUnits));
+            Assert.Equal(new List<string>() { "6.62", "800", "1.62", "600" }, olas[0]);
         }
         [Fact]
         public void Optimizer_ChangeToDouble()
@@ -67,6 +67,5 @@ namespace SemesterProjectTests.OptimizerTests
             //assert 
             Assert.Equal(expected, SemesterProject.Optimizer.OperatingPoint(data, productionUnits, 1));
         }
-
     }
 }
