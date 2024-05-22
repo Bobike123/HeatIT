@@ -23,6 +23,7 @@ namespace SemesterProject.Views
 
         public void DisplayHeatDemandContent(int[] columns, string period)
         {
+            AssetManager assetManager = new();
             AvaPlot myPlot = this.Find<AvaPlot>("AvaPlot1")!;
             myPlot.Plot.Clear();
             string path = Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv");
@@ -44,9 +45,9 @@ namespace SemesterProject.Views
             for (int x = 0; x < Dates.Length; x++)
             {
                 double nextBarBase = 0;
-                double[] values = Optimizer.CalculateValue(heatDemand[x][0], x, period);
+                double[] values = Optimizer.CalculateValue(heatDemand[x][0], x, period, Dates, assetManager);
 
-                for (int i = 0; i < AssetManager.productionUnits.Count; i++)
+                for (int i = 0; i < assetManager.productionUnits.Count; i++)
                 {
                     Bar bar = new()
                     {

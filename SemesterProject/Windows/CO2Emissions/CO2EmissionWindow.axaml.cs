@@ -34,6 +34,7 @@ namespace SemesterProject.Views
         }
         public void DisplayGraphContent(int[] columns, string period, int unit)
         {
+            AssetManager assetManager = new();
             AvaPlot avaPlot1 = this.Find<AvaPlot>("AvaPlot1")!;//initializes the graph
             avaPlot1.Plot.Clear();
             //clears the graph if any previous information was displayed on it
@@ -49,7 +50,7 @@ namespace SemesterProject.Views
             for (int i = 0; i < newData.Length; i++)
             {
                 data_X[i] = double.Parse(newData[i][0]) + count * 0.041;//creates the x axis
-                data_Y[i] = double.Parse(newData[i][1]) * double.Parse(AssetManager.productionUnits[unit].CO2Emissions!);
+                data_Y[i] = double.Parse(newData[i][1]) * double.Parse(assetManager.productionUnits[unit].CO2Emissions!);
                 count = (count + 1) % 24;
 
                 if (data_Y[i] > max) max = data_Y[i];
@@ -64,14 +65,14 @@ namespace SemesterProject.Views
             averageTextBlock.Text = $" {average.ToString("00.00")} KG/MWh";
 
 
-            for (int num = 0; num < AssetManager.productionUnits.Count; num++)
-                if (double.Parse(AssetManager.productionUnits[num].CO2Emissions!) > max) max = double.Parse(AssetManager.productionUnits[num].CO2Emissions!);
+            for (int num = 0; num < assetManager.productionUnits.Count; num++)
+                if (double.Parse(assetManager.productionUnits[num].CO2Emissions!) > max) max = double.Parse(assetManager.productionUnits[num].CO2Emissions!);
 
 
 
             //modifies the title of the graph depending on the time of the year
-            if (period == "summer") avaPlot1.Plot.Title($"CO2 Emissions for {AssetManager.productionUnits[unit].Name!} Graph for Summer Period", size: 20);
-            else avaPlot1.Plot.Title($"CO2 Emissions for {AssetManager.productionUnits[unit].Name!} Graph for Winter Period", size: 20);
+            if (period == "summer") avaPlot1.Plot.Title($"CO2 Emissions for {assetManager.productionUnits[unit].Name!} Graph for Summer Period", size: 20);
+            else avaPlot1.Plot.Title($"CO2 Emissions for {assetManager.productionUnits[unit].Name!} Graph for Winter Period", size: 20);
             avaPlot1.Plot.XLabel("Days", size: 15);
             avaPlot1.Plot.YLabel("KG/MWh", size: 15);
             avaPlot1.Plot.Add.Scatter(data_X, data_Y);

@@ -36,9 +36,9 @@ namespace SemesterProject.Views
             }
             //modifies the highest lowest and average data from the axaml file
             av = (max + min) / 2;
-            highest.Text = max.ToString("0.00");
-            lowest.Text = min.ToString("0.00");
-            average.Text = av.ToString("0.00");
+            highest.Text = max.ToString("0.00 MWh");
+            lowest.Text = min.ToString("0.00 MWh");
+            average.Text = av.ToString("0.00 MWh");
 
             //modifies the title of the graph depending on the time of the year
             if (period == "summer") avaPlot1.Plot.Title("Heat Demand Graph for Summer Period");

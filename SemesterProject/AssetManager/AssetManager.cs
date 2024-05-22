@@ -1,6 +1,5 @@
 using System.IO;
 using System.Text.Json;
-using System.Diagnostics;
 using System.Collections.Generic;
 
 namespace SemesterProject
@@ -23,21 +22,12 @@ namespace SemesterProject
             CO2Emissions = co2Emissions;
             FuelType = fuelType;
         }
-        public static ProductionUnit GetProductionUnit(string name)
-        {
-            foreach (var unit in AssetManager.productionUnits)
-            {
-                if (unit.Name == name)
-                    return unit;
-            }
-            return new ProductionUnit("", "", "", "", "", "");
-        }
     }
 
     public class AssetManager
     {
         public static string PathJson = Path.Combine(Directory.GetCurrentDirectory(), "AssetManager", "units.json");
-        public static List<ProductionUnit> productionUnits = new List<ProductionUnit>
+        public List<ProductionUnit> productionUnits = new List<ProductionUnit>
         {
             new ProductionUnit("GB", "5.0", "0", "500", "215", "gas"),
             new ProductionUnit("OB", "4.0", "0", "700", "265", "oil"),

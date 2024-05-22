@@ -3,40 +3,38 @@ using System.IO;
 using System.Collections.Generic;
 using SemesterProject.Views;
 using System.Linq;
-using System.Runtime.CompilerServices;
 
 namespace SemesterProject;
 public class Optimizer
 {
-    public static double[][] Calculation(string period, string[][] data)
+    public static double[][] Calculation(string period, string[][] data, AssetManager assetManager)
     {
-        List<ProductionUnit> productionUnits = AssetManager.productionUnits;
+        
         double[][] unitsSUMMER = new double[data.Length][];
         double[][] unitsWINTER = new double[data.Length][];
 
         // Initialize each inner array
         for (int i = 0; i < unitsSUMMER.Length; i++)
         {
-            unitsSUMMER[i] = new double[productionUnits.Count];
-            unitsWINTER[i] = new double[productionUnits.Count];
-
+            unitsSUMMER[i] = new double[assetManager.productionUnits.Count];
+            unitsWINTER[i] = new double[assetManager.productionUnits.Count];
         }
 
-        for (int i = 0; i < productionUnits.Count; i++)
+        for (int i = 0; i < assetManager.productionUnits.Count; i++)
         {
             for (int j = 0; j < data.Length; ++j)
             {
-                double v = ChangeToDouble(productionUnits[i].MaxElectricity!);
-                double c = ChangeToDouble(productionUnits[i].ProductionCosts!);
-                if (v > 0)
+                double e = ChangeToDouble(assetManager.productionUnits[i].MaxElectricity!);
+                double c = ChangeToDouble(assetManager.productionUnits[i].ProductionCosts!);
+                if (e > 0)
                 {
-                    unitsSUMMER[j][i] = c - (v * ChangeToDouble(data[j][1]));
-                    unitsWINTER[j][i] = c - (v * ChangeToDouble(data[j][0]));
+                    unitsSUMMER[j][i] = c - (e * ChangeToDouble(data[j][1]));
+                    unitsWINTER[j][i] = c - (e * ChangeToDouble(data[j][0]));
                 }
-                else if (v < 0)
+                else if (e < 0)
                 {
-                    unitsSUMMER[j][i] = c + (Math.Abs(v) * ChangeToDouble(data[j][1]));
-                    unitsWINTER[j][i] = c + (Math.Abs(v) * ChangeToDouble(data[j][0]));
+                    unitsSUMMER[j][i] = c + (Math.Abs(e) * ChangeToDouble(data[j][1]));
+                    unitsWINTER[j][i] = c + (Math.Abs(e) * ChangeToDouble(data[j][0]));
                 }
                 else
                 {
@@ -62,23 +60,22 @@ public class Optimizer
         }
         if (period == "winter")
         {
-            ResultDataManager.AppendDoubleArrayToCSV(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "newfile.csv"), unitsWINTER);
+            //ResultDataManager.AppendDoubleArrayToCSV(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "newfile.csv"), unitsWINTER);
             return unitsWINTER;
         }
         else
         {
-            ResultDataManager.AppendDoubleArrayToCSV(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "newfile.csv"), unitsSUMMER);
-
+            //ResultDataManager.AppendDoubleArrayToCSV(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "newfile.csv"), unitsSUMMER);
             return unitsSUMMER;
         }
     }
 
-    public static double[] CalculateValue(string max, int day, string period, string[][] data)
+    public static double[] CalculateValue(string max, int day, string period, string[][] data, AssetManager assetManager)
     {
-        double[] units = new double[AssetManager.productionUnits.Count];
+        double[] units = new double[assetManager.productionUnits.Count];
         string p = Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "newfile.csv");
         double maxHeat = double.Parse(max);
-        double[][] calculatedUnits = Calculation(period, data);
+        double[][] calculatedUnits = Calculation(period, data, assetManager);
 
         // Initialize all units to 0
         for (int unit = 0; unit < units.Length; unit++)
@@ -92,7 +89,7 @@ public class Optimizer
 
         foreach (int position in sortedarray)
         {
-            double maxHeatProduction = double.Parse(AssetManager.productionUnits[position].MaxHeat!);
+            double maxHeatProduction = double.Parse(assetManager.productionUnits[position].MaxHeat!);
 
             if (remainingHeat > maxHeatProduction)
             {
@@ -106,8 +103,6 @@ public class Optimizer
                 break;
             }
         }
-
-        ResultDataManager.AppendDoubleArrayToCSV(p, [units]);
 
         return units;
     }

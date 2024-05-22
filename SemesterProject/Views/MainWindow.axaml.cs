@@ -9,7 +9,7 @@ namespace SemesterProject.Views
     {
         public MainWindow()
         {
-            AssetManager assetManager = new AssetManager();
+            AssetManager assetManager = new();
             assetManager.Save();
             InitializeComponent();
             this.AttachDevTools();
