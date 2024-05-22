@@ -3,20 +3,16 @@ using System.IO;
 using System.Collections.Generic;
 using SemesterProject.Views;
 using System.Linq;
-using ScottPlot.AxisRules;
-using System.Globalization;
-using System.Security.Cryptography;
+using System.Runtime.CompilerServices;
 
 namespace SemesterProject;
 public class Optimizer
 {
-    public static double[][] Calculation(string period)
+    public static double[][] Calculation(string period, string[][] data)
     {
         List<ProductionUnit> productionUnits = AssetManager.productionUnits;
-
-        string[][] olas = SourceDataManager.CSVDisplayGraph(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv"), [2, 6]);
-        double[][] unitsSUMMER = new double[olas.Length][];
-        double[][] unitsWINTER = new double[olas.Length][];
+        double[][] unitsSUMMER = new double[data.Length][];
+        double[][] unitsWINTER = new double[data.Length][];
 
         // Initialize each inner array
         for (int i = 0; i < unitsSUMMER.Length; i++)
@@ -28,19 +24,19 @@ public class Optimizer
 
         for (int i = 0; i < productionUnits.Count; i++)
         {
-            for (int j = 0; j < olas.Length; ++j)
+            for (int j = 0; j < data.Length; ++j)
             {
                 double v = ChangeToDouble(productionUnits[i].MaxElectricity!);
                 double c = ChangeToDouble(productionUnits[i].ProductionCosts!);
                 if (v > 0)
                 {
-                    unitsSUMMER[j][i] = c - (v * ChangeToDouble(olas[j][1]));
-                    unitsWINTER[j][i] = c - (v * ChangeToDouble(olas[j][0]));
+                    unitsSUMMER[j][i] = c - (v * ChangeToDouble(data[j][1]));
+                    unitsWINTER[j][i] = c - (v * ChangeToDouble(data[j][0]));
                 }
                 else if (v < 0)
                 {
-                    unitsSUMMER[j][i] = c + (Math.Abs(v) * ChangeToDouble(olas[j][1]));
-                    unitsWINTER[j][i] = c + (Math.Abs(v) * ChangeToDouble(olas[j][0]));
+                    unitsSUMMER[j][i] = c + (Math.Abs(v) * ChangeToDouble(data[j][1]));
+                    unitsWINTER[j][i] = c + (Math.Abs(v) * ChangeToDouble(data[j][0]));
                 }
                 else
                 {
@@ -76,12 +72,12 @@ public class Optimizer
         }
     }
 
-    public static double[] CalculateValue(string max, int day, string period)
+    public static double[] CalculateValue(string max, int day, string period, string[][] data)
     {
         double[] units = new double[AssetManager.productionUnits.Count];
         string p = Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "newfile.csv");
         double maxHeat = double.Parse(max);
-        double[][] calculatedUnits = Calculation(period);
+        double[][] calculatedUnits = Calculation(period, data);
 
         // Initialize all units to 0
         for (int unit = 0; unit < units.Length; unit++)
