@@ -47,7 +47,7 @@ namespace SemesterProject.Views
                 }
             }
             var csvFilePath = Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "newfile.csv");
-            ResultDataManager.AppendToCSV(csvFilePath, newData);
+            //ResultDataManager.AppendToCSV(csvFilePath, newData);
             return newData;
         }
     }

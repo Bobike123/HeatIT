@@ -25,12 +25,8 @@ namespace SemesterProject.Views
         public CO2EmissionWindow()
         {
             InitializeComponent();
-            FirstUnit.Content = AssetManager.productionUnits[0].Name;
-            SecondUnit.Content = AssetManager.productionUnits[1].Name;
-            ThirdUnit.Content = AssetManager.productionUnits[2].Name;
-            ForthUnit.Content = AssetManager.productionUnits[3].Name;
             this.AttachDevTools();
-            
+
             highestTextBlock = highest;
             lowestTextBlock = lowest;
             averageTextBlock = average;
@@ -53,7 +49,7 @@ namespace SemesterProject.Views
             for (int i = 0; i < newData.Length; i++)
             {
                 data_X[i] = double.Parse(newData[i][0]) + count * 0.041;//creates the x axis
-                data_Y[i] = double.Parse(newData[i][1]) * double.Parse(AssetManager.productionUnits[unit].CO2Emissions!);      
+                data_Y[i] = double.Parse(newData[i][1]) * double.Parse(AssetManager.productionUnits[unit].CO2Emissions!);
                 count = (count + 1) % 24;
 
                 if (data_Y[i] > max) max = data_Y[i];
@@ -66,10 +62,10 @@ namespace SemesterProject.Views
             highestTextBlock.Text = $" {max.ToString("00.00")} KG/MWh";
             lowestTextBlock.Text = $" {min.ToString("00.00")} KG/MWh";
             averageTextBlock.Text = $" {average.ToString("00.00")} KG/MWh";
-            
+
 
             for (int num = 0; num < AssetManager.productionUnits.Count; num++)
-            if (double.Parse(AssetManager.productionUnits[num].CO2Emissions!) > max) max = double.Parse(AssetManager.productionUnits[num].CO2Emissions!);
+                if (double.Parse(AssetManager.productionUnits[num].CO2Emissions!) > max) max = double.Parse(AssetManager.productionUnits[num].CO2Emissions!);
 
 
 
@@ -92,7 +88,7 @@ namespace SemesterProject.Views
             {
                 DisplayGraphContent([4, 6], "summer", selection);
             }
-            
+
         }
 
         public void WinterPeriodButton(object sender, RoutedEventArgs args)
@@ -103,52 +99,7 @@ namespace SemesterProject.Views
             {
                 DisplayGraphContent([0, 2], "winter", selection);
             }
-            
-        }
 
-        public void FirstUnitButton(object sender, RoutedEventArgs args)
-        {
-            selection = 0;
-            FirstUnit.Background = new SolidColorBrush(Color.FromRgb(255, 165, 0));
-            SecondUnit.Background = new SolidColorBrush(Colors.Gray);
-            ThirdUnit.Background = new SolidColorBrush(Colors.Gray);
-            ForthUnit.Background = new SolidColorBrush(Colors.Gray);
-            if (SummerPeriod.Background!.Equals(Color.FromRgb(207, 3, 3))) SummerPeriodButton(sender, args);
-            else if (WinterPeriod.Background!.Equals(Color.FromRgb(207, 3, 3))) WinterPeriodButton(sender, args);
-            
-        }
-        public void SecondUnitButton(object sender, RoutedEventArgs args)
-        {
-            selection = 1;
-            FirstUnit.Background = new SolidColorBrush(Colors.Gray);
-            SecondUnit.Background = new SolidColorBrush(Color.FromRgb(255, 165, 0));
-            ThirdUnit.Background = new SolidColorBrush(Colors.Gray);
-            ForthUnit.Background = new SolidColorBrush(Colors.Gray);
-            if (SummerPeriod.Background!.Equals(Color.FromRgb(207, 3, 3))) SummerPeriodButton(sender, args);
-            else if (WinterPeriod.Background!.Equals(Color.FromRgb(207, 3, 3))) WinterPeriodButton(sender, args);
-            
-        }
-        public void ThirdUnitButton(object sender, RoutedEventArgs args)
-        {
-            selection = 2;
-            FirstUnit.Background = new SolidColorBrush(Colors.Gray);
-            SecondUnit.Background = new SolidColorBrush(Colors.Gray);
-            ThirdUnit.Background = new SolidColorBrush(Color.FromRgb(255, 165, 0));
-            ForthUnit.Background = new SolidColorBrush(Colors.Gray);
-            if (SummerPeriod.Background!.Equals(Color.FromRgb(207, 3, 3))) SummerPeriodButton(sender, args);
-            else if (WinterPeriod.Background!.Equals(Color.FromRgb(207, 3, 3))) WinterPeriodButton(sender, args);
-            
-        }
-        public void ForthUnitButton(object sender, RoutedEventArgs args)
-        {
-            selection = 3;
-            FirstUnit.Background = new SolidColorBrush(Colors.Gray);
-            SecondUnit.Background = new SolidColorBrush(Colors.Gray);
-            ThirdUnit.Background = new SolidColorBrush(Colors.Gray);
-            ForthUnit.Background = new SolidColorBrush(Color.FromRgb(255, 165, 0));
-            if (SummerPeriod.Background!.Equals(Color.FromRgb(207, 3, 3))) SummerPeriodButton(sender, args);
-            else if (WinterPeriod.Background!.Equals(Color.FromRgb(207, 3, 3))) WinterPeriodButton(sender, args);
-            
         }
     }
 }

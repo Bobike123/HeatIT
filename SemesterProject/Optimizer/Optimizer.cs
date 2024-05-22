@@ -17,8 +17,8 @@ public class Optimizer
         // Initialize each inner array
         for (int i = 0; i < unitsSUMMER.Length; i++)
         {
-            unitsSUMMER[i] = new double[4];
-            unitsWINTER[i] = new double[4];
+            unitsSUMMER[i] = new double[productionUnits.Count];
+            unitsWINTER[i] = new double[productionUnits.Count];
 
         }
 
@@ -62,12 +62,13 @@ public class Optimizer
         }
         if (period == "winter")
         {
-            //ResultDataManager.AppendDoubleArrayToCSV(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "newfile.csv"), unitsWINTER);
+            ResultDataManager.AppendDoubleArrayToCSV(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "newfile.csv"), unitsWINTER);
             return unitsWINTER;
         }
         else
         {
-            //ResultDataManager.AppendDoubleArrayToCSV(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "newfile.csv"), unitsSUMMER);
+            ResultDataManager.AppendDoubleArrayToCSV(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "newfile.csv"), unitsSUMMER);
+
             return unitsSUMMER;
         }
     }

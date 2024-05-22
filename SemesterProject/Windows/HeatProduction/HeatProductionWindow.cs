@@ -5,7 +5,6 @@ using Avalonia.Interactivity;
 using ScottPlot.Avalonia;
 using System.IO;
 using System.Collections.Generic;
-
 using ScottPlot.Colormaps;
 using System;
 using Microsoft.CodeAnalysis;
