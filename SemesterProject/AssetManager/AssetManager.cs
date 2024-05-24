@@ -47,6 +47,14 @@ namespace SemesterProject
                 productionUnits = JsonSerializer.Deserialize<List<ProductionUnit>>(json)!;
             }
         }
+        public void LoadChanged()
+        {
+            if (Exist())
+            {
+                string? json = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "ResultDataManager", "SavedJsonData.json"));
+                productionUnits = JsonSerializer.Deserialize<List<ProductionUnit>>(json)!;
+            }
+        }
         public static bool Exist()
         {
             if (File.Exists(PathJson))

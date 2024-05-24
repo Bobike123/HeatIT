@@ -155,6 +155,20 @@ public class Optimizer
         }
         return stringArray;
     }
+    public static double[][] ConvertToDoubleArray(string[][] values)
+    {
+        double[][] stringArray = new double[values.Length][];
+        for (int i = 0; i < values.Length; ++i)
+        {
+            stringArray[i] = new double[values[i].Length];
+            for (int j = 0; j < values[i].Length; ++j)
+            {
+                stringArray[i][j] = double.Parse(values[i][j]);
+            }
+        }
+        return stringArray;
+    }
+    
     public static double[][] OperatingPoint(string[][] data, List<ProductionUnit> productionUnits, int period)
     {
         double[][] skies = new double[data.Length][];

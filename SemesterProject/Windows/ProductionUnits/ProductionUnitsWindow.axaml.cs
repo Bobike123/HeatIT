@@ -22,6 +22,7 @@ namespace SemesterProject.Views
         public void Load()
         {
             AssetManager assetManager = new();
+            assetManager.LoadChanged();
             AName.Text = assetManager.productionUnits[0].Name;
             AMH.Text = assetManager.productionUnits[0].MaxHeat;
             AME.Text = assetManager.productionUnits[0].MaxElectricity;
@@ -82,7 +83,7 @@ namespace SemesterProject.Views
             assetManager.productionUnits[3].CO2Emissions = DCO2.Text;
             assetManager.productionUnits[3].FuelType = DFT.Text;
             assetManager.Save();
-            //readFile.Load();
+            assetManager.LoadChanged();
         }
     }
 }
