@@ -26,7 +26,7 @@
 					<RowDefinition Height="*"/>
 				</Grid.RowDefinitions>
 				<Border Background="Black" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="10">
-					<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">HEAT DEMAND</TextBlock>
+					<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="White">HEAT DEMAND</TextBlock>
 				</Border>
 				<Border Background="DarkGray" CornerRadius="10" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Margin="10">
 					<ScottPlot:AvaPlot Name="AvaPlot1"/>

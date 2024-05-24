@@ -30,7 +30,7 @@
 					<RowDefinition Height="*"/>
 				</Grid.RowDefinitions>
 				<Border Background="Black" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" Margin="10">
-					<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">CO2 EMISSIONS</TextBlock>
+					<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="White">CO2 EMISSIONS</TextBlock>
 				</Border>
 				<Border Background="DarkGray"  Grid.Row="1" Grid.ColumnSpan="6" CornerRadius="10" Margin="10">
 					<ScottPlot:AvaPlot Name="AvaPlot1"/>
