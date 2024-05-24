@@ -9,6 +9,7 @@ using ScottPlot.Colormaps;
 using System;
 using Microsoft.CodeAnalysis;
 using ScottPlot;
+using System.Linq;
 
 namespace SemesterProject.Views
 {
@@ -27,19 +28,19 @@ namespace SemesterProject.Views
             AvaPlot myPlot = this.Find<AvaPlot>("AvaPlot1")!;
             myPlot.Plot.Clear();
             string path = Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv");
-            string[][] Dates = new string[0][];
-            string[][] heatDemand = new string[0][];
+            string[][] Dates;
+            string[][] heatDemand;
             ScottPlot.Color[] categoryColors = { ScottPlot.Colors.Orange, ScottPlot.Colors.Red, ScottPlot.Colors.Blue, ScottPlot.Colors.Green };
 
             if (period == "summer")
             {
-                Dates = SourceDataManager.CSVDisplayGraph(path, new int[] { 4, 5 });
-                heatDemand = SourceDataManager.CSVDisplayGraph(path, new int[] { 2 });
+                Dates = SourceDataManager.CSVDisplayGraph(path, new int[] { 0, 1, 3 }); // Adjust columns for summer period
+                heatDemand = SourceDataManager.CSVDisplayGraph(path, new int[] { 2 }); // Adjust columns for summer period
             }
             else
             {
-                Dates = SourceDataManager.CSVDisplayGraph(path, new int[] { 0, 1 });
-                heatDemand = SourceDataManager.CSVDisplayGraph(path, new int[] { 6 });
+                Dates = SourceDataManager.CSVDisplayGraph(path, new int[] { 4, 5, 3 }); // Adjust columns for winter period
+                heatDemand = SourceDataManager.CSVDisplayGraph(path, new int[] { 6 }); // Adjust columns for winter period
             }
 
             for (int x = 0; x < Dates.Length; x++)
@@ -47,20 +48,35 @@ namespace SemesterProject.Views
                 double nextBarBase = 0;
                 double[] values = Optimizer.CalculateValue(heatDemand[x][0], x, period, Dates, assetManager);
 
-                for (int i = 0; i < assetManager.productionUnits.Count; i++)
+                // Get the current electricity price for the selected period
+                double electricityPrice = double.Parse(Dates[x][2]); // Assuming electricity price is at column index 2 in the data
+
+                // Sort production units by production costs
+                var sortedProductionUnits = assetManager.productionUnits.OrderBy(unit => double.Parse(unit.ProductionCosts!));
+
+                foreach (var productionUnit in sortedProductionUnits)
                 {
+                    double maxElectricity = double.Parse(productionUnit.MaxElectricity!);
+                    double productionCost = double.Parse(productionUnit.ProductionCosts!);
+
+                    // Adjust production cost based on electricity price
+                    if (maxElectricity > 0)
+                    {
+                        productionCost += electricityPrice * maxElectricity;
+                    }
+
                     Bar bar = new()
                     {
                         Size = 1,
                         Position = x,
                         ValueBase = nextBarBase,
-                        FillColor = categoryColors[i],
-                        Value = nextBarBase + values[i],
-                        BorderColor = categoryColors[i],
+                        FillColor = categoryColors[assetManager.productionUnits.IndexOf(productionUnit)],
+                        Value = nextBarBase + values[assetManager.productionUnits.IndexOf(productionUnit)],
+                        BorderColor = categoryColors[assetManager.productionUnits.IndexOf(productionUnit)],
                     };
 
                     myPlot.Plot.Add.Bar(bar);
-                    nextBarBase += values[i]; // Update the base for the next bar
+                    nextBarBase += values[assetManager.productionUnits.IndexOf(productionUnit)]; // Update the base for the next bar
                 }
             }
 
@@ -80,6 +96,7 @@ namespace SemesterProject.Views
             myPlot.Plot.Axes.SetLimitsY(0, Optimizer.CalculateMax(new int[] { 2, 6 }, 1));
             myPlot.Refresh();
         }
+
         /*
                     string[][] newData = SourceDataManager.CSVDisplayGraph(path, columns);
                     //newData is siplified data that can be used for the graph
