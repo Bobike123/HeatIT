@@ -4,19 +4,15 @@ using Avalonia.Media;
 using Avalonia.Controls;
 using ScottPlot.Avalonia;
 using Avalonia.Interactivity;
+using System.Linq;
+using System;
 
 namespace SemesterProject.Views
 {
 
     public partial class CO2EmissionWindow : Window
     {
-        private int _selection = -1; // Backing field to store the value of selection
 
-        public int selection
-        {
-            get => _selection; // Getter returns the value of the backing field
-            set => _selection = value; // Setter sets the value of the backing field
-        }
         private TextBlock highestTextBlock;
         private TextBlock lowestTextBlock;
         private TextBlock averageTextBlock;
@@ -32,52 +28,141 @@ namespace SemesterProject.Views
             averageTextBlock = average;
 
         }
-        public void DisplayGraphContent(int[] columns, string period, int unit)
+        public void DisplayGraphContent(int periodInt, string period)
         {
             AssetManager assetManager = new();
+            assetManager.LoadChanged();
             AvaPlot avaPlot1 = this.Find<AvaPlot>("AvaPlot1")!;//initializes the graph
             avaPlot1.Plot.Clear();
-            //clears the graph if any previous information was displayed on it
-            string[][] newData = SourceDataManager.CSVDisplayGraph(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv"), columns);
-            //newData is siplified data that can be used for the graph
-            double[] data_X = new double[newData.Length], data_Y = new double[newData.Length];
-            int count = 0;//cout for the 24 hours of the day used for the x axis
 
-            double max = double.MinValue;
-            double min = double.MaxValue;
-            double sum = 0;
+            string[][] newData = SourceDataManager.CSVDisplayGraph(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv"), [0, 4]);
 
-            for (int i = 0; i < newData.Length; i++)
+            double[][] co2Data = Optimizer.ConvertToDoubleArray(newData);
+            string[][] heatDemand = SourceDataManager.CSVDisplayGraph(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv"), [2, 6]);
+            double[][] heatDemandDouble = Optimizer.ConvertToDoubleArray(heatDemand);
+            double[] operatingPoint = new double[heatDemandDouble.Length];
+            double[] data_X = new double[co2Data.Length];
+            double[] data_Y_GasBoiler = new double[newData.Length];
+            double[] data_Y_OilBoiler = new double[newData.Length];
+            double[] data_Y_GasMotor = new double[newData.Length];
+            double[] data_Y_ElectricBoiler = new double[newData.Length];
+            double max = double.MinValue, min = double.MaxValue, sum = 0;
+            double count = 0;
+            double gasBoilerCo2 = double.Parse(assetManager.productionUnits[0].CO2Emissions!);
+            double oilBoilerCo2 = double.Parse(assetManager.productionUnits[1].CO2Emissions!);
+            double gasMotorCo2 = double.Parse(assetManager.productionUnits[2].CO2Emissions!);
+            double electricBoilerCo2 = double.Parse(assetManager.productionUnits[3].CO2Emissions!);
+            double gasBoilerHeat = double.Parse(assetManager.productionUnits[0].MaxHeat!);
+            double oilBoilerHeat = double.Parse(assetManager.productionUnits[1].MaxHeat!);
+            double gasMotorHeat = double.Parse(assetManager.productionUnits[2].MaxHeat!);
+            double electricBoilerHeat = double.Parse(assetManager.productionUnits[3].MaxHeat!);
+            int unit = 0;
+            int nonZeroCount = 0;
+
+
+            for (int x = 0; x < heatDemandDouble.Length; x++)
             {
-                data_X[i] = double.Parse(newData[i][0]) + count * 0.041;//creates the x axis
-                data_Y[i] = double.Parse(newData[i][1]) * double.Parse(assetManager.productionUnits[unit].CO2Emissions!);
+                double heatDemandValue = heatDemandDouble[x][periodInt];
+                operatingPoint[x] = 0;
+                data_X[x] = co2Data[x][periodInt] + count * 0.041; //creates the x axis
                 count = (count + 1) % 24;
 
-                if (data_Y[i] > max) max = data_Y[i];
-                if (data_Y[i] < min) min = data_Y[i];
-                sum += data_Y[i];
+                // Create two bars if the value is greater than 3.6
+                if (heatDemandValue > gasMotorHeat)
+                {
+                    // GasMotor
+                    heatDemandValue -= gasMotorHeat;
+                    if (heatDemandValue < gasBoilerHeat)
+                    {
+                        // GasBoiler
+                        operatingPoint[x] = 1;
+                        unit = 0;
+                        data_Y_GasMotor[x] = gasMotorCo2 * operatingPoint[x];
+                        heatDemandDouble[x][periodInt] -= gasMotorHeat;
+                        operatingPoint = Optimizer.OperatingPoint(heatDemandDouble, assetManager, periodInt, unit);
+                        data_Y_GasBoiler[x] = gasBoilerCo2 * operatingPoint[x];
+                    }
+                    else
+                    {
+                        heatDemandValue -= gasBoilerHeat;
+                        operatingPoint[x] = 0;
+                        if (heatDemandValue < oilBoilerHeat)
+                        {
+                            //OilBoiler
+                            operatingPoint[x] = 1;
+                            unit = 1;
+                            data_Y_GasMotor[x] = gasBoilerCo2 * operatingPoint[x];
+                            data_Y_GasBoiler[x] = gasBoilerCo2 * operatingPoint[x];
+                            heatDemandDouble[x][periodInt] -= gasBoilerHeat;
+                            heatDemandDouble[x][periodInt] -= gasMotorHeat;
+                            operatingPoint = Optimizer.OperatingPoint(heatDemandDouble, assetManager, periodInt, unit);
+                            data_Y_OilBoiler[x] = oilBoilerCo2 * operatingPoint[x];
+                        }
+                        else
+                        {
+                            heatDemandValue -= oilBoilerHeat;
+                            operatingPoint[x] = 0;
+                            if (heatDemandValue < electricBoilerHeat)
+                            {
+                                //ElectricBoiler
+                                operatingPoint[x] = 1;
+                                unit = 3;
+                                data_Y_GasMotor[x] = gasMotorCo2 * operatingPoint[x];
+                                data_Y_GasBoiler[x] = gasBoilerCo2 * operatingPoint[x];
+                                data_Y_OilBoiler[x] = oilBoilerCo2 * operatingPoint[x];
+                                heatDemandDouble[x][periodInt] -= gasBoilerHeat;
+                                heatDemandDouble[x][periodInt] -= gasMotorHeat;
+                                heatDemandDouble[x][periodInt] -= oilBoilerHeat;
+                                operatingPoint = Optimizer.OperatingPoint(heatDemandDouble, assetManager, periodInt, unit);
+                                data_Y_ElectricBoiler[x] = electricBoilerCo2 * operatingPoint[x];
+                            }
+                            else
+                            {
+                                heatDemandValue -= electricBoilerCo2;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    unit = 2;
+                    operatingPoint = Optimizer.OperatingPoint(heatDemandDouble, assetManager, periodInt, unit);
+                    data_Y_GasMotor[x] = gasMotorCo2 * operatingPoint[x];
+                }
+                
+                double totalExpense = data_Y_GasBoiler[x] + data_Y_OilBoiler[x] + data_Y_GasMotor[x] + data_Y_ElectricBoiler[x];
+                if (totalExpense > max) max = totalExpense;
+                if (totalExpense < min) min = totalExpense;
+                
+                if (totalExpense > 0)
+                {
+                    sum += totalExpense;
+                    nonZeroCount++;
+                }
             }
+            double average =  sum / nonZeroCount;
 
-            double average = sum / newData.Length;
+            highestTextBlock.Text = $"{max:00.00} KG/MWh";
+            lowestTextBlock.Text = $"{min:00.00} KG/MWh";
+            averageTextBlock.Text = $"{average:00.00} KG/MWh";
 
-            highestTextBlock.Text = $" {max.ToString("00.00")} KG/MWh";
-            lowestTextBlock.Text = $" {min.ToString("00.00")} KG/MWh";
-            averageTextBlock.Text = $" {average.ToString("00.00")} KG/MWh";
+            if (period == "summer")
+                avaPlot1.Plot.Title($"CO2 Emissions Graph for Summer Period", size: 20);
+            else
+                avaPlot1.Plot.Title($"CO2 Emissions Graph for Winter Period", size: 20);
 
-
-            for (int num = 0; num < assetManager.productionUnits.Count; num++)
-                if (double.Parse(assetManager.productionUnits[num].CO2Emissions!) > max) max = double.Parse(assetManager.productionUnits[num].CO2Emissions!);
-
-
-
-            //modifies the title of the graph depending on the time of the year
-            if (period == "summer") avaPlot1.Plot.Title($"CO2 Emissions for {assetManager.productionUnits[unit].Name!} Graph for Summer Period", size: 20);
-            else avaPlot1.Plot.Title($"CO2 Emissions for {assetManager.productionUnits[unit].Name!} Graph for Winter Period", size: 20);
             avaPlot1.Plot.XLabel("Days", size: 15);
             avaPlot1.Plot.YLabel("KG/MWh", size: 15);
-            avaPlot1.Plot.Add.Scatter(data_X, data_Y);
-            avaPlot1.Plot.Axes.SetLimitsX(8, 14.95);//one week
-            avaPlot1.Plot.Axes.SetLimitsY(0, Optimizer.CalculateMax([2, 6], max));//comparation of the two periods
+            var plotGB = AvaPlot1.Plot.Add.Scatter(data_X, data_Y_GasBoiler, ScottPlot.Colors.Orange);
+            var plotOB = AvaPlot1.Plot.Add.Scatter(data_X, data_Y_OilBoiler, ScottPlot.Colors.Red);
+            var plotGM = AvaPlot1.Plot.Add.Scatter(data_X, data_Y_GasMotor, ScottPlot.Colors.Blue);
+            var plotEB = AvaPlot1.Plot.Add.Scatter(data_X, data_Y_ElectricBoiler, ScottPlot.Colors.Green);
+            plotGB.MarkerSize = 0;
+            plotOB.MarkerSize = 0;
+            plotGM.MarkerSize = 0;
+            plotEB.MarkerSize = 0;
+            avaPlot1.Plot.Axes.SetLimitsX(8, 14.95);
+            avaPlot1.Plot.Axes.SetLimitsY(0, max * 1.2);
             avaPlot1.Refresh();
         }
 
@@ -85,22 +170,14 @@ namespace SemesterProject.Views
         {
             WinterPeriod.Background = new SolidColorBrush(Colors.Gray);
             SummerPeriod.Background = new SolidColorBrush(Color.FromRgb(207, 3, 3));
-            if (selection != -1)
-            {
-                DisplayGraphContent([4, 6], "summer", selection);
-            }
-
+            DisplayGraphContent(1, "summer");
         }
 
         public void WinterPeriodButton(object sender, RoutedEventArgs args)
         {
             SummerPeriod.Background = new SolidColorBrush(Colors.Gray);
             WinterPeriod.Background = new SolidColorBrush(Color.FromRgb(207, 3, 3));
-            if (selection != -1)
-            {
-                DisplayGraphContent([0, 2], "winter", selection);
-            }
-
+            DisplayGraphContent(0, "winter");
         }
     }
 }

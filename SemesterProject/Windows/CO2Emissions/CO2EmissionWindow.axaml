@@ -35,7 +35,7 @@
 				<Border Background="DarkGray"  Grid.Row="1" Grid.ColumnSpan="6" CornerRadius="10" Margin="10">
 					<ScottPlot:AvaPlot Name="AvaPlot1"/>
 				</Border>
-				<Border Background="White" CornerRadius="10" Grid.Row="2" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
+				<Border Background="White" CornerRadius="10" Grid.Row="2" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
 					<Grid ShowGridLines="False">
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="*" />
@@ -64,7 +64,7 @@
 						</Border>
 					</Grid>
 				</Border>
-				<Border Background="DarkGray" CornerRadius="10" Grid.Row="2" Grid.RowSpan="3" Grid.Column="4" Grid.ColumnSpan="5" Margin="10">
+				<Border Background="DarkGray" CornerRadius="10" Grid.Row="2" Grid.RowSpan="3" Grid.Column="3" Grid.ColumnSpan="6" Margin="10">
 					<Grid ShowGridLines="False">
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="*" />
