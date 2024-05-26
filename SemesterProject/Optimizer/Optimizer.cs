@@ -9,7 +9,7 @@ public class Optimizer
 {
     public static double[][] Calculation(string period, string[][] data, AssetManager assetManager)
     {
-        
+
         double[][] unitsSUMMER = new double[data.Length][];
         double[][] unitsWINTER = new double[data.Length][];
 
@@ -168,19 +168,16 @@ public class Optimizer
         }
         return stringArray;
     }
-    
-    public static double[][] OperatingPoint(string[][] data, List<ProductionUnit> productionUnits, int period)
+
+    public static double[] OperatingPoint(double[][] data, AssetManager assetManager, int period, int unit)
     {
         double[][] skies = new double[data.Length][];
-        double[][] operatingPoint = new double[data.Length][];
+        double[] operatingPoint = new double[data.Length];
         for (int i = 0; i < data.Length; ++i)
         {
-            skies[i] = new double[productionUnits.Count];
-            operatingPoint[i] = new double[productionUnits.Count];
-            for (int j = 0; j < productionUnits.Count; ++j)
-            {
-                operatingPoint[i][j] = ChangeToDouble(data[i][period]) / ChangeToDouble(productionUnits[j].MaxHeat!);
-            }
+            skies[i] = new double[assetManager.productionUnits.Count];
+            operatingPoint[i] = data[i][period] / ChangeToDouble(assetManager.productionUnits[unit].MaxHeat!);
+
         }
 
         return operatingPoint;

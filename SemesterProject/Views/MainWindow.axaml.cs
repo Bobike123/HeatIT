@@ -15,12 +15,6 @@ namespace SemesterProject.Views
             this.AttachDevTools();
         }
 
-        public void ModifyProfitExpensesIncome(object sender, RoutedEventArgs args)
-        {
-            income.Text = "";
-            expenses.Text = "";
-            profit.Text = "";
-        }
         public void OpenCO2Emissions(object sender, RoutedEventArgs args)
         {
             var cO2EmissionsWindow = new CO2EmissionWindow();

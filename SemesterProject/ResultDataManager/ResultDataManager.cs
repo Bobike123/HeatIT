@@ -19,7 +19,7 @@ namespace SemesterProject
             }
         }
 
-        public static void AppendDoubleArrayToCSV(string filePath, double[][] data)
+        public static void AppendDoubleJaggedArrayToCSV(string filePath, double[][] data)
         {
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {
@@ -37,6 +37,17 @@ namespace SemesterProject
                 foreach (int[] row in data)
                 {
                     string[] stringRow = Array.ConvertAll(row, x => x.ToString());
+                    writer.WriteLine(string.Join(",", stringRow));
+                }
+            }
+        }
+        public static void AppendDoubleArrayToCSV(string filePath, double[] data)
+        {
+            using (StreamWriter writer = new StreamWriter(filePath, true))
+            {
+                foreach (double row in data)
+                {
+                    string stringRow = row.ToString();
                     writer.WriteLine(string.Join(",", stringRow));
                 }
             }
