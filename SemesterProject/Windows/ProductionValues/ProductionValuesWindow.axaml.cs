@@ -47,7 +47,8 @@ namespace SemesterProject.Views
             else avaPlot1.Plot.Title("Price for MWH for Winter Period");
             avaPlot1.Plot.XLabel("Days");
             avaPlot1.Plot.YLabel("DKK");
-            avaPlot1.Plot.Add.Scatter(data_X, data_Y);
+            var plot = avaPlot1.Plot.Add.Scatter(data_X, data_Y);
+            plot.MarkerSize = 0;
             avaPlot1.Plot.Axes.SetLimitsX(8, 14.95);//one week
             avaPlot1.Plot.Axes.SetLimitsY(0,1700);//comparation of the two periods
             avaPlot1.Refresh();
