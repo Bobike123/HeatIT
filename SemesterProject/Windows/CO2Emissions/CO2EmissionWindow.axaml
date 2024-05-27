@@ -20,13 +20,10 @@
 					<ColumnDefinition Width="*"/>
 					<ColumnDefinition Width="*"/>
 					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
 				</Grid.ColumnDefinitions>
 				<Grid.RowDefinitions>
-					<RowDefinition Height="0.5*"/>
-					<RowDefinition Height="4*"/>
-					<RowDefinition Height="*"/>
+					<RowDefinition Height="0.2*"/>
+					<RowDefinition Height="2*"/>
 					<RowDefinition Height="*"/>
 				</Grid.RowDefinitions>
 				<Border Background="Black" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" Margin="10">
@@ -35,7 +32,7 @@
 				<Border Background="DarkGray"  Grid.Row="1" Grid.ColumnSpan="6" CornerRadius="10" Margin="10">
 					<ScottPlot:AvaPlot Name="AvaPlot1"/>
 				</Border>
-				<Border Background="White" CornerRadius="10" Grid.Row="2" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
+				<Border Background="White" CornerRadius="10" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
 					<Grid ShowGridLines="False">
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="*" />
@@ -51,7 +48,7 @@
 						<TextBlock x:Name="lowest" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
 						<TextBlock x:Name="average" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
 						<Border Background="White" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black">CO2 Data</TextBlock>
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black">Expenses Data</TextBlock>
 						</Border>
 						<Border Grid.Row="1" Grid.Column="0">
 							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Highest:</TextBlock>
@@ -64,13 +61,13 @@
 						</Border>
 					</Grid>
 				</Border>
-				<Border Background="DarkGray" CornerRadius="10" Grid.Row="2" Grid.RowSpan="3" Grid.Column="3" Grid.ColumnSpan="6" Margin="10">
+				<Border Background="DarkGray" CornerRadius="10" Grid.Row="2" Grid.ColumnSpan="4" Grid.Column="2" Margin="10">
 					<Grid ShowGridLines="False">
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="*" />
 						</Grid.ColumnDefinitions>
 						<Grid.RowDefinitions>
-							<RowDefinition Height="*" />
 							<RowDefinition Height="*" />
 							<RowDefinition Height="*" />
 						</Grid.RowDefinitions>
@@ -90,7 +87,7 @@
 							CornerRadius="10">
 							Summer Period</Button>
 						</Border>
-						<Border Grid.Row="2" Margin="10">
+						<Border  Grid.Column="1" Grid.Row="1" Margin="10">
 							<Button 
 							x:Name="WinterPeriod" 
 							Click="WinterPeriodButton"  

@@ -23,34 +23,66 @@
 				</Grid.ColumnDefinitions>
 				<Grid.RowDefinitions>
 					<RowDefinition Height="0.2*"/>
+					<RowDefinition Height="2*"/>
 					<RowDefinition Height="*"/>
-					<RowDefinition Height="*"/>
-					<RowDefinition Height="0.2*"/>
-					<RowDefinition Height="0.2*"/>
 				</Grid.RowDefinitions>
 				<Border Background="Black" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="10">
 					<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="White">EXPENSES AND PROFIT</TextBlock>
 				</Border>
-				<Border Background="Gray"  Grid.Row="1" Grid.RowSpan="2" Grid.ColumnSpan="4" CornerRadius="10" Margin="10">
+				<Border Background="Gray"  Grid.Row="1" Grid.ColumnSpan="4" CornerRadius="10" Margin="10">
 					<ScottPlot:AvaPlot Name="AvaPlot1"/>
 				</Border>
-					<Border CornerRadius="10" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
-						<StackPanel>
+				<Border Background="White" CornerRadius="10" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="10">
+					<Grid ShowGridLines="False">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<TextBlock x:Name="ehighest" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
+						<TextBlock x:Name="elowest" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
+						<Border Background="White" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black">Expenses Data</TextBlock>
+						</Border>
+						<Border Grid.Row="1" Grid.Column="0">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Highest:</TextBlock>
+						</Border>
+						<Border Grid.Row="2" Grid.Column="0">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Lowest:</TextBlock>
+						</Border>
+					</Grid>
+				</Border>
+				<Border Background="DarkGray" CornerRadius="10" Grid.Row="2" Grid.ColumnSpan="4" Grid.Column="2" Margin="10">
+					<Grid ShowGridLines="False">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="*" />
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+						</Grid.RowDefinitions>
+						<Border Background="White" CornerRadius="10" Grid.ColumnSpan="2" Margin="10">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black">Selected Time Period</TextBlock>						</Border>
+						<Border Grid.Row="1" Margin="10">
 							<Button 
 							x:Name="SummerPeriod" 
 							Click="SummerPeriodButton"  
 							HorizontalAlignment="Stretch" 
 							VerticalAlignment="Stretch"  
 							HorizontalContentAlignment="Center" 
-							VerticalContentAlignment="Center"
+							VerticalContentAlignment="Center" 
 							Foreground="White" 
 							FontSize="15"
 							Background="Gray"
-							CornerRadius="10">Summer Period</Button>
-						</StackPanel>
-					</Border>
-					<Border Grid.Row="3" CornerRadius="10" Grid.Column="2" Grid.ColumnSpan="4" Margin="10">
-						<StackPanel>
+							CornerRadius="10">
+							Summer Period</Button>
+						</Border>
+						<Border  Grid.Column="1" Grid.Row="1" Margin="10">
 							<Button 
 							x:Name="WinterPeriod" 
 							Click="WinterPeriodButton"  
@@ -62,17 +94,9 @@
 							FontSize="15"
 							Background="Gray"
 							CornerRadius="10">Winter Period</Button>
-						</StackPanel>
-					</Border>
-				<Border Background="White" CornerRadius="10" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="4" Margin="10"/>
-					<TextBlock x:Name="ehighest" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
-					<TextBlock x:Name="elowest" Grid.Row="5" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
-					<Border Background="White" Grid.Row="5" Grid.Column="0" CornerRadius="10" Margin="10">
-						<TextBlock Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center">Highest Profit :</TextBlock>
-					</Border>
-					<Border Background="White" Grid.Row="5" Grid.Column="2" CornerRadius="10" Margin="10">
-						<TextBlock Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center">Highest Expenses :</TextBlock>
-					</Border>
+						</Border>
+					</Grid>
+				</Border>
 			</Grid>
 		</Border>
 	</Panel>
