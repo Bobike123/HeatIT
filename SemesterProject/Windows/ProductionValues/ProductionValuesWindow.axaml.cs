@@ -25,9 +25,9 @@ namespace SemesterProject.Views
             //clears the graph if any previous information was displayed on it
             string[][] newData = SourceDataManager.CSVDisplayGraph(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv"), columns);
             //newData is siplified data that can be used for the graph
-            double min = 200, max = -1, av;
+            double min = double.MaxValue, max = double.MinValue, sum = 0;
             double[] data_X = new double[newData.Length], data_Y = new double[newData.Length];
-            int count = 0;//cout for the 24 hours of the day used for the x axis
+            double count = 0;//cout for the 24 hours of the day used for the x axis
             for (int i = 0; i < newData.Length; i++)
             {
                 data_X[i] = double.Parse(newData[i][0]) + count * 0.041;//creates the x axis
@@ -37,10 +37,10 @@ namespace SemesterProject.Views
                 count = (count + 1) % 24;
             }
             //modifies the highest lowest and average data from the axaml file
-            av = (max + min) / 2;
-            HighestElectricity.Text = max.ToString("0.00");
-            LowestElectricity.Text = min.ToString("0.00");
-            AverageElectricity.Text= av.ToString("0.00");
+            sum = (max + min) / 2;
+            HighestElectricity.Text = ($"{max:00.00} DKK");
+            LowestElectricity.Text = ($"{min:00.00} DKK");
+            AverageElectricity.Text= ($"{sum:00.00} DKK");
 
             //modifies the title of the graph depending on the time of the year
             if (period == "summer") avaPlot1.Plot.Title("Price for MWH for Summer Period");
@@ -62,15 +62,16 @@ namespace SemesterProject.Views
 
             string[][] newData = SourceDataManager.CSVDisplayGraph(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv"), [0, 4]);
 
-            double[][] co2Data = Optimizer.ConvertToDoubleArray(newData);
+            double[][] datesData = Optimizer.ConvertToDoubleArray(newData);
             string[][] heatDemand = SourceDataManager.CSVDisplayGraph(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv"), [2, 6]);
             double[][] heatDemandDouble = Optimizer.ConvertToDoubleArray(heatDemand);
             double[] operatingPoint = new double[heatDemandDouble.Length];
-            double[] data_X = new double[co2Data.Length];
+            double[] data_X = new double[datesData.Length];
             double[] data_Y_GasBoiler = new double[newData.Length];
             double[] data_Y_OilBoiler = new double[newData.Length];
             double[] data_Y_GasMotor = new double[newData.Length];
             double[] data_Y_ElectricBoiler = new double[newData.Length];
+            double elmax = double.MinValue, elmin = double.MaxValue, elaverage = 0;
             double count = 0;
             double gasBoilerEle = double.Parse(assetManager.productionUnits[0].MaxElectricity!);
             double oilBoilerEle = double.Parse(assetManager.productionUnits[1].MaxElectricity!);
@@ -81,16 +82,15 @@ namespace SemesterProject.Views
             double gasMotorHeat = double.Parse(assetManager.productionUnits[2].MaxHeat!);
             double electricBoilerHeat = double.Parse(assetManager.productionUnits[3].MaxHeat!);
             int unit = 0;
-
+            int nonZeroCount = 0;
 
             for (int x = 0; x < heatDemandDouble.Length; x++)
             {
                 double heatDemandValue = heatDemandDouble[x][periodInt];
                 operatingPoint[x] = 0;
-                data_X[x] = co2Data[x][periodInt] + count * 0.041; //creates the x axis
+                data_X[x] = datesData[x][periodInt] + count * 0.041; //creates the x axis
                 count = (count + 1) % 24;
 
-                // Create two bars if the value is greater than 3.6
                 if (heatDemandValue > gasMotorHeat)
                 {
                     // GasMotor
@@ -152,12 +152,26 @@ namespace SemesterProject.Views
                     operatingPoint = Optimizer.OperatingPoint(heatDemandDouble, assetManager, periodInt, unit);
                     data_Y_GasMotor[x] = gasMotorEle * operatingPoint[x];
                 }
+                double totalExpense = data_Y_GasBoiler[x] + data_Y_OilBoiler[x] + data_Y_GasMotor[x] + data_Y_ElectricBoiler[x];
+                if (totalExpense > elmax) elmax = totalExpense;
+                if (totalExpense < elmin) elmin = totalExpense;
+                
+                if (totalExpense > 0)
+                {
+                    elaverage += totalExpense;
+                    nonZeroCount++;
+                }
             }
+            elaverage =  (elmax+elmin)/2;
+
+            elhighestTextBlock.Text = $"{elmax:0.00} MWh";
+            ellowestTextBlock.Text = $"{elmin:0.00} MWh";
+            elaverageTextBlock.Text = $"{elaverage:0.00} MWh";
 
             if (period == "summer")
-                avaPlot2.Plot.Title($"Electricity Production Graph for Summer Period", size: 20);
+                avaPlot2.Plot.Title($"Electricity Production Graph for Summer Period");
             else
-                avaPlot2.Plot.Title($"Electricity Production Graph for Winter Period", size: 20);
+                avaPlot2.Plot.Title($"Electricity Production Graph for Winter Period");
 
             avaPlot2.Plot.XLabel("Days", size: 15);
             avaPlot2.Plot.YLabel("KG/MWh", size: 15);

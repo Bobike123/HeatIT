@@ -62,7 +62,7 @@
 										<TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">Maximum Heat:</TextBlock>
 										<TextBlock Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">Maximum Electricity:</TextBlock>
 										<TextBlock Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">Production Cost:</TextBlock>
-										<TextBlock Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">CO2 Emmisions:</TextBlock>
+										<TextBlock Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">CO2 Emissions:</TextBlock>
 										<TextBlock Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">Fuel Type:</TextBlock>
 									</Grid>
 								</Border>
@@ -125,7 +125,7 @@
 										<TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">Maximum Heat:</TextBlock>
 										<TextBlock Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">Maximum Electricity:</TextBlock>
 										<TextBlock Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">Production Cost:</TextBlock>
-										<TextBlock Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">CO2 Emmisions:</TextBlock>
+										<TextBlock Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">CO2 Emissions:</TextBlock>
 										<TextBlock Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">Fuel Type:</TextBlock>
 									</Grid>
 								</Border>
@@ -188,7 +188,7 @@
 										<TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">Maximum Heat:</TextBlock>
 										<TextBlock Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">Maximum Electricity:</TextBlock>
 										<TextBlock Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">Production Cost:</TextBlock>
-										<TextBlock Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">CO2 Emmisions:</TextBlock>
+										<TextBlock Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">CO2 Emissions:</TextBlock>
 										<TextBlock Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">Fuel Type:</TextBlock>
 									</Grid>
 								</Border>
@@ -251,7 +251,7 @@
 										<TextBlock Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">Maximum Heat:</TextBlock>
 										<TextBlock Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">Maximum Electricity:</TextBlock>
 										<TextBlock Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">Production Cost:</TextBlock>
-										<TextBlock Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">CO2 Emmisions:</TextBlock>
+										<TextBlock Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">CO2 Emissions:</TextBlock>
 										<TextBlock Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="15" FontWeight="Bold" Foreground="Black">Fuel Type:</TextBlock>
 									</Grid>
 								</Border>

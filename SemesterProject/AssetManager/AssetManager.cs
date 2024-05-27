@@ -7,8 +7,8 @@ namespace SemesterProject
     public class ProductionUnit
     {
         public string? Name { get; set; } //GB OB GM or EK
-        public string? MaxHeat { get; set; } //MW
-        public string? MaxElectricity { get; set; } //MW 
+        public string? MaxHeat { get; set; } //MWh
+        public string? MaxElectricity { get; set; } //MWh
         public string? ProductionCosts { get; set; } //DKK/MWh(th)
         public string? CO2Emissions { get; set; } //kg/MWh(th)
         public string? FuelType { get; set; } //gas oil or electricity

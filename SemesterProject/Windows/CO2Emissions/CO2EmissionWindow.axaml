@@ -44,9 +44,9 @@
 							<RowDefinition Height="*" />
 							<RowDefinition Height="*" />
 						</Grid.RowDefinitions>
-						<TextBlock x:Name="highest" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
-						<TextBlock x:Name="lowest" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
-						<TextBlock x:Name="average" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
+						<TextBlock x:Name="highestTextBlock" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
+						<TextBlock x:Name="lowestTextBlock" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
+						<TextBlock x:Name="averageTextBlock" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
 						<Border Background="White" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
 							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black">Expenses Data</TextBlock>
 						</Border>
