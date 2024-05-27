@@ -11,25 +11,26 @@
         Width="960" Height="660">
 	<Panel>
 		<Border Padding="10" Background="Gray">
-			<Grid ShowGridLines="False"
+			<Grid ShowGridLines="True"
 				HorizontalAlignment="Stretch" 
 				VerticalAlignment="Stretch"
 				Background="LightGray">
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="0.5*"/>
 						<ColumnDefinition Width="0.5*"/>
-						<ColumnDefinition Width="*"/>
-						<ColumnDefinition Width="*"/>
+						<ColumnDefinition Width="0.5*"/>
+						<ColumnDefinition Width="0.5*"/>
+						<ColumnDefinition Width="0.5*"/>
+						<ColumnDefinition Width="0.5*"/>
 					</Grid.ColumnDefinitions>
 					<Grid.RowDefinitions>
 						<RowDefinition Height="0.4*"/>
 						<RowDefinition Height="*"/>
 						<RowDefinition Height="*"/>
 						<RowDefinition Height="*"/>
-						<RowDefinition Height="0.5*"/>
 					</Grid.RowDefinitions>
-					<Border Background="Black" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="10">
-						<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15">Heat.IT</TextBlock>
+					<Border Background="Black" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" Margin="10">
+						<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Foreground="White">Heat.IT</TextBlock>
 					</Border>
 					<Border Grid.Row="1" Margin="10">
 						<Button Click="OpenHeatDemand" 
@@ -95,7 +96,7 @@
 							</StackPanel>
 						</Button>
 					</Border>
-					<Border Grid.Row="3" Grid.Column="1" Margin="10">
+					<Border Grid.Row="3" Grid.RowSpan="2" Grid.Column="1" Margin="10">
 						<Button Click="OpenCO2Emissions" 
 							HorizontalAlignment="Stretch" 
 							VerticalAlignment="Stretch"  
@@ -111,7 +112,7 @@
 							</StackPanel>
 						</Button>
 					</Border>
-					<Border Grid.Row="3" Margin="10" >
+					<Border Grid.Row="3" Grid.RowSpan="2" Margin="10" >
 						<Button Click="OpenExpensesAndProfit"
 							HorizontalAlignment="Stretch" 
 							VerticalAlignment="Stretch"  
@@ -127,22 +128,29 @@
 							</StackPanel>
 						</Button>
 					</Border>
-					<Border CornerRadius="10" Grid.Row="0" Grid.RowSpan="4" Grid.Column="2"  Grid.ColumnSpan="2" Margin="20">
-						<Image x:Name="City" Source="avares://SemesterProject/Assets/DanfossCity.jpg" Stretch="Uniform"/>
+					<Border Grid.Row="1" Grid.RowSpan="3" Grid.Column="2"  Grid.ColumnSpan="4" Margin="10,5,5,10">
+						<StackPanel>
+							<Image x:Name="City" Source="avares://SemesterProject/Assets/DanfossCity.jpg" Stretch="Uniform"/>
+							<Grid ShowGridLines="True"  RowDefinitions="15*,*,5*" ColumnDefinitions="*,*,*,*">
+								<Border Background="White" CornerRadius="10" Grid.Row="1" Grid.ColumnSpan="4" Grid.Column="0" Margin="0,15,5,0">
+									<TextBlock Text="Production Units Colours" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="Black"/>
+								</Border>
+								<Border Background="Orange" CornerRadius="10,0,0,10" Grid.Row="2" VerticalAlignment="Stretch" Grid.Column="0" Margin="5,10,0,10">
+									<TextBlock Text="Gas Boiler" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+								</Border>
+								<Border Background="Red" Grid.Row="2" Grid.Column="1" VerticalAlignment="Stretch" Margin="0,10,0,10">
+									<TextBlock Text="Oil Boiler" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+								</Border>
+								<Border Background="Blue" Grid.Row="2" Grid.Column="2" VerticalAlignment="Stretch" Margin="0,10,0,10">
+									<TextBlock Text="Gas Motor" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+								</Border>
+								<Border Background="Green" CornerRadius="0,10,10,0" Grid.Row="2" VerticalAlignment="Stretch" Grid.Column="3" Margin="0,10,5,10">
+									<TextBlock Text="Electric Boiler" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="35"/>
+								</Border>
+							</Grid>
+						</StackPanel>
 					</Border>
-					<Border CornerRadius="10" Margin="10" Grid.Row="4" Grid.ColumnSpan="4" Background="White">
-						<Grid ShowGridLines="False">
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="*" />
-								<ColumnDefinition Width="*" />
-								<ColumnDefinition Width="*" />
-							</Grid.ColumnDefinitions>
-							<Grid.RowDefinitions>
-								<RowDefinition Height="*" />
-							</Grid.RowDefinitions>	
-					</Grid>
-				</Border>
-			</Grid>
+				</Grid>
 		</Border>
 	</Panel>
 </Window>
