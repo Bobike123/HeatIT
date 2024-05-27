@@ -13,20 +13,10 @@ namespace SemesterProject.Views
     public partial class CO2EmissionWindow : Window
     {
 
-        private TextBlock highestTextBlock;
-        private TextBlock lowestTextBlock;
-        private TextBlock averageTextBlock;
-
-
         public CO2EmissionWindow()
         {
             InitializeComponent();
             this.AttachDevTools();
-
-            highestTextBlock = highest;
-            lowestTextBlock = lowest;
-            averageTextBlock = average;
-
         }
         public void DisplayGraphContent(int periodInt, string period)
         {
@@ -67,7 +57,6 @@ namespace SemesterProject.Views
                 data_X[x] = co2Data[x][periodInt] + count * 0.041; //creates the x axis
                 count = (count + 1) % 24;
 
-                // Create two bars if the value is greater than 3.6
                 if (heatDemandValue > gasMotorHeat)
                 {
                     // GasMotor

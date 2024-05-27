@@ -4,9 +4,6 @@ using Avalonia.Media;
 using Avalonia.Controls;
 using ScottPlot.Avalonia;
 using Avalonia.Interactivity;
-using System.Collections.Generic;
-using System.Linq;
-using System;
 
 namespace SemesterProject.Views
 {
@@ -48,9 +45,10 @@ namespace SemesterProject.Views
             else avaPlot1.Plot.Title("Heat Demand Graph for Winter Period");
             avaPlot1.Plot.XLabel("Days");
             avaPlot1.Plot.YLabel("MWh");
-            avaPlot1.Plot.Add.Scatter(data_X, data_Y);
+            var plot = avaPlot1.Plot.Add.Scatter(data_X, data_Y);
+            plot.MarkerSize = 0;
             avaPlot1.Plot.Axes.SetLimits(8, 14.95);//one week
-            avaPlot1.Plot.Axes.SetLimitsY(0, Optimizer.CalculateMax(new int[] {2, 6}, 1));//comparison of the two periods
+            avaPlot1.Plot.Axes.SetLimitsY(0, Optimizer.CalculateMax([2, 6], 1));//comparison of the two periods
             // Adding Graphs labels
             ScottPlot.TickGenerators.NumericManual tickGen = new();
             
@@ -81,14 +79,14 @@ namespace SemesterProject.Views
         {
             WinterPeriod.Background = new SolidColorBrush(Colors.Gray);
             SummerPeriod.Background = new SolidColorBrush(Color.FromRgb(207, 3, 3));
-            DisplayHeatDemandContent(new int[] {4, 6}, "summer");//4 date 6 heat demand
+            DisplayHeatDemandContent([4, 6], "summer");//4 date 6 heat demand
         }
 
         public void WinterPeriodButton(object sender, RoutedEventArgs args)
         {
             SummerPeriod.Background = new SolidColorBrush(Colors.Gray);
             WinterPeriod.Background = new SolidColorBrush(Color.FromRgb(207, 3, 3));
-            DisplayHeatDemandContent(new int[] {0, 2}, "winter");//0 date 2 heat demand
+            DisplayHeatDemandContent([0, 2], "winter");//0 date 2 heat demand
         }
     }
 }

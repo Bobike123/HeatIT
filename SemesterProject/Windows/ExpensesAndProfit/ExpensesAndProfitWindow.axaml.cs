@@ -47,16 +47,17 @@ namespace SemesterProject.Views
             double[] data_Y_OilBoiler = new double[newData.Length];
             double[] data_Y_GasMotor = new double[newData.Length];
             double[] data_Y_ElectricBoiler = new double[newData.Length];
+            double gasBoilerHeat = double.Parse(assetManager.productionUnits[0].MaxHeat!);
+            double oilBoilerHeat = double.Parse(assetManager.productionUnits[1].MaxHeat!);
+            double gasMotorHeat = double.Parse(assetManager.productionUnits[2].MaxHeat!);
+            double electricBoilerHeat = double.Parse(assetManager.productionUnits[3].MaxHeat!);
+            double heatDemandValue;
             int count = 0;//count for the 24 hours of the day used for the x axis
             
 
             for (int x = 0; x < heatDemandDouble.Length; x++)
             {
-                double heatDemandValue = heatDemandDouble[x][periodInt];
-                double gasBoilerHeat = double.Parse(assetManager.productionUnits[0].MaxHeat!);
-                double oilBoilerHeat = double.Parse(assetManager.productionUnits[1].MaxHeat!);
-                double gasMotorHeat = double.Parse(assetManager.productionUnits[2].MaxHeat!);
-                double electricBoilerHeat = double.Parse(assetManager.productionUnits[3].MaxHeat!);
+                heatDemandValue = heatDemandDouble[x][periodInt];
                 operatingPoint[x] = 0;
                 data_X[x] = double.Parse(dates[x][0]) + count * 0.041;//creates the x axis
                 count = (count + 1) % 24;
