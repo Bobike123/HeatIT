@@ -132,10 +132,10 @@
 						<StackPanel>
 							<Image x:Name="City" Source="avares://SemesterProject/Assets/DanfossCity.jpg" Stretch="Uniform"/>
 							<Grid ShowGridLines="False"  RowDefinitions="15*,*,5*" ColumnDefinitions="*,*,*,*">
-								<Border Background="Gray" CornerRadius="10" Grid.Row="1" Grid.ColumnSpan="4" Grid.Column="0" Margin="0,15,0,0">
-									<TextBlock Text="Production Units Colors" FontSize="16" HorizontalAlignment="Center" Foreground="White" VerticalAlignment="Bottom"/>
+								<Border Background="White" CornerRadius="10" Grid.Row="1" Grid.ColumnSpan="4" Grid.Column="0" Margin="0,15,0,0">
+									<TextBlock Text="Production Units Colors" FontSize="16" HorizontalAlignment="Center" Foreground="Black" VerticalAlignment="Bottom" FontWeight="Bold"/>
 								</Border>
-								<Border Background="Orange" CornerRadius="10,0,0,10" Grid.Row="2" VerticalAlignment="Stretch" Grid.Column="0" Margin="5,10,0,10">
+								<Border Background="Orange" CornerRadius="10,0,0,10" Grid.Row="2" VerticalAlignment="Stretch" Grid.Column="0" Margin="0,10,0,10">
 									<TextBlock Text="Gas Boiler" HorizontalAlignment="Center" FontSize="12" VerticalAlignment="Center" Foreground="White"/>
 								</Border>
 								<Border Background="Red" Grid.Row="2" Grid.Column="1" VerticalAlignment="Stretch" Margin="0,10,0,10">
