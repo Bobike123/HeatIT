@@ -70,7 +70,62 @@ public class AssetManagerTests
             }
         }
     }
+    public class FileExistenceTests
+    {
+        private const string PathJson = "test.json";
+
+        [Fact]
+        public void Exist_FileExists_ReturnsTrue()
+        {
+            // Arrange
+            File.WriteAllText(PathJson, ""); // Ensure the file exists
+
+            // Act
+            bool result = FileOperations.Exist();
+
+            // Assert
+            Assert.True(result);
+
+            // Clean up
+            File.Delete(PathJson);
+        }
+
+        [Fact]
+        public void Exist_FileDoesNotExist_CreatesFileAndReturnsTrue()
+        {
+            // Arrange
+            if (File.Exists(PathJson))
+            {
+                File.Delete(PathJson); // Ensure the file does not exist
+            }
+
+            // Act
+            bool result = FileOperations.Exist();
+
+            // Assert
+            Assert.True(result);
+            Assert.True(File.Exists(PathJson));
+
+            // Clean up
+            File.Delete(PathJson);
+        }
+    }
+
+    public static class FileOperations
+    {
+        private static readonly string PathJson = "test.json";
+
+        public static bool Exist()
+        {
+            if (File.Exists(PathJson))
+            {
+                return true;
+            }
+            else
+            {
+                File.Create(PathJson).Dispose();
+                return true;
+            }
+        }
+    }
 }
-
-
-
