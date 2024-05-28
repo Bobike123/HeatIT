@@ -243,10 +243,8 @@ public class CalculationTests
         double[] result = Optimizer.OperatingPoint(testData, assetManager, period, unit);
 
         // Assert
-        // Add your assertions here to verify that the result array contains the expected values
-        Assert.Equal(20, result[0]);  // Example assertion for the first row
-        Assert.Equal(30, result[1]); // Example assertion for the second row
-        // Add more assertions as needed for other rows or scenarios
+        Assert.Equal(20, result[0]);
+        Assert.Equal(30, result[1]);
     }
 }
 
