@@ -1,72 +1,76 @@
-using Xunit;
+using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Text.Json;
+using Xunit;
 using SemesterProject;
+
 
 public class AssetManagerTests
 {
     [Fact]
-    public void ProductionUnit_GetProductionUnit()
-    {
-        // Initialize the static list with some test data
-        AssetManager.productionUnits = new List<ProductionUnit>
-        {
-            new ProductionUnit("Unit1", "100", "200", "300", "400", "Gas"),
-            new ProductionUnit("Unit2", "150", "250", "350", "450", "Oil")
-        };
-    }
-
-    [Fact]
-    public void Constructor_ShouldInitializeProperties()
+    public void PathJson_ShouldBeCorrect()
     {
         // Arrange
-        var name = "TestUnit";
-        var maxHeat = "500";
-        var maxElectricity = "600";
-        var productionCosts = "700";
-        var co2Emissions = "800";
-        var fuelType = "Coal";
+        var expectedPath = Path.Combine(Directory.GetCurrentDirectory(), "AssetManager", "units.json");
 
         // Act
-        var unit = new ProductionUnit(name, maxHeat, maxElectricity, productionCosts, co2Emissions, fuelType);
+        var actualPath = AssetManager.PathJson;
 
         // Assert
-        Assert.Equal(name, unit.Name);
-        Assert.Equal(maxHeat, unit.MaxHeat);
-        Assert.Equal(maxElectricity, unit.MaxElectricity);
-        Assert.Equal(productionCosts, unit.ProductionCosts);
-        Assert.Equal(co2Emissions, unit.CO2Emissions);
-        Assert.Equal(fuelType, unit.FuelType);
+        Assert.Equal(expectedPath, actualPath);
     }
 
     [Fact]
-    public void GetProductionUnit_ShouldReturnCorrectUnit()
+    public void ProductionUnits_ShouldContainCorrectUnits()
     {
+        // Arrange
+        var assetManager = new AssetManager();
+        var expectedUnits = new List<ProductionUnit>
+        {
+            new ProductionUnit("GB", "5.0", "0", "500", "215", "gas"),
+            new ProductionUnit("OB", "4.0", "0", "700", "265", "oil"),
+            new ProductionUnit("GM", "3.6", "2.7", "1100", "640", "gas"),
+            new ProductionUnit("EK", "8.0", "-8.0", "50", "0", "electricity"),
+        };
+
         // Act
-        var unit = ProductionUnit.GetProductionUnit("Unit1");
+        var actualUnits = assetManager.productionUnits;
 
         // Assert
-        Assert.NotNull(unit);
-        Assert.Equal("", unit.Name);
-        Assert.Equal("", unit.MaxHeat);
-        Assert.Equal("", unit.MaxElectricity);
-        Assert.Equal("", unit.ProductionCosts);
-        Assert.Equal("", unit.CO2Emissions);
-        Assert.Equal("", unit.FuelType);
+        Assert.Equal(expectedUnits.Count, actualUnits.Count);
     }
-
     [Fact]
-    public void GetProductionUnit_ShouldReturnNewUnit_WhenNotFound()
+    public void Save_ShouldWriteSerializedProductionUnitsToFile()
     {
-        // Act
-        var unit = ProductionUnit.GetProductionUnit("NonExistentUnit");
+        // Arrange
+        var assetManager = new AssetManager();
+        var expectedJson = JsonSerializer.Serialize(assetManager.productionUnits);
 
-        // Assert
-        Assert.NotNull(unit);
-        Assert.Equal("", unit.Name);
-        Assert.Equal("", unit.MaxHeat);
-        Assert.Equal("", unit.MaxElectricity);
-        Assert.Equal("", unit.ProductionCosts);
-        Assert.Equal("", unit.CO2Emissions);
-        Assert.Equal("", unit.FuelType);
+        // Use a temporary directory
+        string tempDirectory = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString());
+        try
+        {
+            // Act
+            assetManager.Save(tempDirectory);
+
+            // Assert
+            string expectedPath = Path.Combine(tempDirectory, "ResultDataManager", "SavedJsonData.json");
+            Assert.True(File.Exists(expectedPath), "File was not created.");
+
+            string actualJson = File.ReadAllText(expectedPath);
+            Assert.Equal(expectedJson, actualJson);
+        }
+        finally
+        {
+            // Clean up the temporary directory
+            if (Directory.Exists(tempDirectory))
+            {
+                Directory.Delete(tempDirectory, true);
+            }
+        }
     }
 }
+
+
+

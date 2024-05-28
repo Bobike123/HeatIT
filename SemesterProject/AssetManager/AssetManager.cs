@@ -34,10 +34,14 @@ namespace SemesterProject
             new ProductionUnit("GM", "3.6", "2.7", "1100", "640", "gas"),
             new ProductionUnit("EK", "8.0", "-8.0", "50", "0", "electricity"),
         };
-        public void Save()
+        public void Save(string? directory = null)
         {
             string? json = JsonSerializer.Serialize(productionUnits);
-            File.WriteAllText(Path.Combine(Directory.GetCurrentDirectory(), "ResultDataManager", "SavedJsonData.json"), json);
+            directory ??= Directory.GetCurrentDirectory(); // Default to current directory if no directory is provided
+            string path = Path.Combine(directory, "ResultDataManager", "SavedJsonData.json");
+            string dirPath = Path.GetDirectoryName(path)!;
+            Directory.CreateDirectory(dirPath); // Ensure the directory exists
+            File.WriteAllText(path, json);
         }
         public void Load()
         {
