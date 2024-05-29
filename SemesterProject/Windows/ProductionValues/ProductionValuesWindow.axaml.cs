@@ -50,7 +50,7 @@ namespace SemesterProject.Views
             var plot = avaPlot1.Plot.Add.Scatter(data_X, data_Y);
             plot.MarkerSize = 0;
             avaPlot1.Plot.Axes.SetLimitsX(8, 14.95);//one week
-            avaPlot1.Plot.Axes.SetLimitsY(0,1700);//comparation of the two periods
+            avaPlot1.Plot.Axes.SetLimitsY(0,max*1.1);//comparation of the two periods
             avaPlot1.Refresh();
         }
         public void DisplayGraphContentElectricity(int periodInt, string period)
@@ -184,7 +184,7 @@ namespace SemesterProject.Views
             plotGM.MarkerSize = 0;
             plotEB.MarkerSize = 0;
             avaPlot2.Plot.Axes.SetLimitsX(8, 14.95);
-            avaPlot2.Plot.Axes.SetLimitsY(-10, 10);
+            avaPlot2.Plot.Axes.SetLimitsY(-0.5, 3);
             avaPlot2.Refresh();
         }
         public void SummerPeriodButton(object sender, RoutedEventArgs args)

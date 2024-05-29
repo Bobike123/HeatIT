@@ -144,7 +144,7 @@ namespace SemesterProject.Views
             plotOB.MarkerSize = 0;
             plotGM.MarkerSize = 0;
             plotEB.MarkerSize = 0;
-            AvaPlot1.Plot.Axes.SetLimitsY(-2000, 6000);
+            AvaPlot1.Plot.Axes.SetLimitsY(min*1.2, max*1.2);
             AvaPlot1.Plot.Axes.SetLimits(8, 14.95);//one week
             // Adding Graphs labels
             ScottPlot.TickGenerators.NumericManual tickGen = new();

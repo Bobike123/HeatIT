@@ -128,6 +128,12 @@ namespace SemesterProject.Views
             tickGen.AddMajor(0, period == "summer" ? $"{Dates[0][0]}" + ".07" : $"{Dates[0][0]}" + ".02");
             for (int x = 1; x < Dates.Length; x++)
             {
+                if(x % 24 == 12)
+                    {
+                        string hourLabel = $"12:00";
+                        tickGen.AddMajor(x,hourLabel);
+                    }
+                
                 if (Dates[x][0] != Dates[x - 1][0])
                 {
 
@@ -141,7 +147,10 @@ namespace SemesterProject.Views
                     };
 
                 }
+                tickGen.AddMinor(x);
             }
+            
+           
             myPlot.Plot.Axes.Bottom.TickGenerator = tickGen;
 
 
