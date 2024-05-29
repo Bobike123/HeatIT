@@ -25,17 +25,17 @@ namespace SemesterProject.Views
             AvaPlot avaPlot1 = this.Find<AvaPlot>("AvaPlot1")!;//initializes the graph
             avaPlot1.Plot.Clear();
 
-            string[][] newData = SourceDataManager.CSVDisplayGraph(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv"), [0, 4]);
+            string[][] dates = SourceDataManager.CSVDisplayGraph(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv"), [0, 4]);
 
-            double[][] co2Data = Optimizer.ConvertToDoubleArray(newData);
+            double[][] datesDouble = Optimizer.ConvertToDoubleArray(dates);
             string[][] heatDemand = SourceDataManager.CSVDisplayGraph(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv"), [2, 6]);
             double[][] heatDemandDouble = Optimizer.ConvertToDoubleArray(heatDemand);
             double[] operatingPoint = new double[heatDemandDouble.Length];
-            double[] data_X = new double[co2Data.Length];
-            double[] data_Y_GasBoiler = new double[newData.Length];
-            double[] data_Y_OilBoiler = new double[newData.Length];
-            double[] data_Y_GasMotor = new double[newData.Length];
-            double[] data_Y_ElectricBoiler = new double[newData.Length];
+            double[] data_X = new double[datesDouble.Length];
+            double[] data_Y_GasBoiler = new double[dates.Length];
+            double[] data_Y_OilBoiler = new double[dates.Length];
+            double[] data_Y_GasMotor = new double[dates.Length];
+            double[] data_Y_ElectricBoiler = new double[dates.Length];
             double max = double.MinValue, min = double.MaxValue, sum = 0;
             double count = 0;
             double gasBoilerCo2 = double.Parse(assetManager.productionUnits[0].CO2Emissions!);
@@ -54,7 +54,7 @@ namespace SemesterProject.Views
             {
                 double heatDemandValue = heatDemandDouble[x][periodInt];
                 operatingPoint[x] = 0;
-                data_X[x] = co2Data[x][periodInt] + count * 0.041; //creates the x axis
+                data_X[x] = datesDouble[x][periodInt] + count * 0.041; //creates the x axis
                 count = (count + 1) % 24;
 
                 if (heatDemandValue > gasMotorHeat)

@@ -161,12 +161,8 @@ namespace SemesterProject.Views
                     tickGen.AddMajor(data_X[i], hourLabel);
                 }
                 tickGen.AddMinor(data_X[i]);
-
-
             }
             AvaPlot1.Plot.Axes.Bottom.TickGenerator = tickGen;
-
-
             AvaPlot1.Refresh();
         }
         public void SummerPeriodButton(object sender, RoutedEventArgs e)

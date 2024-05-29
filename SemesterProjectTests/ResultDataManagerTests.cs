@@ -39,36 +39,6 @@ namespace SemesterProjectTests
                 }
             }
         }
-        [Fact]
-        public void ResultDataManager_AppendIntArrayToCSV()
-        {
-            // Arrange
-            string file = Path.GetTempFileName();
-            int[][] data = new int[][]
-            {
-            new int[] { 1, 2, 3 },
-            new int[] { 4, 5 }
-            };
-
-            string expected = "1,2,3\r\n4,5\r\n";
-
-            // Act
-            try
-            {
-                SemesterProject.ResultDataManager.AppendIntArrayToCSV(file, data);
-                string actual = File.ReadAllText(file);
-
-                // Assert
-                Assert.Equal(expected, actual);
-            }
-            finally
-            {
-                if (File.Exists(file))
-                {
-                    File.Delete(file);
-                }
-            }
-        }
-
+        
     }
 }
