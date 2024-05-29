@@ -48,7 +48,7 @@ namespace SemesterProject.Views
             var plot = avaPlot1.Plot.Add.Scatter(data_X, data_Y);
             plot.MarkerSize = 0;
             avaPlot1.Plot.Axes.SetLimits(8, 14.95);//one week
-            avaPlot1.Plot.Axes.SetLimitsY(0, Optimizer.CalculateMax([2, 6], 1));//comparison of the two periods
+            avaPlot1.Plot.Axes.SetLimitsY(0, max*1.1);//comparison of the two periods
             // Adding Graphs labels
             ScottPlot.TickGenerators.NumericManual tickGen = new();
             
