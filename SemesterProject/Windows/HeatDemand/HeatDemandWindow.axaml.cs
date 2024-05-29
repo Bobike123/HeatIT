@@ -22,7 +22,7 @@ namespace SemesterProject.Views
             //clears the graph if any previous information was displayed on it
             string[][] newData = SourceDataManager.CSVDisplayGraph(Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv"), columns);
             //newData is simplified data that can be used for the graph
-            double min = 200, max = -1, av;
+            double min = 200, max = -1, sum = 0, av;
             double[] data_X = new double[newData.Length], data_Y = new double[newData.Length];
             int count = 0;//count for the 24 hours of the day used for the x axis
             for (int i = 0; i < newData.Length; i++)
@@ -31,11 +31,12 @@ namespace SemesterProject.Views
                 data_Y[i] = double.Parse(newData[i][1]);                //creates the y axis
                 if (double.Parse(newData[i][1]) > max) max = double.Parse(newData[i][1]);//calculates the maximum variable
                 if (double.Parse(newData[i][1]) < min) min = double.Parse(newData[i][1]);//calculates the minimum variable
+                sum += data_Y[i];
                 count = (count + 1) % 24;
             }
             
             //modifies the highest, lowest and average data from the axaml file
-            av = (max + min) / 2;
+            av = sum / newData.Length;
             highest.Text = max.ToString("0.00 MWh");
             lowest.Text = min.ToString("0.00 MWh");
             average.Text = av.ToString("0.00 MWh");

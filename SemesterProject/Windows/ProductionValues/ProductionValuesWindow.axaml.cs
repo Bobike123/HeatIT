@@ -31,13 +31,14 @@ namespace SemesterProject.Views
             for (int i = 0; i < newData.Length; i++)
             {
                 data_X[i] = double.Parse(newData[i][0]) + count * 0.041;//creates the x axis
-                data_Y[i] = double.Parse(newData[i][1]);                //creates the y axis
+                data_Y[i] = double.Parse(newData[i][1]); 
+                sum =+ data_Y[i];
                 if (double.Parse(newData[i][1]) > max) max = double.Parse(newData[i][1]);//calculates the maximum variable
                 if (double.Parse(newData[i][1]) < min) min = double.Parse(newData[i][1]);//calculates the minimum variable
                 count = (count + 1) % 24;
             }
             //modifies the highest lowest and average data from the axaml file
-            sum = (max + min) / 2;
+            double average = sum/newData.Length;
             HighestElectricity.Text = $"{max:00.00} DKK";
             LowestElectricity.Text = $"{min:00.00} DKK";
             AverageElectricity.Text= $"{sum:00.00} DKK";
@@ -71,7 +72,7 @@ namespace SemesterProject.Views
             double[] data_Y_OilBoiler = new double[newData.Length];
             double[] data_Y_GasMotor = new double[newData.Length];
             double[] data_Y_ElectricBoiler = new double[newData.Length];
-            double elmax = double.MinValue, elmin = double.MaxValue, elaverage = 0;
+            double elmax = double.MinValue, elmin = double.MaxValue, elsum = 0;
             double count = 0;
             double gasBoilerEle = double.Parse(assetManager.productionUnits[0].MaxElectricity!);
             double oilBoilerEle = double.Parse(assetManager.productionUnits[1].MaxElectricity!);
@@ -158,11 +159,11 @@ namespace SemesterProject.Views
                 
                 if (totalExpense > 0)
                 {
-                    elaverage += totalExpense;
+                    elsum += totalExpense;
                     nonZeroCount++;
                 }
             }
-            elaverage =  (elmax+elmin)/2;
+            double elaverage =  (nonZeroCount > 0) ? elsum / nonZeroCount : 0;
 
             elhighestTextBlock.Text = $"{elmax:0.00} MWh";
             ellowestTextBlock.Text = $"{elmin:0.00} MWh";
