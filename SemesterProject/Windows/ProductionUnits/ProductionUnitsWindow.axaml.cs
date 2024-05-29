@@ -1,12 +1,6 @@
 using Avalonia;
-using SemesterProject;
 using Avalonia.Controls;
-using System.IO;
-using System.Text.Json;
 using Avalonia.Interactivity;
-using Microsoft.CodeAnalysis.Diagnostics.Telemetry;
-using ScottPlot.Plottables;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace SemesterProject.Views
 {
