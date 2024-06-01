@@ -136,15 +136,15 @@ namespace SemesterProject.Views
 
             }
             double av = totalExpensePeriod/newData.Length;
-            ehighestTextBlock.Text = $" {max:00.00} DKK";
-            elowestTextBlock.Text = $" {min:00.00} DKK";
-            eaverageTextBlock.Text = $" {av:00.00} DKK";
+            ehighestTextBlock.Text = $"{max:00.00} DKK/MWh";
+            elowestTextBlock.Text = $"{min:00.00} DKK/MWh";
+            eaverageTextBlock.Text = $"{av:00.00} DKK/MWh";
 
             //modifies the title of the graph depending on the time of the year
             if (period == "summer") AvaPlot1.Plot.Title("Expenses and Profits Graph for Summer Period");
             else AvaPlot1.Plot.Title("Expenses and Profits Graph for Winter Period");
             AvaPlot1.Plot.XLabel("Days");
-            AvaPlot1.Plot.YLabel("DKK");
+            AvaPlot1.Plot.YLabel("DKK/MWh");
             var plotGB = AvaPlot1.Plot.Add.Scatter(data_X, data_Y_GasBoiler, ScottPlot.Colors.Orange);
             var plotOB = AvaPlot1.Plot.Add.Scatter(data_X, data_Y_OilBoiler, ScottPlot.Colors.Red);
             var plotGM = AvaPlot1.Plot.Add.Scatter(data_X, data_Y_GasMotor, ScottPlot.Colors.Blue);

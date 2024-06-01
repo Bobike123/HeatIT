@@ -39,15 +39,15 @@ namespace SemesterProject.Views
             }
             //modifies the highest lowest and average data from the axaml file
             double average = sum/newData.Length;
-            HighestElectricity.Text = $"{max:00.00} DKK";
-            LowestElectricity.Text = $"{min:00.00} DKK";
-            AverageElectricity.Text= $"{sum:00.00} DKK";
+            HighestElectricity.Text = $"{max:00.00} DKK/MWh";
+            LowestElectricity.Text = $"{min:00.00} DKK/MWh";
+            AverageElectricity.Text= $"{sum:00.00} DKK/MWh";
 
             //modifies the title of the graph depending on the time of the year
-            if (period == "summer") avaPlot1.Plot.Title("Price for MWH for Summer Period");
-            else avaPlot1.Plot.Title("Price for MWH for Winter Period");
+            if (period == "summer") avaPlot1.Plot.Title("Price of Electicity for Summer Period");
+            else avaPlot1.Plot.Title("Price of Electricity for Winter Period");
             avaPlot1.Plot.XLabel("Days");
-            avaPlot1.Plot.YLabel("DKK");
+            avaPlot1.Plot.YLabel("DKK/MWh");
             var plot = avaPlot1.Plot.Add.Scatter(data_X, data_Y);
             plot.MarkerSize = 0;
             avaPlot1.Plot.Axes.SetLimitsX(8, 14.95);//one week

@@ -37,19 +37,19 @@ namespace SemesterProject.Views
             
             //modifies the highest, lowest and average data from the axaml file
             av = sum / newData.Length;
-            highest.Text = max.ToString("0.00 MWh");
-            lowest.Text = min.ToString("0.00 MWh");
-            average.Text = av.ToString("0.00 MWh");
+            highest.Text = max.ToString("0.00 MW");
+            lowest.Text = min.ToString("0.00 MW");
+            average.Text = av.ToString("0.00 MW");
 
             //modifies the title of the graph depending on the time of the year
             if (period == "summer") avaPlot1.Plot.Title("Heat Demand Graph for Summer Period");
             else avaPlot1.Plot.Title("Heat Demand Graph for Winter Period");
             avaPlot1.Plot.XLabel("Days");
-            avaPlot1.Plot.YLabel("MWh");
+            avaPlot1.Plot.YLabel("MW");
             var plot = avaPlot1.Plot.Add.Scatter(data_X, data_Y);
             plot.MarkerSize = 0;
             avaPlot1.Plot.Axes.SetLimits(8, 14.95);//one week
-            avaPlot1.Plot.Axes.SetLimitsY(0, max*1.1);//comparison of the two periods
+            avaPlot1.Plot.Axes.SetLimitsY(0, Optimizer.CalculateMax([2], 1));
             // Adding Graphs labels
             ScottPlot.TickGenerators.NumericManual tickGen = new();
             
