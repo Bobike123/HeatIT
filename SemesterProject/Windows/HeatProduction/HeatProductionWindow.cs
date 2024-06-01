@@ -3,10 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using ScottPlot.Avalonia;
 using System.IO;
-using System.Collections.Generic;
-using System.Linq;
 using ScottPlot;
-using System;
 using Avalonia;
 
 
@@ -29,14 +26,10 @@ namespace SemesterProject.Views
             string path = Path.Combine(Directory.GetCurrentDirectory(), "SourceDataManager", "data.csv");
 
             string[][] Dates = SourceDataManager.CSVDisplayGraph(path, dateColumns);
-            string[][] heatDemandData = SourceDataManager.CSVDisplayGraph(path, new int[] { heatDemandColumn });
+            string[][] heatDemandData = SourceDataManager.CSVDisplayGraph(path, [heatDemandColumn]);
             double[][] heatDemandDataDouble = Optimizer.ConvertToDoubleArray(heatDemandData);
 
-            //Calculate min,max and average values
-            double max=0;
-            double min=0;
-            double sum=0;
-            double av;
+            
             for (int x = 0; x < Dates.Length; x++)
             {
                 double nextBarBase = 0;
@@ -45,13 +38,6 @@ namespace SemesterProject.Views
                 double oilBoilerHeat = double.Parse(assetManager.productionUnits[1].MaxHeat!);
                 double gasMotorHeat = double.Parse(assetManager.productionUnits[2].MaxHeat!);
                 double electricBoilerHeat = double.Parse(assetManager.productionUnits[3].MaxHeat!);
-
-               
-                if (heatDemandValue > max) max = heatDemandValue;//calculates the maximum variable
-                if (heatDemandValue < min) min = heatDemandValue;//calculates the minimum variable
-
-                sum = (sum + heatDemandValue);
-                
 
                 // Create two bars if the value is greater than 3.6
                 if (heatDemandValue > gasMotorHeat)
@@ -133,12 +119,6 @@ namespace SemesterProject.Views
                 }
 
             }
-                
-                av=sum/Dates.Length;
-                
-                highest.Text = max.ToString("0.00 MWh");
-                lowest.Text = min.ToString("0.00 MWh");
-                average.Text = av.ToString("0.00 MWh");
 
             // Use custom tick labels on the bottom
             ScottPlot.TickGenerators.NumericManual tickGen = new();
@@ -173,7 +153,7 @@ namespace SemesterProject.Views
 
             // Set axes limits and refresh the plot
             myPlot.Plot.Axes.Margins(bottom: 0, top: 0, left: 0, right: 0);
-            myPlot.Plot.Axes.SetLimitsY(0, Optimizer.CalculateMax(new int[] { heatDemandColumn }, 1));
+            myPlot.Plot.Axes.SetLimitsY(0, Optimizer.CalculateMax([heatDemandColumn], 1));
             myPlot.Refresh();
 
         }
@@ -182,14 +162,14 @@ namespace SemesterProject.Views
         {
             WinterPeriod.Background = new SolidColorBrush(Avalonia.Media.Color.FromRgb(211, 211, 211));
             SummerPeriod.Background = new SolidColorBrush(Avalonia.Media.Color.FromRgb(207, 3, 3));
-            DisplayHeatDemandContent(new int[] { 0, 1 }, 2, "winter");
+            DisplayHeatDemandContent([0, 1], 2, "winter");
         }
 
         public void SummerPeriodButton(object sender, RoutedEventArgs args)
         {
             SummerPeriod.Background = new SolidColorBrush(Avalonia.Media.Color.FromRgb(211, 211, 211));
             WinterPeriod.Background = new SolidColorBrush(Avalonia.Media.Color.FromRgb(207, 3, 3));
-            DisplayHeatDemandContent(new int[] { 4, 5 }, 6, "summer");
+            DisplayHeatDemandContent([4, 5], 6, "summer");
         }
     }
 }
