@@ -123,8 +123,7 @@
 							Background="#CF0303"
 							CornerRadius="10">
 							<StackPanel>
-								<TextBlock Text="Expenses" HorizontalAlignment="Center"/>
-								<TextBlock Text="and profit" HorizontalAlignment="Center"/>
+								<TextBlock Text="Revenue" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 							</StackPanel>
 						</Button>
 					</Border>
