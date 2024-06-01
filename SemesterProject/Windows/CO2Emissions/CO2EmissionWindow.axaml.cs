@@ -152,6 +152,30 @@ namespace SemesterProject.Views
             plotEB.MarkerSize = 0;
             avaPlot1.Plot.Axes.SetLimitsX(8, 14.95);
             avaPlot1.Plot.Axes.SetLimitsY(0, max * 1.2);
+            
+            //Adds graph labels to x-axis
+            ScottPlot.TickGenerators.NumericManual tickGen = new();
+            
+            for (int x = 0; x < heatDemandDouble.Length; x++)
+            {
+                
+
+                if (x % 24 == 0) // Add major ticks at each day start
+                {
+                    string label = (period == "summer") ? $"{data_X[x]}.07" : $"{data_X[x]}.02";
+                    tickGen.AddMajor(data_X[x], label);
+                }
+                if(x % 24 == 12)
+                {
+                    string hourLabel = $"12:00";
+                    tickGen.AddMajor(data_X[x],hourLabel);
+                }
+                tickGen.AddMinor(data_X[x]);
+                
+                
+            }
+            avaPlot1.Plot.Axes.Bottom.TickGenerator = tickGen;
+            
             avaPlot1.Refresh();
         }
 
