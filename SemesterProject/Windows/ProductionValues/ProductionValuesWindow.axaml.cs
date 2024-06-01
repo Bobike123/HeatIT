@@ -64,11 +64,6 @@ namespace SemesterProject.Views
                     string label = (period == "summer") ? $"{data_X[i]}.07" : $"{data_X[i]}.02";
                     tickGen.AddMajor(data_X[i], label);
                 }
-                if(i % 24 == 12)
-                {
-                    string hourLabel = $"12:00";
-                    tickGen.AddMajor(data_X[i],hourLabel);
-                }
                 tickGen.AddMinor(data_X[i]);
             }
             avaPlot1.Plot.Axes.Bottom.TickGenerator = tickGen;
@@ -216,11 +211,6 @@ namespace SemesterProject.Views
                 {
                     string label = (period == "summer") ? $"{data_X[x]}.07" : $"{data_X[x]}.02";
                     tickGen.AddMajor(data_X[x], label);
-                }
-                if(x % 24 == 12)
-                {
-                    string hourLabel = $"12:00";
-                    tickGen.AddMajor(data_X[x],hourLabel);
                 }
                 tickGen.AddMinor(data_X[x]);
             }
