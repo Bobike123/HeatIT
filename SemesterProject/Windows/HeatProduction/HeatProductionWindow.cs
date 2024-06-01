@@ -153,22 +153,24 @@ namespace SemesterProject.Views
 
             // Set axes limits and refresh the plot
             myPlot.Plot.Axes.Margins(bottom: 0, top: 0, left: 0, right: 0);
-            myPlot.Plot.Axes.SetLimitsY(0, Optimizer.CalculateMax([heatDemandColumn], 1));
+            myPlot.Plot.Axes.SetLimitsY(0, Optimizer.CalculateMax([2], 1));
+            myPlot.Plot.XLabel("Days");
+            myPlot.Plot.YLabel("MW");
             myPlot.Refresh();
 
         }
 
         public void WinterPeriodButton(object sender, RoutedEventArgs args)
         {
-            WinterPeriod.Background = new SolidColorBrush(Avalonia.Media.Color.FromRgb(211, 211, 211));
-            SummerPeriod.Background = new SolidColorBrush(Avalonia.Media.Color.FromRgb(207, 3, 3));
+            SummerPeriod.Background = new SolidColorBrush(Avalonia.Media.Colors.Gray);
+            WinterPeriod.Background = new SolidColorBrush(Avalonia.Media.Color.FromRgb(207, 3, 3));
             DisplayHeatDemandContent([0, 1], 2, "winter");
         }
 
         public void SummerPeriodButton(object sender, RoutedEventArgs args)
-        {
-            SummerPeriod.Background = new SolidColorBrush(Avalonia.Media.Color.FromRgb(211, 211, 211));
-            WinterPeriod.Background = new SolidColorBrush(Avalonia.Media.Color.FromRgb(207, 3, 3));
+        { 
+            WinterPeriod.Background = new SolidColorBrush(Avalonia.Media.Colors.Gray);
+            SummerPeriod.Background = new SolidColorBrush(Avalonia.Media.Color.FromRgb(207, 3, 3));
             DisplayHeatDemandContent([4, 5], 6, "summer");
         }
     }
