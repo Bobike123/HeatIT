@@ -4754,24 +4754,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\a\\.nuget\\packages\\": {}
+    "C:\\Users\\alans\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\University\\Semester 2\\SemsterProjectSem2\\SemesterProject\\SemesterProject.csproj",
+      "projectUniqueName": "C:\\Users\\alans\\Desktop\\SemsterProjectSem2\\SemesterProject\\SemesterProject.csproj",
       "projectName": "SemesterProject",
-      "projectPath": "D:\\University\\Semester 2\\SemsterProjectSem2\\SemesterProject\\SemesterProject.csproj",
-      "packagesPath": "C:\\Users\\a\\.nuget\\packages\\",
-      "outputPath": "D:\\University\\Semester 2\\SemsterProjectSem2\\SemesterProject\\obj\\",
+      "projectPath": "C:\\Users\\alans\\Desktop\\SemsterProjectSem2\\SemesterProject\\SemesterProject.csproj",
+      "packagesPath": "C:\\Users\\alans\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\alans\\Desktop\\SemsterProjectSem2\\SemesterProject\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\a\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\alans\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4848,7 +4855,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -52,6 +52,27 @@ namespace SemesterProject.Views
             plot.MarkerSize = 0;
             avaPlot1.Plot.Axes.SetLimitsX(8, 14.95);//one week
             avaPlot1.Plot.Axes.SetLimitsY(0,max*1.1);//comparation of the two periods
+            
+            //Ads labels to x-axis in the electricity content prices
+
+             ScottPlot.TickGenerators.NumericManual tickGen = new();
+            
+            for (int i = 0; i < newData.Length; i++)
+            {
+                if (i % 24 == 0) // Add major ticks at each day start
+                {
+                    string label = (period == "summer") ? $"{data_X[i]}.07" : $"{data_X[i]}.02";
+                    tickGen.AddMajor(data_X[i], label);
+                }
+                if(i % 24 == 12)
+                {
+                    string hourLabel = $"12:00";
+                    tickGen.AddMajor(data_X[i],hourLabel);
+                }
+                tickGen.AddMinor(data_X[i]);
+            }
+            avaPlot1.Plot.Axes.Bottom.TickGenerator = tickGen;
+            
             avaPlot1.Refresh();
         }
         public void DisplayGraphContentElectricity(int periodInt, string period)
@@ -186,6 +207,24 @@ namespace SemesterProject.Views
             plotEB.MarkerSize = 0;
             avaPlot2.Plot.Axes.SetLimitsX(8, 14.95);
             avaPlot2.Plot.Axes.SetLimitsY(-0.5, 3);
+            //Ads graph labels to x-axis
+            ScottPlot.TickGenerators.NumericManual tickGen = new();
+            
+            for (int x = 0; x < newData.Length; x++)
+            {
+                if (x % 24 == 0) // Add major ticks at each day start
+                {
+                    string label = (period == "summer") ? $"{data_X[x]}.07" : $"{data_X[x]}.02";
+                    tickGen.AddMajor(data_X[x], label);
+                }
+                if(x % 24 == 12)
+                {
+                    string hourLabel = $"12:00";
+                    tickGen.AddMajor(data_X[x],hourLabel);
+                }
+                tickGen.AddMinor(data_X[x]);
+            }
+            avaPlot2.Plot.Axes.Bottom.TickGenerator = tickGen;
             avaPlot2.Refresh();
         }
         public void SummerPeriodButton(object sender, RoutedEventArgs args)
