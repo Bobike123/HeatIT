@@ -5,7 +5,7 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="SemesterProject.Views.ProductionUnitsWindow"
-        Icon="/Assets/horse.jpg"
+        Icon="/Assets/logo.png"
         Title="ProductionUnits"
         Width="960" Height="660">
 	<Panel>
