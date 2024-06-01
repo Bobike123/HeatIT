@@ -42,21 +42,22 @@
 							<RowDefinition Height="*" />
 							<RowDefinition Height="*" />
 							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
 						</Grid.RowDefinitions>
-						<Border Background="DarkGray" CornerRadius="10" Grid.Row="0" Grid.ColumnSpan="2"  Margin="2">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Current Heating Grid</TextBlock>
+						<TextBlock x:Name="highest" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
+						<TextBlock x:Name="lowest" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
+						<TextBlock x:Name="average" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
+						<Border Background="White" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black">Heat Demand Data</TextBlock>
 						</Border>
-						<Border Background="Orange" CornerRadius="10" Grid.Row="1" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15">Gas Boiler</TextBlock>
+						<Border Grid.Row="1" Grid.Column="0">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Highest:</TextBlock>
 						</Border>
-						<Border Background="Red" CornerRadius="10" Grid.Row="1" Grid.Column="1" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15">Oil Boiler</TextBlock>
+						<Border Grid.Row="2" Grid.Column="0">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Lowest:</TextBlock>
 						</Border>
-						<Border Background="Blue" CornerRadius="10" Grid.Row="2" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15">Gas Motor</TextBlock>
-						</Border>
-						<Border Background="Green" CornerRadius="10" Grid.Row="2" Grid.Column="1" Margin="5">
-							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15">Electric Boiler</TextBlock>
+						<Border Grid.Row="3" Grid.Column="0">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Average:</TextBlock>
 						</Border>
 					</Grid>
 				</Border>

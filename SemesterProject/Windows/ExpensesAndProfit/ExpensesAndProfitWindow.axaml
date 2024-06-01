@@ -42,9 +42,12 @@
 							<RowDefinition Height="*" />
 							<RowDefinition Height="*" />
 							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
+							<RowDefinition Height="*" />
 						</Grid.RowDefinitions>
 						<TextBlock x:Name="ehighest" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
 						<TextBlock x:Name="elowest" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
+						<TextBlock x:Name="eaverage" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black"></TextBlock>
 						<Border Background="White" CornerRadius="10" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="10">
 							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="Black">Expenses Data</TextBlock>
 						</Border>
@@ -53,6 +56,9 @@
 						</Border>
 						<Border Grid.Row="2" Grid.Column="0">
 							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Lowest:</TextBlock>
+						</Border>
+						<Border Grid.Row="3" Grid.Column="0">
+							<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="15" Foreground="Black">Average:</TextBlock>
 						</Border>
 					</Grid>
 				</Border>

@@ -6,7 +6,7 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="SemesterProject.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/horse.jpg"
+        Icon="/Assets/logo.png"
         Title="SemesterProject"
         Width="960" Height="660">
 	<Panel>

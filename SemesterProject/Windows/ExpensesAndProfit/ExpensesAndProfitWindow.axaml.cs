@@ -11,12 +11,14 @@ namespace SemesterProject.Views
     {
         private TextBlock ehighestTextBlock;
         private TextBlock elowestTextBlock;
+        private TextBlock eaverageTextBlock;
         public ExpensesAndProfitWindow()
         {
             InitializeComponent();
             this.AttachDevTools();
             ehighestTextBlock = ehighest;
             elowestTextBlock = elowest;
+            eaverageTextBlock = eaverage;
         }
         
         public void DisplayExpensesContent(string period, int periodInt)
@@ -53,6 +55,8 @@ namespace SemesterProject.Views
             double electricBoilerHeat = double.Parse(assetManager.productionUnits[3].MaxHeat!);
             double heatDemandValue;
             int count = 0;//count for the 24 hours of the day used for the x axis
+            double totalExpense=0;
+            double totalExpensePeriod=0;
             
 
             for (int x = 0; x < heatDemandDouble.Length; x++)
@@ -124,12 +128,17 @@ namespace SemesterProject.Views
                     data_Y_GasMotor[x] = prices[x][2] * operatingPoint[x]* (-1);
                 }
 
-                double totalExpense = data_Y_GasBoiler[x] + data_Y_OilBoiler[x] + data_Y_GasMotor[x] + data_Y_ElectricBoiler[x];
+                totalExpense = data_Y_GasBoiler[x] + data_Y_OilBoiler[x] + data_Y_GasMotor[x] + data_Y_ElectricBoiler[x];
                 if (totalExpense > max) max = totalExpense;
                 if (totalExpense < min) min = totalExpense;
+
+                totalExpensePeriod +=totalExpense;
+
             }
+            double av = totalExpensePeriod/newData.Length;
             ehighestTextBlock.Text = $" {max:00.00} DKK";
             elowestTextBlock.Text = $" {min:00.00} DKK";
+            eaverageTextBlock.Text = $" {av:00.00} DKK";
 
             //modifies the title of the graph depending on the time of the year
             if (period == "summer") AvaPlot1.Plot.Title("Expenses and Profits Graph for Summer Period");
