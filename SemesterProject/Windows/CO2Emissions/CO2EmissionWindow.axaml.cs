@@ -46,13 +46,15 @@ namespace SemesterProject.Views
             double oilBoilerHeat = double.Parse(assetManager.productionUnits[1].MaxHeat!);
             double gasMotorHeat = double.Parse(assetManager.productionUnits[2].MaxHeat!);
             double electricBoilerHeat = double.Parse(assetManager.productionUnits[3].MaxHeat!);
+            double totalExpense;
+            double heatDemandValue;
             int unit = 0;
             int nonZeroCount = 0;
 
 
             for (int x = 0; x < heatDemandDouble.Length; x++)
             {
-                double heatDemandValue = heatDemandDouble[x][periodInt];
+                heatDemandValue = heatDemandDouble[x][periodInt];
                 operatingPoint[x] = 0;
                 data_X[x] = datesDouble[x][periodInt] + count * 0.041; //creates the x axis
                 count = (count + 1) % 24;
@@ -119,7 +121,7 @@ namespace SemesterProject.Views
                     data_Y_GasMotor[x] = gasMotorCo2 * operatingPoint[x];
                 }
                 
-                double totalExpense = data_Y_GasBoiler[x] + data_Y_OilBoiler[x] + data_Y_GasMotor[x] + data_Y_ElectricBoiler[x];
+                totalExpense = data_Y_GasBoiler[x] + data_Y_OilBoiler[x] + data_Y_GasMotor[x] + data_Y_ElectricBoiler[x];
                 if (totalExpense > max) max = totalExpense;
                 if (totalExpense < min) min = totalExpense;
                 
