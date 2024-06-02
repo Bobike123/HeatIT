@@ -127,9 +127,11 @@
 							</StackPanel>
 						</Button>
 					</Border>
-					<Border Grid.Row="1" Grid.RowSpan="3" Grid.Column="2"  Grid.ColumnSpan="4" Margin="10,5,5,10">
+					<Border Grid.Row="1" Grid.RowSpan="2" Grid.Column="2"  Grid.ColumnSpan="4" Margin="10,5,5,10">
+						<Image x:Name="City" Source="avares://SemesterProject/Assets/DanfossCity.jpg" Stretch="Uniform"/>
+					</Border>
+					<Border Grid.Row="4" Grid.Column="2"  Grid.ColumnSpan="4" >
 						<StackPanel>
-							<Image x:Name="City" Source="avares://SemesterProject/Assets/DanfossCity.jpg" Stretch="Uniform"/>
 							<Grid ShowGridLines="False"  RowDefinitions="15*,*,5*" ColumnDefinitions="*,*,*,*">
 								<Border Background="White" CornerRadius="10" Grid.Row="1" Grid.ColumnSpan="4" Grid.Column="0" Margin="0,15,0,0">
 									<TextBlock Text="Production Units Colors" FontSize="16" HorizontalAlignment="Center" Foreground="Black" VerticalAlignment="Bottom" FontWeight="Bold"/>

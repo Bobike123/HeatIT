@@ -13,30 +13,30 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = SemesterProject
-build_property.ProjectDir = C:\Users\alans\Desktop\SemsterProjectSem2\SemesterProject\
+build_property.ProjectDir = C:\Users\user\SemsterProjectSem2\SemesterProject\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 
-[C:/Users/alans/Desktop/SemsterProjectSem2/SemesterProject/App.axaml]
+[C:/Users/user/SemsterProjectSem2/SemesterProject/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/alans/Desktop/SemsterProjectSem2/SemesterProject/Views/MainWindow.axaml]
+[C:/Users/user/SemsterProjectSem2/SemesterProject/Views/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/alans/Desktop/SemsterProjectSem2/SemesterProject/Windows/CO2Emissions/CO2EmissionWindow.axaml]
+[C:/Users/user/SemsterProjectSem2/SemesterProject/Windows/CO2Emissions/CO2EmissionWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/alans/Desktop/SemsterProjectSem2/SemesterProject/Windows/ExpensesAndProfit/ExpensesAndProfitWindow.axaml]
+[C:/Users/user/SemsterProjectSem2/SemesterProject/Windows/HeatDemand/HeatDemandWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/alans/Desktop/SemsterProjectSem2/SemesterProject/Windows/HeatDemand/HeatDemandWindow.axaml]
+[C:/Users/user/SemsterProjectSem2/SemesterProject/Windows/HeatProduction/HeatProductionWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/alans/Desktop/SemsterProjectSem2/SemesterProject/Windows/HeatProduction/HeatProductionWindow.axaml]
+[C:/Users/user/SemsterProjectSem2/SemesterProject/Windows/ProductionUnits/ProductionUnitsWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/alans/Desktop/SemsterProjectSem2/SemesterProject/Windows/ProductionUnits/ProductionUnitsWindow.axaml]
+[C:/Users/user/SemsterProjectSem2/SemesterProject/Windows/ProductionValues/ProductionValuesWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/alans/Desktop/SemsterProjectSem2/SemesterProject/Windows/ProductionValues/ProductionValuesWindow.axaml]
+[C:/Users/user/SemsterProjectSem2/SemesterProject/Windows/Revenue/Revenue.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
