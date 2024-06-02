@@ -7,12 +7,12 @@ using ScottPlot.Avalonia;
 
 namespace SemesterProject.Views
 {
-    public partial class ExpensesAndProfitWindow : Window
+    public partial class RevenueWindow : Window
     {
         private TextBlock ehighestTextBlock;
         private TextBlock elowestTextBlock;
         private TextBlock eaverageTextBlock;
-        public ExpensesAndProfitWindow()
+        public RevenueWindow()
         {
             InitializeComponent();
             this.AttachDevTools();

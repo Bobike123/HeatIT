@@ -5,9 +5,9 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:ScottPlot="clr-namespace:ScottPlot.Avalonia;assembly=ScottPlot.Avalonia"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="SemesterProject.Views.ExpensesAndProfitWindow"
+        x:Class="SemesterProject.Views.RevenueWindow"
         Icon="/Assets/logo.png"
-        Title="ExpensesAndProfitWindow"
+        Title="RevenueWindow"
         Width="960" Height="660">
 	<Panel>
 		<Border Padding="10" Background="Gray">

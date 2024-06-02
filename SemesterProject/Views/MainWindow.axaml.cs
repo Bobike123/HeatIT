@@ -22,8 +22,8 @@ namespace SemesterProject.Views
         }
         public void OpenExpensesAndProfit(object sender, RoutedEventArgs args)
         {
-            var expensesAndProfitWindow = new ExpensesAndProfitWindow();
-            expensesAndProfitWindow.Show();
+            var revenueWindow = new RevenueWindow();
+            revenueWindow.Show();
         }
         public void OpenHeatDemand(object sender, RoutedEventArgs args)
         {
