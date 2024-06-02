@@ -141,8 +141,8 @@ namespace SemesterProject.Views
             eaverageTextBlock.Text = $"{av:00.00} DKK/MWh";
 
             //modifies the title of the graph depending on the time of the year
-            if (period == "summer") AvaPlot1.Plot.Title("Expenses and Profits Graph for Summer Period");
-            else AvaPlot1.Plot.Title("Expenses and Profits Graph for Winter Period");
+            if (period == "summer") AvaPlot1.Plot.Title("Revenue Graph for Summer Period");
+            else AvaPlot1.Plot.Title("Revenue Graph for Winter Period");
             AvaPlot1.Plot.XLabel("Days");
             AvaPlot1.Plot.YLabel("DKK/MWh");
             var plotGB = AvaPlot1.Plot.Add.Scatter(data_X, data_Y_GasBoiler, ScottPlot.Colors.Orange);

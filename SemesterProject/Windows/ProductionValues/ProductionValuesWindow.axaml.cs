@@ -182,9 +182,9 @@ namespace SemesterProject.Views
             }
             double elaverage =  (nonZeroCount > 0) ? elsum / nonZeroCount : 0;
 
-            elhighestTextBlock.Text = $"{elmax:0.00} MWh";
-            ellowestTextBlock.Text = $"{elmin:0.00} MWh";
-            elaverageTextBlock.Text = $"{elaverage:0.00} MWh";
+            elhighestTextBlock.Text = $"{elmax:0.00} KG/MWh";
+            ellowestTextBlock.Text = $"{elmin:0.00} KG/MWh";
+            elaverageTextBlock.Text = $"{elaverage:0.00} KG/MWh";
 
             if (period == "summer")
                 avaPlot2.Plot.Title($"Electricity Production Graph for Summer Period");
