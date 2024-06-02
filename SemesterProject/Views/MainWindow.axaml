@@ -113,7 +113,7 @@
 						</Button>
 					</Border>
 					<Border Grid.Row="3" Grid.RowSpan="2" Margin="10" >
-						<Button Click="OpenExpensesAndProfit"
+						<Button Click="OpenRevenue"
 							HorizontalAlignment="Stretch" 
 							VerticalAlignment="Stretch"  
 							HorizontalContentAlignment="Center" 
