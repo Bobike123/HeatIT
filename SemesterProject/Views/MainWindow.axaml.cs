@@ -20,7 +20,7 @@ namespace SemesterProject.Views
             var cO2EmissionsWindow = new CO2EmissionWindow();
             cO2EmissionsWindow.Show();
         }
-        public void OpenExpensesAndProfit(object sender, RoutedEventArgs args)
+        public void OpenRevenue(object sender, RoutedEventArgs args)
         {
             var revenueWindow = new RevenueWindow();
             revenueWindow.Show();
