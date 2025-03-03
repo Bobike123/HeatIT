@@ -1,6 +1,6 @@
 using System;
 using System.IO;
-using xUnit;
+using Xunit;
 using SemesterProject;
 
 namespace SemesterProjectTests
